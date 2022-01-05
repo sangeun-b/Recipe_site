@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-@Entity
-@Getter
+@Entity  
 @Setter
+@Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

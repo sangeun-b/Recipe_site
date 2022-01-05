@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/WEB-INF/css/styles.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,5 +14,6 @@ PASSWORD:<input type="password" name="pwd"><br/>
 <input type="submit" value="Login">
 <a href="/user/join"><input type="button" name="btnJoin" value="Join"></a>
 </form>
+<script type="text/javascript" src="/WEB-INF/js/scripts.js"></script>
 </body>
 </html>
