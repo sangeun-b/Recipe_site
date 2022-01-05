@@ -33,7 +33,7 @@ xhttp.onload = function() {
 }
 const check=()=>{
 	const idVal = document.getElementById("id").value;
-	alert(idVal);
+	//alert(idVal);
 	xhttp.open("GET", "/user/idcheck?id="+idVal);
 	xhttp.send();
 }
