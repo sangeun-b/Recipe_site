@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>${sessionScope.loginid }</h3>
-<a href="/user/myinfo">my info</a><br/>
-<a href="/user/logout">logout</a><br/>
-<a href="">board</a><br/>
+<a href="/user/login" ><input type="button" value = "login"></a>
 </body>
 </html>

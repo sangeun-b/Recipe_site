@@ -8,5 +8,6 @@
 </head>
 <body>
 myinfo
+<a href="/user/out">delete my account</a><br/>
 </body>
 </html>
