@@ -46,7 +46,7 @@ ID: <input type="text" name="id" id="id">
 <input type="button" value="Check" onclick="check()">
 <div id="res"></div><br/>
 PASSWORD: <input type="password" name="pwd"><br/>
-RE-PASSWORD : <input tyep="password" name="pwd2"><br/>
+RE-PASSWORD : <input type="password" name="pwd2"><br/>
 EMAIL: <input type="email" name="email"><br/>
 <input type="submit" value="Join" >
 <input type="reset" value="Reset" >		

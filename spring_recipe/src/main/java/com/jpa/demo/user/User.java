@@ -18,13 +18,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-	
+
 	@Id
 	private String id;
-	@Column(nullable = false)
+	@Column(nullable=false)
 	private String pwd;
-	@Column(nullable = false)
+	@Column(nullable=false)
 	private String email;
-	
-	
+
+
 }
+
+// User  - id(var, pk), pwd(var, not null),
+// email(var, not nul
