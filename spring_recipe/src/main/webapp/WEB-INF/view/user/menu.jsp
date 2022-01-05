@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 내정보 -->
-
-Menu
+<h3>${sessionScope.loginid }</h3>
+<a href="/user/myinfo">my info</a><br/>
+<a href="/user/logout">logout</a><br/>
+<a href="">board</a><br/>
 </body>
 </html>
