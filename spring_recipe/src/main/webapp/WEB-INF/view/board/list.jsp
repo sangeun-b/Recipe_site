@@ -19,6 +19,10 @@
 <td>${b.difficulty }</td>
 <td>${b.writer.id }</td>
 <td>${b.date }</td></tr>
+<tr><th>댓글</th><td><input type="text" id="com_${b.num }">
+<input type="button" value="작성완료" onclick="b(${b.num }, '${b.writer.id }')"><br/>
+<div id="coms_${b.num }"></div>
+</td></tr>
 </c:forEach>
 </table>
 </body>
