@@ -1,11 +1,11 @@
-package com.encore.demo.board;
+package com.jpa.demo.board;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.encore.demo.User.User;
+import com.jpa.demo.user.User;
 
 
 @Service
