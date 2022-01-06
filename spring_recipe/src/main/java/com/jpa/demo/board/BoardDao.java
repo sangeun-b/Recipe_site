@@ -1,10 +1,10 @@
-package com.encore.demo.board;
+package com.jpa.demo.board;
 
 import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.encore.demo.User.User;
+import com.jpa.demo.user.User;
 
 public interface BoardDao extends JpaRepository<Board, Integer> {
 

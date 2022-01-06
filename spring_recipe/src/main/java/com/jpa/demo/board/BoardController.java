@@ -1,4 +1,4 @@
-package com.encore.demo.board;
+package com.jpa.demo.board;
 
 import java.io.File;
 import java.io.IOException;
