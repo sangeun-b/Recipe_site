@@ -4,9 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+=======
+import lombok.Getter;
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 import lombok.Setter;
 import lombok.ToString;
 
