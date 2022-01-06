@@ -39,8 +39,13 @@ const check=()=>{
 }
 
 </script>
+<!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 <form action="/user/join" method="post">
 ID: <input type="text" name="id" id="id">
 <input type="button" value="Check" onclick="check()">
@@ -51,5 +56,9 @@ EMAIL: <input type="email" name="email"><br/>
 <input type="submit" value="Join" >
 <input type="reset" value="Reset" >		
 </form>
+ <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>
