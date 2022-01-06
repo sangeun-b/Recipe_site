@@ -10,6 +10,6 @@
 <h3>${sessionScope.loginid }</h3>
 <a href="/user/myinfo">my info</a><br/>
 <a href="/user/logout">logout</a><br/>
-<a href="">board</a><br/>
+<a href="/board/list">board</a><br/>
 </body>
 </html>

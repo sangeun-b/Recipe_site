@@ -81,7 +81,7 @@ public class UserController {
 	@GetMapping("/out")
 	public String out(HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
-		service.delUser(id);//db에서 삭제
+		service.delUser(id);
 		return "redirect:/user/logout";
 	}
 	
