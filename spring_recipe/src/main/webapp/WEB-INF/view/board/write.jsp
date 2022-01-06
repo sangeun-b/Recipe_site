@@ -5,8 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
+ <jsp:include page="../header.jsp"></jsp:include>
 <h3>글 작성</h3>
 <form action="/board/write" method="post" enctype="multipart/form-data">
 <table border="1">
@@ -30,6 +35,9 @@
 <tr><td colspan="2"><input type="submit" value="작성"><input type="reset" value="초기화"></td></tr>
 </table>
 </form>
-
+ <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>
