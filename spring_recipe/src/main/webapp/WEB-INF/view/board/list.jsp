@@ -1,17 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<h3>·¹½ÃÇÇ ¸ñ·Ï</h3>
-<a href="/board/write">±ÛÀÛ¼º</a>
+ <jsp:include page="../header.jsp"></jsp:include>
+<h3>ë ˆì‹œí”¼ ëª©ë¡</h3>
+<a href="/board/write">ê¸€ì‘ì„±</a>
 <table border="1">
-<tr><th>»çÁø</th><th>Á¦¸ñ</th><th>cate</th><th>³­ÀÌµµ</th><th>ÀÛ¼ºÀÚ</th><th>ÀÛ¼ºÀÏ</th></tr>
+<tr><th>ì‚¬ì§„</th><th>ì œëª©</th><th>cate</th><th>ë‚œì´ë„</th><th>ì‘ì„±ì</th><th>ì‘ì„±ì¼</th></tr>
 <c:forEach var="b" items="${list }">
 <tr><td><img src="/board/readimg/${b.img_path }" width="100" height="100"></td>
 <td>${b.title }</td>
@@ -19,11 +24,15 @@
 <td>${b.difficulty }</td>
 <td>${b.writer.id }</td>
 <td>${b.date }</td></tr>
-<tr><th>´ñ±Û</th><td><input type="text" id="com_${b.num }">
-<input type="button" value="ÀÛ¼º¿Ï·á" onclick="b(${b.num }, '${b.writer.id }')"><br/>
+<tr><th>ëŒ“ê¸€</th><td><input type="text" id="com_${b.num }">
+<input type="button" value="ì‘ì„±ì™„ë£Œ" onclick="b(${b.num }, '${b.writer.id }')"><br/>
 <div id="coms_${b.num }"></div>
 </td></tr>
 </c:forEach>
 </table>
+ <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>
