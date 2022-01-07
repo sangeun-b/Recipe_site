@@ -45,14 +45,13 @@ public class BoardController {
 	public String write(Board b) {
 		Board b2 = service.saveBoard(b);
 		
-		
 		MultipartFile file = b.getFile();// 업로드된 파일을 변수 file에 저장
 		String ori_fname = file.getOriginalFilename();// 업로드된 원본 파일명 a.jpg
 		int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
 		String fname = b2.getNum() + ori_fname.substring(idxOfLastDot);
 		try {
 			file.transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-			b2.setImg_path(fname);
+			//b2.setImg_path(fname);
 			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block

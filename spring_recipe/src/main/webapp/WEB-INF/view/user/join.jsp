@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+       <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,6 @@ const check=()=>{
         <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
 <form action="/user/join" method="post">
 ID: <input type="text" name="id" id="id">
 <input type="button" value="Check" onclick="check()">
