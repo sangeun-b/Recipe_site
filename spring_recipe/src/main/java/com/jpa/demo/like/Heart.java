@@ -25,7 +25,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Like {
+public class Heart {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
