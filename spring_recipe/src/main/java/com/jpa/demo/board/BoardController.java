@@ -1,9 +1,10 @@
-package com.encore.demo.board;
+package com.jpa.demo.board;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+
+
 
 @Controller
 @RequestMapping("/board")
@@ -82,6 +85,19 @@ public class BoardController {
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
+		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable("num")int num, Map map) {
+		Board b = service.getByNum(num);
+		map.put("b",b);
+		return "board/detail";
+	}
+	
+	@PostMapping("/edit")
+	public String edit(Board b) {
+		service.saveBoard(b);
 		return "redirect:/board/list";
 	}
 }
