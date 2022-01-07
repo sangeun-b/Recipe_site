@@ -26,7 +26,7 @@ public class User {
 	@Column(nullable=false)
 	private String email;
 
-
+//like num vo pk - uservo 유저아이디-fk, 어떤 레시피-num(board)
 }
 
 // User  - id(var, pk), pwd(var, not null),
