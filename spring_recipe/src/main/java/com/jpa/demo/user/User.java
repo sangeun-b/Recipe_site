@@ -24,3 +24,4 @@ public class User {
 	private String pwd;
 	@Column(nullable=false)
 	private String email;
+}
