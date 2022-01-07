@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jpa.demo.user.User;
@@ -38,6 +40,7 @@ public class Board {
 	
 	@ManyToOne
 	@JoinColumn(name="writer", nullable=false)//체크
+	@OnDelete(action= OnDeleteAction.CASCADE)
 	private User writer;
 	private String title;
 	private String content;

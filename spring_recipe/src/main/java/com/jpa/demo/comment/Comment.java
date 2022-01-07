@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.jpa.demo.board.Board;
 import com.jpa.demo.user.User;
 
@@ -30,6 +33,7 @@ public class Comment {
 	
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable = false)
+	@OnDelete(action= OnDeleteAction.CASCADE)
 	private User id;
 	@Column(nullable = false)
 	private String content;
@@ -38,6 +42,7 @@ public class Comment {
 	
 	@ManyToOne
 	@JoinColumn(name="board_num", nullable=false)
+	@OnDelete(action= OnDeleteAction.CASCADE)
 	private Board board;
 }
 
