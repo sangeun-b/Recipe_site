@@ -1,8 +1,5 @@
-package com.jpa.demo.comment;
+package com.jpa.demo.like;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,34 +15,30 @@ import com.jpa.demo.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity  
 @Setter
 @Getter
 @ToString
+@NoArgsConstructor
 @AllArgsConstructor
-public class Comment {
+public class Heart {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable = false)
-	@OnDelete(action= OnDeleteAction.CASCADE)
+	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private User id;
-	@Column(nullable = false)
-	private String content;
-
-	private Date date; 
 	
 	@ManyToOne
 	@JoinColumn(name="board_num", nullable=false)
-	@OnDelete(action= OnDeleteAction.CASCADE)
+	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
+
 }
-
-
-//Comment – num(int, pk), id(user_id, fk), content(var, not null), date(date), board(board_num, fk) 
-
