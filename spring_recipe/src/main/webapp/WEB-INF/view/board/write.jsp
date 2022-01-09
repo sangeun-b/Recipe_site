@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
-<script>
+<script> 
 const add_textbox =()=>{
 	const box = document.getElementById("box");
 	const newP = document.createElement('p');
@@ -50,12 +51,21 @@ difficulty
 <input type="radio" id="diff2" name="difficulty" value="보통">보통
 <input type="radio" id="diff3" name="difficulty" value="어려움">어려움<br/>
 cate
-<input type="radio" id="cate1" name="cate" value="한식">한식
-<input type="radio" id="cate2" name="cate" value="양식">양식
-<input type="radio" id="cate3" name="cate" value="일식">일식
-<input type="radio" id="cate4" name="cate" value="중식">중식
-<input type="radio" id="cate5" name="cate" value="기타">기타<br/>
-
+<!-- <input type="radio" id="cate1" name="cate" value="한식">한식 -->
+<!-- <input type="radio" id="cate2" name="cate" value="양식">양식 -->
+<!-- <input type="radio" id="cate3" name="cate" value="일식">일식 -->
+<!-- <input type="radio" id="cate4" name="cate" value="중식">중식 -->
+<!-- <input type="radio" id="cate5" name="cate" value="기타">기타<br/> -->
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">음식 카테고리</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">한식</a>
+    <a href="#">양식</a>
+    <a href="#">일식</a>
+    <a href="#">중식</a>
+    <a href="#">기타</a>
+  </div>
+</div>
 <input type="submit" value="작성"><input type="reset" value="초기화">
 </div>
 </div>
