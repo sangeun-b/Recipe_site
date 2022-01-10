@@ -19,9 +19,11 @@ xhttp.onload = function() {
 			let txt = "";
 			//alert(res.flag);
 			if(res.flag){
-				txt = "Available ID";
+				if(res)
+				txt = "가능한 아이디 입니다.";
+			
 			}else{
-				txt = "Not Available ID";
+				txt = "이미 가입된 아이디 입니다.";
 			}
 			document.getElementById("res").innerHTML = txt;
 		}else{
@@ -38,8 +40,34 @@ const check=()=>{
 	xhttp.open("GET", "/user/idcheck?id="+idVal);
 	xhttp.send();
 }
+/* const idCheck=()=> {
+	var id = document.getElementById("id").value;
+	
+	if(id.length < 8) {
+		alert('아이디는 8글자 이상이여야 합니다.');
+		return false;
+	}
 
-</script>
+} */
+
+ const pwdCheck=()=> {
+	var pwd1 = document.getElementById("pwd").value;
+	var pwd2 = document.getElementById("pwd2").value;
+	
+	if(pwd1.length < 8) {
+		alert('비밀번호는 8글자 이상이여야 합니다.');
+		return false;
+	}
+	
+	if( pwd1 != pwd2 ) {
+		alert("비밀번호가 서로 다릅니다");
+		return false;
+	} else {
+		alert("비밀번호가 일치합니다");
+		return true;
+	}
+}
+ </script>
 <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -50,11 +78,12 @@ const check=()=>{
 ID: <input type="text" name="id" id="id">
 <input type="button" value="Check" onclick="check()">
 <div id="res"></div><br/>
-PASSWORD: <input type="password" name="pwd"><br/>
-RE-PASSWORD : <input type="password" name="pwd2"><br/>
+PASSWORD: <input type="password" name="pwd" id="pwd"><br/>
+RE-PASSWORD : <input type="password" name="pwd2" id="pwd2"><br/>
+<input type="button" value="비밀번호 확인" onclick="pwdCheck()">
 EMAIL: <input type="email" name="email"><br/>
 <input type="submit" value="Join" >
-<input type="reset" value="Reset" >		
+<input type="reset" value="Reset" >
 </form>
  <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
