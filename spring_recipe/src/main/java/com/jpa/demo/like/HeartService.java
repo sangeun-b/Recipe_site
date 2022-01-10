@@ -27,7 +27,7 @@ public class HeartService {
 	}
 	
 	public Heart getByClick(User u, Board b) {
-		return dao.findByClick(u.getId(), b.getNum());
+		return dao.selectByClick(u.getId(), b.getNum());
 		
 	}
 }
