@@ -30,6 +30,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<!-- 회원으로 로그인 중일 때만 찜 기능 가능.  -->
 <img id="img1" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
 <img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none">
 </body>
