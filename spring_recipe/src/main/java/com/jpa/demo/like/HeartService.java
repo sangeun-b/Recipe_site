@@ -26,8 +26,8 @@ public class HeartService {
 		dao.deleteById(num);
 	}
 	
-	public Heart getByClick(User u, Board b) {
-		return dao.findByClick(u.getId(), b.getNum());
-		
-	}
+//	public Heart getByClick(User u, Board b) {
+//		return dao.findByClick(u.getId(), b.getNum());
+//		
+//	}
 }
