@@ -96,4 +96,38 @@ public class BoardController {
 	public String getdetail() throws Exception{
 		return "board/detail";
 	}
+	
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable("num")int num, Map map) {
+		Board b = service.getByNum(num);
+		map.put("b",b);
+		return "board/detail";
+	}
+	
+	@PostMapping("/edit")
+	public String edit(Board b) {
+		service.saveBoard(b);
+		return "redirect:/board/list";
+	}
+	
+	@PostMapping("/getbytitle")
+	public String getByTitle(String word, Map map) {
+		ArrayList<Board> list = service.getByTitle("%"+word+"%");
+		map.put("list", list);
+		return "board/list";
+	}
+	
+	
+//	@PostMapping("/getbycate")
+//	public String getByCate(String word, Map map) {
+//		ArrayList<Board> list = service.getByCate(word);
+//		map.put("list", list);
+//		return "board/list";
+//	}
+	@GetMapping("/getbycate/{cate}")
+	public String getByCate(@PathVariable("cate")String cate, Map map) {
+		ArrayList<Board> list = service.getByCate(cate);
+		map.put("list", list);
+		return "board/list";
+	}
 }

@@ -7,53 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
-<!--Favicon-->
 <link rel="icon" type="image/x-icon"
-=======
-<link rel ="icon" type="image/x-icon"
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<<<<<<< HEAD
-	<h3>레시피 목록</h3>
-	<a href="/board/write">글작성</a>
-	<table border="1">
-		<tr>
-			<th>사진</th>
-			<th>제목</th>
-			<th>cate</th>
-			<th>난이도</th>
-			<th>작성자</th>
-			<th>작성일</th>
-		</tr>
-		<c:forEach var="b" items="${list }">
-
-			<tr>
-
-				<td><img src="/board/readimg/${b.img_path }" width="100"
-					height="100"></td>
-				<!-- 디테일페이지로 이동 -->
-				<td><a href="/board/detail/">${b.title}</a></td>
-				<td>${b.cate}</td>
-				<td>${b.difficulty}</td>
-				<td>${b.writer.id}</td>
-				<td>${b.date}</td>
-			</tr>
-
-
-
-		</c:forEach>
-
-	</table>
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-=======
 	<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
@@ -67,30 +26,39 @@
 			</div>
 		</div>
 	</form>
-	
 	<a href="/board/write" id="boardwrite">글작성</a>
-	<div class="listsort" id="show_locale_switch">
-		<select name="sort" id="sort" title="정렬" class="sort2">
-			<option value="날짜순">날짜순</option>
-			<option value="이름순">이름순</option>
-			<option value="난이도순">난이도순</option>
-			<option value="추천순">추천순</option>
-		</select>
-	</div>
-	
-	<c:forEach var="b" items="${list }">
-		<div style="border: 1px solid; float: left; width: 33%;">
-			<a href="/board/detail/${b.num }"><img
-				src="/board/readimg/${b.img_path }" width="100" height="100"></a><br />
-			<a href="/board/detail/${b.num }">${b.title }</a><br />
-			난이도 ${b.difficulty }<br />
+	<div id="cate" class="cate">
+		<div id="cate_ko" class="cate_ko">
+			<h5>한식</h5>
+			<a href="/board/getbycate/한식"><img
+				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
+				width="300" height="200" /></a>
 		</div>
-	</c:forEach>
+		<div id="cate_ch" class="cate_ch">
+			<h5>중식</h5>
+			<a href="/board/getbycate/중식"><img
+				src="https://ww.namu.la/s/d4c53737b61fec8cf0fa02206d85a5022fc5465593f2e0190648f7c5911acd836a5f7a1db0f19f0136ec1c178d782465a9455b31d178b79df5133fc6b493a41f6acde683b0a01c418bd30dfe56c67705"
+				width="300" height="200" /></a>
+		</div>
+		<div id="cate_ja" class="cate_ja">
+			<h5>일식</h5>
+			<a href="/board/getbycate/일식"><img
+				src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000370/img/basic/a0000370_main.jpg?20201002142956&q=80&rw=750&rh=536"
+				width="300" height="200" /></a>
+		</div>
+		<div id="cate_we" class="cate_we">
+			<h5>양식</h5>
+			<a href="/board/getbycate/양식"><img
+				src="https://images.chosun.com/resizer/wsSVlD2KlkIAXTYSWUZxQSceAUE=/960x504/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HS2MWHN32OMYMSDYNGYRIZCXNI.jpg"
+				width="300" height="200" /></a>
+		</div>
+		<div id="cate_no" class="cate_no">
+			<h5>기타</h5>
+			<a href="/board/getbycate/기타"> <img
+				src="https://www.logoyogo.com/web/wp-content/uploads/edd/2021/02/logoyogo-1-291.jpg "
+				width="300" height="200" /></a>
+		</div>
+	</div>
 
-	<!-- Bootstrap core JS -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
-	<script src="../resources/js/scripts.js"></script>
 </body>
 </html>

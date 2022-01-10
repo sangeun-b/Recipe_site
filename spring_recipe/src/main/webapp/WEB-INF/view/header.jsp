@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +18,19 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/board/list">Board</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/user/join">Join</a></li>
-                                <li><a class="dropdown-item" href="/user/login">Login</a></li>
+								
+								<c:if test = "${user == null}">
+                                	<li><a class="dropdown-item" href="/user/login">Login</a></li>
+                                	<li><a class="dropdown-item" href="/user/join">Join</a></li>
+   								</c:if>
+   								
+   								<c:if test = "${user != null }">
+                                <li><a class="dropdown-item" href="/user/login">like</a></li>
+                                <li><a class="dropdown-item" href="/user/myinfo">Myinfo</a></li>
+                                <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                     			</c:if>
                             </ul>
                         </li>
                     </ul>

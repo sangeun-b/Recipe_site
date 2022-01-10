@@ -38,7 +38,7 @@ public class UserController {
 		User u = service.getUser(id);
 		boolean flag = false;
 		if(u==null) {
-			flag=true;
+			flag= true;		
 		}
 		map.put("flag", flag);//json 형태의 값 반환. 자동으로
 		return map;
