@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -34,9 +35,9 @@ public class Heart {
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable = false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
-	private User id;
+	private User user;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="board_num", nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
