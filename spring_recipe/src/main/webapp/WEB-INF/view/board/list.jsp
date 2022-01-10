@@ -7,18 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
-<!--Favicon-->
-<link rel="icon" type="image/x-icon"
-=======
-<link rel ="icon" type="image/x-icon"
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
-	href="../resources/assets/favicon.ico" />
+<link rel ="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<<<<<<< HEAD
 	<h3>레시피 목록</h3>
 	<a href="/board/write">글작성</a>
 	<table border="1">
@@ -53,7 +46,6 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-=======
 	<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
@@ -90,7 +82,6 @@
 	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	<script src="../resources/js/scripts.js"></script>
 </body>
 </html>

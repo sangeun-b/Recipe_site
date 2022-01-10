@@ -1,4 +1,4 @@
-package com.jpa.demo.like;
+package com.jpa.demo.heart;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
