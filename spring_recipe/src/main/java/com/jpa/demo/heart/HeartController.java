@@ -1,4 +1,4 @@
-package com.jpa.demo.like;
+package com.jpa.demo.heart;
 
 import java.util.HashMap;
 import java.util.Map;

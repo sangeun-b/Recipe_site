@@ -1,4 +1,4 @@
-package com.jpa.demo.like;
+package com.jpa.demo.heart;
 
 import java.util.ArrayList;
 
@@ -26,8 +26,8 @@ public class HeartService {
 		dao.deleteById(num);
 	}
 	
-	public Heart getByClick(User u, Board b) {
-		return dao.selectByClick(u.getId(), b.getNum());
+	public Heart getByHeart(User u, Board b) {
+		return dao.findByUserAndBoard(u.getId(), b.getNum());
 		
 	}
 }
