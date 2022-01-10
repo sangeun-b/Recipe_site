@@ -1,4 +1,4 @@
-package com.jpa.demo.heart;
+package com.jpa.demo.like;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,5 +41,5 @@ public class Heart {
 	@JoinColumn(name="board_num", nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
-
+//
 }

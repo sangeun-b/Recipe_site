@@ -1,4 +1,4 @@
-package com.jpa.demo.heart;
+package com.jpa.demo.like;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class HeartController {
 
 	@Autowired
 	private HeartService service;
-	
+//	
 //	@ResponseBody
 //	@RequestMapping("/likeheart")
 //	public Map likeHeart(Heart h) {

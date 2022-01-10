@@ -1,4 +1,4 @@
-package com.jpa.demo.heart;
+package com.jpa.demo.like;
 
 import java.util.ArrayList;
 
