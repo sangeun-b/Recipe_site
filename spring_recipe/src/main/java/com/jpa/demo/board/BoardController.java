@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -81,6 +82,12 @@ public class BoardController {
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
-		return "redirect:/board/list";
+		return "redirect:/board/list";	
+	}
+	
+	//게시판 상세 페이지로 이동
+	@RequestMapping(value = "/detail", method=RequestMethod.GET)
+	public String getdetail() throws Exception{
+		return "board/detail";
 	}
 }
