@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 
+
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -28,6 +29,11 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	private String path = "C:\\img\\imgboard\\";
+	
+	@GetMapping("/list_cate")
+	public void list_cate() {
+		
+	}
 	
 	@GetMapping("/list")
 	public void list(Map map) {
@@ -98,5 +104,26 @@ public class BoardController {
 	public String edit(Board b) {
 		service.saveBoard(b);
 		return "redirect:/board/list";
+	}
+	
+	@PostMapping("/getbytitle")
+	public String getByTitle(String word, Map map) {
+		ArrayList<Board> list = service.getByTitle("%"+word+"%");
+		map.put("list", list);
+		return "board/list";
+	}
+	
+	
+//	@PostMapping("/getbycate")
+//	public String getByCate(String word, Map map) {
+//		ArrayList<Board> list = service.getByCate(word);
+//		map.put("list", list);
+//		return "board/list";
+//	}
+	@GetMapping("/getbycate/{cate}")
+	public String getByCate(@PathVariable("cate")String cate, Map map) {
+		ArrayList<Board> list = service.getByCate(cate);
+		map.put("list", list);
+		return "board/list";
 	}
 }

@@ -11,4 +11,7 @@ public interface BoardDao extends JpaRepository<Board, Integer> {
 	ArrayList<Board> findByWriter(User writer);
 	
 	ArrayList<Board> findByTitleLike(String title);
+	
+	ArrayList<Board> findByCate(String cate);
+
 }
