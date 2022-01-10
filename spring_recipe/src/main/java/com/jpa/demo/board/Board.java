@@ -3,6 +3,7 @@ package com.jpa.demo.board;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,6 +43,7 @@ public class Board {
 	@JoinColumn(name="writer", nullable=false)//체크
 	@OnDelete(action= OnDeleteAction.CASCADE)
 	private User writer;
+
 	private String title;
 	private String content;
 	private Date date;
