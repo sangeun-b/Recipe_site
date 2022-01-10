@@ -84,7 +84,7 @@ cate
 
 <!-- <tr><td colspan="2"><input type="submit" value="작성"><input type="reset" value="초기화"></td></tr> -->
 <!-- </table> -->
-</form>
+<!-- </form> -->
  <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
