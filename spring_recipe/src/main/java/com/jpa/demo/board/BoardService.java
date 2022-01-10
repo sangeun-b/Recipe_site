@@ -33,6 +33,10 @@ public class BoardService {
 		return dao.findByTitleLike(title);
 	}
 	
+	public ArrayList<Board> getByCate(String cate){//cate별 검색
+		return dao.findByCate(cate);
+	}
+	
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
 	}

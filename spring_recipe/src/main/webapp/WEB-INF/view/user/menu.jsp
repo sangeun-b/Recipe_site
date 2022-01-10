@@ -15,7 +15,7 @@
 <h3>${sessionScope.loginid }</h3>
 <a href="/user/myinfo">my info</a><br/>
 <a href="/user/logout">logout</a><br/>
-<a href="/board/list">board</a><br/>
+<a href="/board/list_cate">board</a><br/>
 </body>
  <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

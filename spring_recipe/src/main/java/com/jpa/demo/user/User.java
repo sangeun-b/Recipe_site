@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+//github.com/sangeun-b/Recipe_site.git
 import lombok.Setter;
 import lombok.ToString;
 
