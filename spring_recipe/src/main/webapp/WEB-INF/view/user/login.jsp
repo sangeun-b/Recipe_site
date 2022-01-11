@@ -13,13 +13,15 @@
 </head>
 <body>
 <form action="/user/login" method="post">
-<img class="main-logo" 
+<img id="mainlogo" 
 	src="../resources/assets/main-logo.svg"
-	alt="로딩오류">
-ID:<input type="text" name="id"><br/>
-PASSWORD:<input type="password" name="pwd"><br/>
-<input type="submit" value="Login">
-<a href="/user/join"><input type="button" name="btnJoin" value="Join"></a>
+	alt="로딩오류"><br/>
+<label class="control-label" for="IDInput">아이디 입력</label>
+<input class="form-control" id="IDInput"type="text" name="id" ><br/>
+<label class="control-label" for="PWDInput">비밀번호 입력</label>
+<input class="form-control" id="PWDInput" password" name="pwd"><br/>
+<input type="submit" class="btn btn-primary" value="Login">
+<a href="/user/join"><input type="button" name="btnJoin" class="btn btn-default" value="회원가입"></a>
 </form>
 
  <!-- Bootstrap core JS -->

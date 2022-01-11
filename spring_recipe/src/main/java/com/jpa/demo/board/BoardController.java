@@ -49,7 +49,7 @@ public class BoardController {
 		String fname = b2.getNum() + ori_fname.substring(idxOfLastDot);
 		try {
 			file.transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-			//b2.setImg_path(fname);
+			b2.setImg_path(fname);
 			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
@@ -82,15 +82,6 @@ public class BoardController {
 		return "redirect:/board/list";	
 	}
 	
-	//게시판 상세 페이지로 이동
-	@RequestMapping(value = "/detail", method=RequestMethod.GET)
-	public String getdetail() throws Exception{
-		return "board/detail";
-	}
-	@GetMapping("/list_cate")
-    public void list_cate() {
-       
-    }
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num")int num, Map map) {
 		Board b = service.getByNum(num);
@@ -98,11 +89,6 @@ public class BoardController {
 		return "board/detail";
 	}
 	
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/list";
-	}
 	
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
@@ -111,6 +97,10 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@GetMapping("/list_cate")
+    public void list_cate() {
+
+    }
 	
 	@GetMapping("/getbycate/{cate}")
 	public String getByCate(@PathVariable("cate")String cate, Map map) {

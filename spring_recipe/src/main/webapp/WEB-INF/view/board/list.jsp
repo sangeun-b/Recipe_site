@@ -7,16 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!--Favicon-->
-
-<link rel ="icon" type="image/x-icon"
-    href="../resources/assets/favicon.ico" />
-
+<link rel="icon" type="image/x-icon"
+	href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-
 	<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
@@ -30,7 +26,7 @@
 			</div>
 		</div>
 	</form>
-	
+
 	<a href="/board/write" id="boardwrite">글작성</a>
 	<div class="listsort" id="show_locale_switch">
 		<select name="sort" id="sort" title="정렬" class="sort2">
@@ -40,13 +36,13 @@
 			<option value="추천순">추천순</option>
 		</select>
 	</div>
-	
+
 	<c:forEach var="b" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
 			<a href="/board/detail/${b.num }"><img
 				src="/board/readimg/${b.img_path }" width="100" height="100"></a><br />
-			<a href="/board/detail/${b.num }">${b.title }</a><br />
-			난이도 ${b.difficulty }<br />
+			<a href="/board/detail/${b.num }">${b.title }</a><br /> 난이도
+			${b.difficulty }<br />
 		</div>
 	</c:forEach>
 
