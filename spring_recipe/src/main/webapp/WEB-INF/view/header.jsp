@@ -27,7 +27,7 @@
    								</c:if>
    								
    								<c:if test = "${user != null }">
-                                <li><a class="dropdown-item" href="/heart/list">like</a></li>
+                                <li><a class="dropdown-item" href="/user/login">like</a></li>
                                 <li><a class="dropdown-item" href="/user/myinfo">Myinfo</a></li>
                                 <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
                      			</c:if>
