@@ -16,17 +16,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/board/list_cate">Board</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/board/list_cate">Board</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 								
-								<c:if test = "${user == null}">
+								<c:if test = "${sessionScope.loginid == null}">
                                 	<li><a class="dropdown-item" href="/user/login">Login</a></li>
                                 	<li><a class="dropdown-item" href="/user/join">Join</a></li>
    								</c:if>
    								
-   								<c:if test = "${user != null }">
+   								<c:if test = "${sessionScope.loginid != null }">
                                 <li><a class="dropdown-item" href="/heart/list">like</a></li>
                                 <li><a class="dropdown-item" href="/user/myinfo">Myinfo</a></li>
                                 <li><a class="dropdown-item" href="/user/logout">Logout</a></li>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +24,12 @@ public class HeartController {
 	@Autowired
 	private HeartService service;
 	
-
 	@Autowired
 	private BoardService bservice;
 	
 	@ResponseBody
 	@RequestMapping("/likeheart")
-	public Map likeHeart(Heart h) {
-		
-		Map map = new HashMap();
+	public Map likeHeart(Heart h,Map map) {
 //		String userId = h.getUser().getId();
 //		int boardNum = h.getBoard().getNum();
 		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
@@ -50,7 +49,10 @@ public class HeartController {
 
 
 	@GetMapping("/list")
-	public String allHeart(User u, Map map) {
+	public String allHeart(HttpSession session,Map map) {
+		String id = (String) session.getAttribute("loginid");
+		User u = new User();
+		u.setId(id);
 		ArrayList<Heart> list = service.getByUser(u);
 		ArrayList<Board> board_list = new ArrayList<Board>();
 		for(Heart h : list) {

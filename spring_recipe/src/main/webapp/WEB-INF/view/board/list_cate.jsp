@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" type="image/x-icon"
-	href="../resources/assets/favicon.ico" />
+	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
@@ -59,6 +59,9 @@
 				width="300" height="200" /></a>
 		</div>
 	</div>
-
+<!-- Bootstrap core JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../resources/js/scripts.js"></script>
 </body>
 </html>

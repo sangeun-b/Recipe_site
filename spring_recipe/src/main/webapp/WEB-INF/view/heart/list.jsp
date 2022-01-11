@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
  <link rel ="icon" type="image/x-icon"
-	href="../resources/assets/favicon.ico" />
+	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 <script>
@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </head>
 <body>
+<c:if test="${empty list }">
+Nothing to display
+</c:if>
+<c:if test="${list }">
 	<c:forEach var="h" items="${list } varStatus="status">
 		<div style="border: 1px solid; float: left; width: 33%;">
 			<a href="/board/detail/${board_list[status.index].num}"><img
@@ -55,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
 		</div>
 	</c:forEach>
-	
+	</c:if>
 	<c:if test = "${user==null }">
 	<img id="img1" alt="heart" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
 	<img id="img2" alt="fillheart" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />

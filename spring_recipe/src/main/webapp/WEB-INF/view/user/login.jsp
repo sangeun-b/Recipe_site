@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/WEB-INF/css/styles.css">
 <title>쿡엔코아</title>
 <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
