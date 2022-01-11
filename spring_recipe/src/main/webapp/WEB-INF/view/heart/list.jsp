@@ -17,6 +17,9 @@
 //하트 클릭해서 DB에 저장되면 빈 하트 -> 채워진 하트
 //1. click -> show & hide?
 //2. click -> class name 변경해서 css로 변경
+
+//jqury
+
 // $(document).ready(function(){
    
 

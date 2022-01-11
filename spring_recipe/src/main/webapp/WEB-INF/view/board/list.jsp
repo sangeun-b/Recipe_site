@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel ="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
@@ -46,7 +47,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<form action="/board/getbytitle" method="post">
+		<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
 				<input type="text" name="word" placeholder="검색어를 입력하시오">

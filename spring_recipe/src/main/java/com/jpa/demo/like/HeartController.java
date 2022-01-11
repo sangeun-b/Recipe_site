@@ -60,7 +60,6 @@ public class HeartController {
 		map.put("board_list", board_list);
 		return "heart/list";
 	}
-
 	
 	
 	@GetMapping("/del/{num}")
