@@ -1,6 +1,5 @@
 package com.jpa.demo.like;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,17 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jpa.demo.board.Board;
-import com.jpa.demo.board.BoardService;
-import com.jpa.demo.user.User;
-
 @Controller
 @RequestMapping("/heart")
 public class HeartController {
 
 	@Autowired
 	private HeartService service;
-	
+
 	@Autowired
 	private BoardService bservice;
 	
@@ -47,7 +42,6 @@ public class HeartController {
 		return map;
 	}
 
-
 	@GetMapping("/list")
 	public String allHeart(HttpSession session,Map map) {
 		String id = (String) session.getAttribute("loginid");
@@ -60,9 +54,6 @@ public class HeartController {
 		}
 		map.put("list", list);
 		map.put("board_list", board_list);
-		return "heart/list";
-	}
-	
 	
 	@GetMapping("/del/{num}")
 	public String delHeart(@PathVariable("num") int num) {

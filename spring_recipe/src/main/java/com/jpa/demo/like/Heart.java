@@ -41,5 +41,5 @@ public class Heart {
 	@JoinColumn(name="board_num", nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
-//
+
 }

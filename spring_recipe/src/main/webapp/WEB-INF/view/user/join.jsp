@@ -19,11 +19,9 @@ xhttp.onload = function() {
 			let txt = "";
 			//alert(res.flag);
 			if(res.flag){
-				const idVal = document.getElementById("id").value;
-				if(idVal.length > 8){
-					txt = "가능한 아이디 입니다.";
-				}else
-				txt = "아이디는 8글자 이상입니다.";
+				if(res)
+				txt = "가능한 아이디 입니다.";
+			
 			}else{
 				txt = "이미 가입된 아이디 입니다.";
 			}
