@@ -23,6 +23,7 @@ public class CommentController {
 	@GetMapping("/write")
 	public String write(Comment c) {
 		System.out.println(c);
+		System.out.println("NOOOOOOOOO");
 		service.saveComment(c);
 		return "redirect:/com/list/"+c.getBoard().getNum();
 	}

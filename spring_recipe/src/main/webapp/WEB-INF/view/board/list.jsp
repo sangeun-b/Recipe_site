@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" type="image/x-icon"
-	href="../resources/assets/main-logo.svg" />
+	href="../../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/styles.css" rel="stylesheet" />
+<link href="../../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
 		<form action="/board/getbytitle" method="post">
@@ -42,13 +42,13 @@
 			<a href="/board/detail/${b.num }"><img
 				src="/board/readimg/${b.img_path }" width="100" height="100"></a><br />
 			<a href="/board/detail/${b.num }">${b.title }</a><br />
-			난이도 ${b.difficulty }<br />
+				난이도 ${b.difficulty }<br />
 		</div>
 	</c:forEach>
 
 	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="../resources/js/scripts.js"></script>
+	<script src="../../resources/js/scripts.js"></script>
 </body>
 </html>

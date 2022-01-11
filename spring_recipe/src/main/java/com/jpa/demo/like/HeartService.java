@@ -27,7 +27,7 @@ public class HeartService {
 	}
 
 	public Heart getByHeart(User u, Board b) {
-		return dao.findByUserAndBoard(u.getId(), b.getNum());
+		return dao.findByUserAndBoard(u, b);
 
   }
 }

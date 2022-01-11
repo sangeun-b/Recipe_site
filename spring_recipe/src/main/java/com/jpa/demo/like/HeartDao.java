@@ -12,9 +12,9 @@ import com.jpa.demo.user.User;
 public interface HeartDao extends JpaRepository<Heart, Integer> {
 	
 	ArrayList<Heart> findByUser(User u);
-	Heart findByUserAndBoard(String userId, int boardNum);
+//	Heart findByUserAndBoard(String userId, int boardNum);
 	
-	//Heart findyByUserAndBoard(User u, Board b);
+	Heart findByUserAndBoard(User u, Board b);
 	
 //	@Query("SELECT h FROM Heart * join User as u on h.user_id = u.user_id join Board as b on b.board_num = h.board_num WHERE user_id = ?1 AND board_num=?2")
 //	Heart findByUserAndBoard(String userId, int boardNum);
