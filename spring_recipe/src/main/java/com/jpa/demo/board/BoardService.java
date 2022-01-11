@@ -1,16 +1,10 @@
 package com.jpa.demo.board;
-
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.jpa.demo.user.User;
-
-
 @Service
 public class BoardService {
-
 	@Autowired
 	private BoardDao dao;
 	
@@ -32,11 +26,11 @@ public class BoardService {
 	public ArrayList<Board> getByTitle(String title){//제목으로 검색
 		return dao.findByTitleLike(title);
 	}
-	
+
 	public ArrayList<Board> getByCate(String cate){//cate별 검색
 		return dao.findByCate(cate);
 	}
-	
+
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
 	}
