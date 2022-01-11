@@ -186,6 +186,8 @@ const del = (num) => {
 			<button type="submit" class="update_btn">레시피 수정</button>
 			<button type="submit" class="delete_btn">레시피 삭제</button>
 			<button type="submit" class="list_btn">뒤로가기</button>
+			<img id="img1" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
+			<img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
 		</div>
 		<!--레시피리스트하는법 -->
 		<!--댓글 -->
