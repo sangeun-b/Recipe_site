@@ -35,28 +35,27 @@
 document.addEventListener('DOMContentLoaded', function() {
  	
 	var checked = 0;
-	if(${sessionScope.loginid}!=null){
-		
-	}
+// 	const ck = document.getElementById("img1").alt;
+// 	if(document.getElementById)
+	
 }, false);
 
 </script>
 </head>
 <body>
-
-	<c:forEach var="b" items="${list }">
+	<c:forEach var="h" items="${list } varStatus="status">
 		<div style="border: 1px solid; float: left; width: 33%;">
-			<a href="/board/detail/${b.num }"><img
-				src="/board/readimg/${b.img_path }" width="100" height="100"></a><br />
-			<a href="/board/detail/${b.num }">${b.title }</a><br />
+			<a href="/board/detail/${board_list[status.index].num}"><img
+				src="/board/readimg/${board_list[status.index].img_path }" width="100" height="100"></a><br />
+			<a href="/board/detail/${board_list[status.index].num }">${board_list[status.index].title }</a><br />
 			<img id="img1" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
 			<img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
 		</div>
 	</c:forEach>
 	
 	<c:if test = "${user==null }">
-	<img id="img1" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
-	<img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
+	<img id="img1" alt="heart" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
+	<img id="img2" alt="fillheart" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
 	</c:if>
 	
 <%-- <!-- 회원으로 로그인 중일 때만 찜 기능 가능.  --> --%>
