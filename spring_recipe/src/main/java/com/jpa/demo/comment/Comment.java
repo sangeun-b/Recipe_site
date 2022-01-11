@@ -2,6 +2,7 @@ package com.jpa.demo.comment;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -32,18 +34,29 @@ public class Comment {
 	private int num;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id", nullable = false)
-	@OnDelete(action= OnDeleteAction.CASCADE)
-	private User id;
-	@Column(nullable = false)
-	private String content;
-
-	private Date date; 
-	
-	@ManyToOne
-	@JoinColumn(name="board_num", nullable=false)
+	@JoinColumn(name="board", nullable=false)
 	@OnDelete(action= OnDeleteAction.CASCADE)
 	private Board board;
+	@ManyToOne
+	@JoinColumn(name="writer", nullable=false)
+	private User writer;
+//	@ManyToOne
+//	@JoinColumn(name="user_id", nullable = false)
+//	@OnDelete(action= OnDeleteAction.CASCADE)
+//	private User id;
+	@Column(nullable = false)
+	private String content;
+	
+	private Date date; 
+
+	@PrePersist//insert 실행전 먼저 처리
+	public void beforeCreate() {
+		date = new Date();//현재 날짜 객체 생성
+	}
+//	@ManyToOne
+//	@JoinColumn(name="board_num", nullable=false)
+//	@OnDelete(action= OnDeleteAction.CASCADE)
+//	private Board board;
 }
 
 

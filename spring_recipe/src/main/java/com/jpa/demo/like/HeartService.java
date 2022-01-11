@@ -13,21 +13,23 @@ public class HeartService {
 
 	@Autowired
 	private HeartDao dao;
-	
+
 	public Heart saveHeart(Heart h) {
 		return dao.save(h);
 	}
-	
+
 	public ArrayList<Heart> getByUser(User u) {
 		return dao.findByUser(u);
 	}
-	
+
 	public void delHeart(int num) {
 		dao.deleteById(num);
 	}
-	
-//	public Heart getByClick(User u, Board b) {
-//		return dao.findByClick(u.getId(), b.getNum());
-//		
-//	}
+
+
+	public Heart getByHeart(User u, Board b) {
+		return dao.findByUserAndBoard(u.getId(), b.getNum());
+
+  }
 }
+

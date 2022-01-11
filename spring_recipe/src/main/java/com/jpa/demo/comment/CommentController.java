@@ -33,8 +33,14 @@ public class CommentController {
 		Map map = new HashMap();
 		Board b = new Board();
 		b.setNum(img_num);
-		ArrayList<Comment> reps = service.getByBoard(b);
-		map.put("reps", reps);
+		ArrayList<Comment> coms = service.getByBoard(b);
+		map.put("coms", coms);
 		return map;
 	}
 }
+//@GetMapping("/write/{num}")
+//public String write(@PathVariable("num")int num, Map map) {
+//	Board b= service.getByNum(num);
+//	map.put("b",b);
+//	return "board/write";
+//}
