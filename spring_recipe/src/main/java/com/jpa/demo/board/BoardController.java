@@ -80,21 +80,11 @@ public class BoardController {
 		}
 		return result;
 	}
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/mylist";
-	}
+
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
 		return "redirect:/board/list";	
-	}
-	
-	//게시판 상세 페이지로 이동
-	@RequestMapping(value = "/detail", method=RequestMethod.GET)
-	public String getdetail() throws Exception{
-		return "board/detail";
 	}
 	
 	@GetMapping("/detail/{num}")
