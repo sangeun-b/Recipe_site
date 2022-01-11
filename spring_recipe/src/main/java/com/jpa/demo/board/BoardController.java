@@ -38,11 +38,6 @@ public class BoardController {
 	@GetMapping("/write")
 	public void writeForm() {}
 	
-//	@PostMapping("/write")
-//	public String write(Board b) {
-//		service.saveBoard(b);
-//		return "redirect:/board/list";
-//	}
 	
 	@PostMapping("/write")
 	public String write(Board b) {
@@ -80,11 +75,7 @@ public class BoardController {
 		}
 		return result;
 	}
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/mylist";
-	}
+
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
@@ -96,7 +87,10 @@ public class BoardController {
 	public String getdetail() throws Exception{
 		return "board/detail";
 	}
-	
+	@GetMapping("/list_cate")
+    public void list_cate() {
+       
+    }
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num")int num, Map map) {
 		Board b = service.getByNum(num);
@@ -118,12 +112,6 @@ public class BoardController {
 	}
 	
 	
-//	@PostMapping("/getbycate")
-//	public String getByCate(String word, Map map) {
-//		ArrayList<Board> list = service.getByCate(word);
-//		map.put("list", list);
-//		return "board/list";
-//	}
 	@GetMapping("/getbycate/{cate}")
 	public String getByCate(@PathVariable("cate")String cate, Map map) {
 		ArrayList<Board> list = service.getByCate(cate);

@@ -13,7 +13,7 @@ public interface HeartDao extends JpaRepository<Heart, Integer> {
 	
 
 
-	@Query("SELECT h FROM Heart h WHERE h.user_id =?1 AND h.board_num=?2")
-	Heart selectByClick(String userId, int boardNum);
+//	@Query("SELECT h FROM Heart h WHERE h.user_id =?1 AND h.board_num=?2")
+//	Heart selectByClick(String userId, int boardNum);
 }
 
