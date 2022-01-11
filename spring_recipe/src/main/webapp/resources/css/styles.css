@@ -11287,8 +11287,9 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-  #mainlogo {
+  .mainlogo {
   	position: absolute;
+	align-items:center;
 	width: 540px;
 	height: 540px;
 	left: 450px;

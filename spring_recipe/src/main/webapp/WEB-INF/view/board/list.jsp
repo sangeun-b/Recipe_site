@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../header.jsp"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
 <title>Insert title here</title>
-
-<link rel ="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/styles.css" rel="stylesheet" />
+<!--  Favicon -->
+	<link rel ="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+	<link href="../../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>	
-	<!-- Core theme JS-->
 		<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">

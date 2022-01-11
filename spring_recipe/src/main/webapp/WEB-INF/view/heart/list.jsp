@@ -11,7 +11,7 @@
  <link rel ="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/WEB-INF/css/styles.css">
 <script>
 //만약 flag가 true면 fill heart, flag가 false면 빈 heart
 //하트 클릭해서 DB에 저장되면 빈 하트 -> 채워진 하트

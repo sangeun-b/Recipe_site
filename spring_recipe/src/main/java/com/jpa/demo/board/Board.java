@@ -2,8 +2,8 @@ package com.jpa.demo.board;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +17,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jpa.demo.photo.Photo;
 import com.jpa.demo.user.User;
 
 import lombok.Getter;
@@ -54,6 +55,18 @@ public class Board {
 	
 	private String img_path; //이미지
 	
+	
+    private List<Photo> photo = new ArrayList<>();
+
+    public void addPhoto(Photo photo) {
+        this.photo.add(photo);
+
+	// 게시글에 파일이 저장되어있지 않은 경우
+        if(photo.getBoard() != this)
+            // 파일 저장
+            photo.setBoard(this);
+    }
+    
 	@PrePersist//insert 실행전 먼저 처리
 	public void beforeCreate() {
 		date = new Date();//현재 날짜 객체 생성
