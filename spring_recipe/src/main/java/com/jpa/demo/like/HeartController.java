@@ -17,7 +17,7 @@ public class HeartController {
 
 	@Autowired
 	private HeartService service;
-	
+
 //	@ResponseBody
 //	@RequestMapping("/likeheart")
 //	public Map likeHeart(Heart h) {
@@ -40,18 +40,14 @@ public class HeartController {
 //		return map;
 //	}
 
-//	@GetMapping("/list")
-//	public String allHeart(User u, Map map) {
-//		ArrayList<Heart> list = service.getByUser(u);
-//		map.put("list", list);
-//		return "heart/list";
-//	}
-	
-
-	@GetMapping("/list")
-	public String allHeart() {
-		return "heart/list";
-	}
+	/*
+	 * @GetMapping("/list") public String allHeart(User u, Map map) {
+	 * ArrayList<Heart> list = service.getByUser(u); map.put("list", list); return
+	 * "heart/list"; }
+	 * 
+	 * 
+	 * @GetMapping("/list") public String allHeart() { return "heart/list"; }
+	 */
 	
 	
 	@GetMapping("/del/{num}")

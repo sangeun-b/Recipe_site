@@ -104,11 +104,6 @@ public class BoardController {
 		return "board/detail";
 	}
 	
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/list";
-	}
 	
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
@@ -117,6 +112,10 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@GetMapping("/list_cate")
+    public void list_cate() {
+
+    }
 	
 //	@PostMapping("/getbycate")
 //	public String getByCate(String word, Map map) {
