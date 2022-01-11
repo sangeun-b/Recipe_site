@@ -55,7 +55,7 @@ public class UserController {
 		String path = "user/login";
 		if(u2!=null && u2.getPwd().equals(u.getPwd())) {
 			session.setAttribute("loginid", u2.getId());
-			path="user/menu";
+			path="/index";
 		}
 		return path;
 	}
@@ -70,7 +70,7 @@ public class UserController {
 	@PostMapping("/edit")
 	public String edit(User u) {
 		service.saveUser(u);
-		return "user/menu";
+		return "redirect:/user/myinfo";
 	}
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {

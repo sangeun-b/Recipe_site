@@ -12,8 +12,8 @@ public class CommentService {
 	@Autowired
 	private CommentDao dao;
 	
-	public void saveComment(Comment c) {
-		dao.save(c);
+	public Comment saveComment(Comment c) {
+		return dao.save(c);
 	}
 	
 	public ArrayList<Comment> getByBoard(Board b){

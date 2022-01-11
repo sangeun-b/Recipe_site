@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/main-logo.svg" />
+
 <link href="../../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
@@ -24,9 +24,9 @@
 					width="20" height="20">
 				<!-- 				<button type="submit">검색</button> -->
 			</div>
-
 		</div>
 	</form>
+
 	<a href="/board/write" id="boardwrite">글작성</a>
 	<div class="listsort" id="show_locale_switch">
 		<select name="sort" id="sort" title="정렬" class="sort2">
@@ -45,6 +45,8 @@
 			${b.difficulty }<br />
 		</div>
 	</c:forEach>
+
+
 
 
 	<!-- Bootstrap core JS -->
