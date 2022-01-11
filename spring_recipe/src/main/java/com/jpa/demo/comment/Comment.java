@@ -18,6 +18,7 @@ import com.jpa.demo.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -25,16 +26,18 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
+@NoArgsConstructor
 @AllArgsConstructor
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int num;
+	private Integer num;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable = false)
 	@OnDelete(action= OnDeleteAction.CASCADE)
-	private User id;
+	private User writer;
+	
 	@Column(nullable = false)
 	private String content;
 

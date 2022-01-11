@@ -121,5 +121,6 @@ public class BoardController {
 		map.put("list", list);
 		return "board/list";
 	}
+	
 }
 
