@@ -19,27 +19,27 @@ public class HeartController {
 	@Autowired
 	private HeartService service;
 	
-	@ResponseBody
-	@RequestMapping("/likeheart")
-	public Map likeHeart(Heart h) {
-		
-		Map map = new HashMap();
-//		String userId = h.getUser().getId();
-//		int boardNum = h.getBoard().getNum();
-		Heart h2 = service.getByClick(h.getUser(), h.getBoard());
-		boolean flag = false;
-		if(h2!=null) {
-			//db에 있으면 삭제
-			service.delHeart(h2.getNum());
-			flag = true;
-		}else {
-			//db에 없으면 저장
-			service.saveHeart(h);
-		}
-		map.put("flag", flag);
-		
-		return map;
-	}
+//	@ResponseBody
+//	@RequestMapping("/likeheart")
+//	public Map likeHeart(Heart h) {
+//		
+//		Map map = new HashMap();
+////		String userId = h.getUser().getId();
+////		int boardNum = h.getBoard().getNum();
+//		Heart h2 = service.getByClick(h.getUser(), h.getBoard());
+//		boolean flag = false;
+//		if(h2!=null) {
+//			//db에 있으면 삭제
+//			service.delHeart(h2.getNum());
+//			flag = true;
+//		}else {
+//			//db에 없으면 저장
+//			service.saveHeart(h);
+//		}
+//		map.put("flag", flag);
+//		
+//		return map;
+//	}
 
 //	@GetMapping("/list")
 //	public String allHeart(User u, Map map) {

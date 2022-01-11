@@ -1,12 +1,9 @@
 package com.jpa.demo.board;
-
 import java.io.File;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,14 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
-
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-
 	@Autowired
 	private BoardService service;
 	private String path = "C:\\img\\imgboard\\";
@@ -80,21 +73,11 @@ public class BoardController {
 		}
 		return result;
 	}
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/mylist";
-	}
+
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
 		return "redirect:/board/list";	
-	}
-	
-	//게시판 상세 페이지로 이동
-	@RequestMapping(value = "/detail", method=RequestMethod.GET)
-	public String getdetail() throws Exception{
-		return "board/detail";
 	}
 	
 	@GetMapping("/detail/{num}")
@@ -103,21 +86,29 @@ public class BoardController {
 		map.put("b",b);
 		return "board/detail";
 	}
-	
+
 	@PostMapping("/edit")
 	public String edit(Board b) {
 		service.saveBoard(b);
 		return "redirect:/board/list";
 	}
-	
+
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
 		ArrayList<Board> list = service.getByTitle("%"+word+"%");
 		map.put("list", list);
 		return "board/list";
 	}
-	
-	
+	@GetMapping("/list_cate")
+    public void list_cate() {
+
+    }
+	@GetMapping("/write/{num}")
+	public String write(@PathVariable("num")int num, Map map) {
+		Board b= service.getByNum(num);
+		map.put("b",b);
+		return "board/write";
+	}
 //	@PostMapping("/getbycate")
 //	public String getByCate(String word, Map map) {
 //		ArrayList<Board> list = service.getByCate(word);
@@ -131,3 +122,4 @@ public class BoardController {
 		return "board/list";
 	}
 }
+

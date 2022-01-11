@@ -1,5 +1,4 @@
 package com.jpa.demo.board;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,19 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Transient;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.jpa.demo.user.User;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-
-
 @Entity  //엔터티(테이블) 정의
 @Setter
 @Getter
