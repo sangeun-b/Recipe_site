@@ -10,7 +10,7 @@
 
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/main-logo.svg" />
-<link href="../resources/css/styles.css" rel="stylesheet" />
+<link href="../../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
 	<form action="/board/getbytitle" method="post">
@@ -50,6 +50,6 @@
 	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="../resources/js/scripts.js"></script>
+	<script src="../../resources/js/scripts.js"></script>
 </body>
 </html>
