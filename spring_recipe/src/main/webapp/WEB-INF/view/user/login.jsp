@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="/WEB-INF/css/styles.css">
 <title>쿡엔코아</title>
 <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
 <form action="/user/login" method="post">
-<img id="mainlogo" 
+<img class="main-logo" 
 	src="../resources/assets/main-logo.svg"
+
 	alt="로딩오류"><br/>
 <label class="control-label" for="IDInput">아이디 입력</label>
 <input class="form-control" id="IDInput"type="text" name="id" ><br/>
