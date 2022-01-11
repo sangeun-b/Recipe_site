@@ -1,6 +1,7 @@
 package com.jpa.demo.board;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -16,10 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
-
-
 
 
 @Controller
@@ -29,11 +28,6 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	private String path = "C:\\img\\imgboard\\";
-	
-	@GetMapping("/list_cate")
-	public void list_cate() {
-		
-	}
 	
 	@GetMapping("/list")
 	public void list(Map map) {
@@ -86,11 +80,11 @@ public class BoardController {
 		}
 		return result;
 	}
-	
+
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
 		service.delBoard(num);
-		return "redirect:/board/list";
+		return "redirect:/board/list";	
 	}
 	
 	@GetMapping("/detail/{num}")

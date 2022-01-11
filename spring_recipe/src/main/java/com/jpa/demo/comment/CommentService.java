@@ -19,4 +19,7 @@ public class CommentService {
 	public ArrayList<Comment> getByBoard(Board b){
 		return dao.findByBoard(b);
 	}
+	public void delComment(int num) { //댓글삭제 
+		dao.deleteById(num);
+	}
 }
