@@ -26,9 +26,9 @@ public class HeartService {
 		dao.deleteById(num);
 	}
 
-
 	public Heart getByHeart(User u, Board b) {
 		return dao.findByUserAndBoard(u.getId(), b.getNum());
 
   }
 }
+
