@@ -7,21 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="icon" type="image/x-icon"
+	href="../resources/assets/main-logo.svg" />
 <!--Favicon-->
 <link rel="icon" type="image/x-icon">
+
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-
 	<h3>레시피 목록</h3>
 	<a href="/board/write">글작성</a>
 	<table border="1">
-
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- Core theme JS-->
-
 		<form action="/board/getbytitle" method="post">
 			<div id="search" class="search">
 				<div id="search_text" class="search_text">

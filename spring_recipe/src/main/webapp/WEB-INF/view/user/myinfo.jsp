@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>

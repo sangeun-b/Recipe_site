@@ -69,7 +69,7 @@ const check=()=>{
 }
  </script>
 <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
