@@ -22,6 +22,7 @@ public class HeartController {
 	@Autowired
 	private HeartService service;
 	
+
 	@Autowired
 	private BoardService bservice;
 	
@@ -46,6 +47,7 @@ public class HeartController {
 		
 		return map;
 	}
+
 
 	@GetMapping("/list")
 	public String allHeart(User u, Map map) {
