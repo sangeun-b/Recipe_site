@@ -41,5 +41,6 @@ public class Heart {
 	@JoinColumn(name="user_id", nullable = false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private User user;
-//
+
+
 }

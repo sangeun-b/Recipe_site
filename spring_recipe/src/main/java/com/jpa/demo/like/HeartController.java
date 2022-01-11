@@ -1,6 +1,5 @@
 package com.jpa.demo.like;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,13 +17,14 @@ import com.jpa.demo.board.BoardService;
 import com.jpa.demo.user.User;
 import com.jpa.demo.user.UserService;
 
+
 @Controller
 @RequestMapping("/heart")
 public class HeartController {
 
 	@Autowired
 	private HeartService service;
-	
+
 	@Autowired
 	private BoardService bservice;
 	
@@ -110,6 +110,7 @@ public class HeartController {
 		
 		return "redirect:/heart/list";
 	}
+
 	@GetMapping("/list")
 	public String allHeart(HttpSession session,Map map) {
 		String id = (String) session.getAttribute("loginid");
@@ -128,24 +129,6 @@ public class HeartController {
 //		map.put("board_list", board_list);
 		return "heart/list";
 	}
-	
-//	@GetMapping("/list")
-//	public String allHeart(HttpSession session,Map map) {
-//		String id = (String) session.getAttribute("loginid");
-//		User u = new User();
-//		u.setId(id);
-//		ArrayList<Heart> list = service.getByUser(u);
-//		System.out.println(list.toString());
-//		ArrayList<Board> board_list = new ArrayList<Board>();
-//		for(Heart h : list) {
-//			board_list.add(bservice.getByNum(h.getNum()));
-//			System.out.println(h);
-//		}
-//		map.put("list", list);
-//		
-//		map.put("board_list", board_list);
-//		return "heart/list";
-//	}
 	
 	
 	@GetMapping("/del/{num}")

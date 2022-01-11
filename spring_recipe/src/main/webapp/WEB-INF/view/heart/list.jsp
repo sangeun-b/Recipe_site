@@ -18,7 +18,6 @@
 
 // document.addEventListener('DOMContentLoaded', function() {
  	
-
 	
 // }, false);
 
@@ -36,8 +35,6 @@ const heartcheck =(num)=>{
 	}
 
 }
-
-
 
 </script>
 </head>

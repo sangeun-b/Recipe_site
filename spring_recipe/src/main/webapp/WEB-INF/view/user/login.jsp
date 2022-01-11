@@ -13,8 +13,9 @@
 </head>
 <body>
 <form action="/user/login" method="post">
-<img id="mainlogo" 
+<img class="main-logo" 
 	src="../resources/assets/main-logo.svg"
+
 	alt="로딩오류"><br/>
 <label class="control-label" for="IDInput">아이디 입력</label>
 <input class="form-control" id="IDInput"type="text" name="id" ><br/>
