@@ -42,7 +42,7 @@ public class BoardController {
 		
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
-		path+=b.getNum();
+		path += b.getNum();
 		File Folder = new File(path);
 		if(!Folder.exists()) {
 			try {
