@@ -1,7 +1,7 @@
 package com.jpa.demo.like;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+//github.com/sangeun-b/Recipe_site.git
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +17,6 @@ import com.jpa.demo.board.BoardService;
 import com.jpa.demo.user.User;
 import com.jpa.demo.user.UserService;
 
-
 @Controller
 @RequestMapping("/heart")
 public class HeartController {
@@ -28,6 +27,46 @@ public class HeartController {
 	@Autowired
 	private BoardService bservice;
 	
+//<<<<<<< HEAD
+//	@ResponseBody
+//	@RequestMapping("/likeheart")
+//	public Map likeHeart(Heart h,Map map) {
+////		String userId = h.getUser().getId();
+////		int boardNum = h.getBoard().getNum();
+//		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
+//		boolean flag = false;
+//		if(h2!=null) {
+//			//db에 있으면 삭제
+//			service.delHeart(h2.getNum());
+//			flag = true;
+//		}else {
+//			//db에 없으면 저장
+//			service.saveHeart(h);
+//		}
+//		map.put("flag", flag);
+//		
+//		return map;
+//	}
+//
+//	@GetMapping("/list")
+//	public String allHeart(HttpSession session,Map map) {
+//		String id = (String) session.getAttribute("loginid");
+//		User u = new User();
+//		u.setId(id);
+//		ArrayList<Heart> list = service.getByUser(u);
+//		ArrayList<Board> board_list = new ArrayList<Board>();
+//		for(Heart h : list) {
+//			board_list.add(bservice.getByNum(h.getNum()));
+//		}
+//		map.put("list", list);
+//		map.put("board_list", board_list);
+//	
+//	@GetMapping("/del/{num}")
+//	public String delHeart(@PathVariable("num") int num) {
+//		service.delHeart(num);
+//		return "redirect:/heart/list";
+//	}
+//=======
 	@Autowired
 	private UserService uservice;
 	
