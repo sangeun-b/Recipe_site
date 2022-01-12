@@ -38,4 +38,11 @@ public class CommentController {
 		map.put("reps", reps);
 		return map;
 	}
+	
+	@GetMapping("/del/{num}")
+	public String delCom(@PathVariable("num") int num, int board_num) {
+		service.delComment(num);
+		return "redirect:/com/list/"+board_num;
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.jpa.demo.like;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -51,29 +52,27 @@ public class HeartController {
 //	}
 
 	@GetMapping("/likeheart/{num}")
-	public String likeHeart(@PathVariable("num") int num, HttpSession session) {
+	public String likeHeart(@PathVariable("num") int num, HttpSession session, Map map) {
 		String id = (String) session.getAttribute("loginid");
 		Board board = bservice.getByNum(num);
 		User user = uservice.getUser(id);
 		Heart h2 = service.getByHeart(user, board);
 		Heart h = new Heart();
 		String para = "";
-		System.out.println(h2);
-		System.out.println("why not working");
+		boolean flag = false;
 		if(h2!=null) {
-			System.out.println("delete");
 			System.out.println(h2.getNum());
 			service.delHeart(h2.getNum());
 			//map.put("b",board);
 			para = Integer.toString(h2.getBoard().getNum());
+			flag = true;
 		} else {
-			System.out.println("save");
 			h.setUser(user);
 			h.setBoard(board);
 			System.out.println(h);
 			service.saveHeart(h);
-			Board board2 = bservice.getByNum(num);
 			para = Integer.toString(h.getBoard().getNum());
+//			Board board2 = bservice.getByNum(num);
 			//map.put("b", board2);
 		}
 		
@@ -88,16 +87,12 @@ public class HeartController {
 		Heart h2 = service.getByHeart(user, board);
 		Heart h = new Heart();
 		String para = "";
-		System.out.println(h2);
-		System.out.println("why not working");
 		if(h2!=null) {
-			System.out.println("delete");
 			System.out.println(h2.getNum());
 			service.delHeart(h2.getNum());
 			//map.put("b",board);
 			para = Integer.toString(h2.getBoard().getNum());
 		} else {
-			System.out.println("save");
 			h.setUser(user);
 			h.setBoard(board);
 			System.out.println(h);

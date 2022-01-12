@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,12 +18,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.session.HeaderWebSessionIdResolver;
+
+import com.jpa.demo.comment.Comment;
+import com.jpa.demo.comment.CommentService;
+import com.jpa.demo.like.Heart;
+import com.jpa.demo.like.HeartService;
+import com.jpa.demo.user.User;
+import com.jpa.demo.user.UserService;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	private BoardService service;
+
+	
+	@Autowired
+	private CommentService cservice;
+	
+	@Autowired
+	private HeartService hservice;
+	
+	@Autowired
+	private UserService uservice;
+	
 	private String path = "C:\\img\\";
+
 	
 	@GetMapping("/list")
 	public void list(Map map) {
@@ -62,7 +85,7 @@ public class BoardController {
 			String ori_fname = list.get(i).getOriginalFilename();// 업로드된 원본 파일명 a.jpg
 			int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
 			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
-		
+
 			try {
 				
 			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
@@ -75,6 +98,7 @@ public class BoardController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		}
 	
 		return "redirect:/board/list";
@@ -102,9 +126,25 @@ public class BoardController {
 	}
 	
 	@GetMapping("/detail/{num}")
-	public String detail(@PathVariable("num")int num, Map map) {
+	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
+		String id = (String) session.getAttribute("loginid");
+		
 		Board b = service.getByNum(num);
+		if(id!=null || id =="") {
+		User u = uservice.getUser(id);
+		ArrayList<Comment> c = cservice.getByBoard(b);
+		Heart h = hservice.getByHeart(u,b);
+		boolean flag = false;
+		if(h!=null) {
+			flag = true;
+		}
+		map.put("flag", flag);
+		map.put("c",c);
 		map.put("b",b);
+		
+		return "board/detail";
+		}
+		map.put("b", b);
 		return "board/detail";
 	}
 
