@@ -34,4 +34,5 @@ public class BoardService {
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
 	}
+	
 }
