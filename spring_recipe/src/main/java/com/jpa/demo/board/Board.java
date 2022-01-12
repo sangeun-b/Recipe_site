@@ -43,8 +43,8 @@ public class Board {
 	private String difficulty;
 	private String cate;
 	
-	@Transient
-	private ArrayList img_path; //이미지
+	
+	private String img_path; //이미지
 	
 	@PrePersist//insert 실행전 먼저 처리
 	public void beforeCreate() {
@@ -52,7 +52,7 @@ public class Board {
 	}
 	
 	@Transient   //테이블 컬럼으로 만들지마라. 폼에서 값을 받아오는 용도로 사용. 
-	private MultipartFile file;
+	private ArrayList<MultipartFile> file;
 	
 	// vo - 에 arraylist로 생성 dom
 	
