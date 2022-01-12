@@ -58,6 +58,7 @@ public class UserController {
 			session.setAttribute("loginid", u2.getId());
 			path="redirect:/board/ranboard";
 		}
+		System.out.println(path);
 		return path;
 	}
 

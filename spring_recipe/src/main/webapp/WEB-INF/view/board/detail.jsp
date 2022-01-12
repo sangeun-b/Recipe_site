@@ -116,24 +116,27 @@ const modify= (num) => {
 				</td>
 			</tr>
 		</table>
-		<c:forEach var="r" items="${strList }" varStatus="status">
-			<table border="1" class="content_img">
-				<tr>
-					<td>
-						<%-- 					<img src="${contentimg[status.index] }">  --%> <img
-						src="/board/readimg/${contentimg[status.index] }/${b.num}"
-						width="200" height="200"> <%-- 					<input type="image" src="${contentimg[status.index] }"> --%>
-					</td>
-				</tr>
-				<tr>
-					<th>레시피</th>
-					<td><textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
-					</td>
-				</tr>
-				</c:forEach>
+    
+	<c:forEach var="r" items="${strList }" varStatus="status">
+		<table border="1" class="content_img">
+			<tr>
+				<td>
+<%-- 					<img src="${contentimg[status.index] }"> --%>
+						<img src="/board/readimg/${contentimg[status.index] }/${b.num}"width="200" height="200">
+<%-- 					<input type="image" src="${contentimg[status.index] }"> --%>
+				</td>
+			</tr>
+			<tr>
+				<th>레시피</th>
+				<td>
+					<textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
+				</td>
+			</tr>
+	</c:forEach>
+			
+		
+<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
 
-
-				<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
 				<tr>
 					<th>변경</th>
 					<td><c:if test="${b.writer.id==sessionScope.loginid}">
@@ -148,6 +151,7 @@ const modify= (num) => {
 						onclick="com(${b.num }, '${b.writer.id }')"><br /> <input
 						type="submit" value="Done" name="content"></td>
 				</tr>
+
 				<%-- 			</c:if> --%>
 				<tr>
 					<th>댓글목록</th>
