@@ -21,7 +21,7 @@ const add_textbox =()=>{
 	const newP = document.createElement('p');
 	newP.innerHTML ="<textarea rows='10' cols='45' name='content' id='content'></textarea><input type='file' name='file' multiple><input type='button' value='삭제' onclick='remove(this)'>";
 	box.appendChild(newP);
-	
+
 }
 const remove =(obj)=>{
 	document.getElementById('box').removeChild(obj.parentNode);

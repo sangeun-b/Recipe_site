@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -48,7 +49,20 @@ public class BoardController {
 		ArrayList<Board> list = service.getAll();
 		map.put("list", list);
 	}
-
+	
+	@GetMapping("/ranboard")
+		public String randomBoard(Map map) {
+			ArrayList<Board> list = service.getAll();
+			Collections.shuffle(list);
+			int r = list.get(0).getNum();			
+			Board b = service.getByNum(r);
+			System.out.println(b);
+			map.put("b", b);
+						
+			return "/home";
+		}
+		
+	
 	@GetMapping("/write")
 	public void writeForm() {
 	}
@@ -61,7 +75,9 @@ public class BoardController {
 
 	@PostMapping("/write")
 	public String write(Board b) {
+
 		String path = "C:\\img\\";
+
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
 		path+=b.getNum();
@@ -127,6 +143,7 @@ public class BoardController {
 	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
 
+
 		Board b = service.getByNum(num);
 
 		String str = b.getContent();
@@ -134,7 +151,6 @@ public class BoardController {
 		ArrayList<String> strList = new ArrayList<>();
 		for(int i = 0; i<strarr.length; i++) {
 			strList.add(strarr[i]);
-		}
 		
 		String path_img = path+b.getNum();
 		File dir = new File(path_img);
@@ -167,6 +183,7 @@ public class BoardController {
 			map.put("contentimg", fileList);
 			return "board/detail";
 		}
+
 		map.put("contentimg", fileList);
 		map.put("c", c);
 		map.put("strList", strList);
