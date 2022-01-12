@@ -76,11 +76,10 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(Board b) {
-
 		String path="C:\\img\\";
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
-		path += b.getNum();
+		path+=b.getNum();
 		File Folder = new File(path);
 		if(!Folder.exists()) {
 			try {
@@ -102,9 +101,7 @@ public class BoardController {
 			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
 
 			try {
-
-				path += "\\";	
-
+			path+="\\";
 			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
 				b2.setImg_path(fname);
 				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
@@ -121,7 +118,6 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
 		String path2 = "C:\\img\\"+num+"\\";
@@ -136,9 +132,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return result;
-		
 	}
-	
 
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num")int num) {
@@ -146,17 +140,6 @@ public class BoardController {
 		return "redirect:/board/list";	
 	}
 	
-	
-	
-	  @GetMapping("/recommend/") 
-	  public String recommend(Map map, HttpSession session) {
-	  Board b = service.GetByRandom();
-	  map.put("b", b); 
-	  return "index";
-	  
-	  }
-	 
-		
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
@@ -216,4 +199,3 @@ public class BoardController {
 	}
 	
 }
-
