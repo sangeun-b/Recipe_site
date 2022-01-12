@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class BoardController {
 	@Autowired
 	private BoardService service;
-	private String path = "C:\\img\\imgboard\\";
+	private String path = "C:\\img\\";
 	
 	@GetMapping("/list")
 	public void list(Map map) {
@@ -39,23 +39,44 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(Board b) {
-		Board b2 = service.saveBoard(b);
 		
-		MultipartFile file = b.getFile();// 업로드된 파일을 변수 file에 저장
-		String ori_fname = file.getOriginalFilename();// 업로드된 원본 파일명 a.jpg
-		int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
-		String fname = b2.getNum() + ori_fname.substring(idxOfLastDot);
-		try {
-			file.transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-			//b2.setImg_path(fname);
-			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Board b2 = service.saveBoard(b);
+		//1. 게시글 숫자에 맞게 폴더 생성
+		path+=b.getNum();
+		File Folder = new File(path);
+		if(!Folder.exists()) {
+			try {
+				Folder.mkdir();
+				System.out.println("폴더 생성");
+			}catch(Exception e) {
+				e.getStackTrace();
+				}
+		}else{
+			System.out.println("이미 있음");		}
+		//2. 어레이 리스트 폴더에 이미지 추가
+
+		ArrayList<MultipartFile> list = b.getFile();// 업로드된 파일을 변수 file에 저장
+		//for (MultipartFile file : list) {
+		for(int i=0; i<list.size(); i++) {
+		//3. 각 이미지별 이름 다르게 저장
+			String ori_fname = list.get(i).getOriginalFilename();// 업로드된 원본 파일명 a.jpg
+			int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
+			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
+		
+			try {
+				
+			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
+				b2.setImg_path(fname);
+				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+	
 		return "redirect:/board/list";
 	}
 	
