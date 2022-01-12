@@ -1,5 +1,6 @@
 package com.jpa.demo.like;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -9,17 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
-import com.jpa.demo.board.BoardService;
-=======
 import com.jpa.demo.board.Board;
 import com.jpa.demo.board.BoardService;
 import com.jpa.demo.user.User;
 import com.jpa.demo.user.UserService;
-
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 
 @Controller
 @RequestMapping("/heart")
@@ -31,7 +26,7 @@ public class HeartController {
 	@Autowired
 	private BoardService bservice;
 	
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //	@ResponseBody
 //	@RequestMapping("/likeheart")
 //	public Map likeHeart(Heart h,Map map) {
@@ -70,7 +65,7 @@ public class HeartController {
 //		service.delHeart(num);
 //		return "redirect:/heart/list";
 //	}
-=======
+//=======
 	@Autowired
 	private UserService uservice;
 	
@@ -179,5 +174,4 @@ public class HeartController {
 		service.delHeart(num);
 		return "redirect:/board/detail";
 	}
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 }

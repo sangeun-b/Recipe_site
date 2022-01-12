@@ -68,7 +68,6 @@ const heartcheck =(num)=>{
 		imgHeart.src = "../../resources/assets/recipe_icons/heart_fill.png";
  		location.href="/heart/likeheart/${b.num}";
 	}
-
 }
 </script>
 <link rel="icon" type="image/x-icon"
@@ -81,10 +80,15 @@ const heartcheck =(num)=>{
 		<c:set var="mode">readonly</c:set>
 	</c:if>
 	<h3>레시피 상세 페이지</h3>
-	<input type ="hidden" name="num" id="num" value="${b.num }">
+	<input type="hidden" name="num" id="num" value="${b.num }">
 	<c:if test="${sessionScope.loginid != null}">
-	<img id="img2" onclick="heartcheck(${b.num})" src="../../resources/assets/recipe_icons/heart.png" style="width:20px; height:20px;" ><br />
+		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
+			src="../../resources/assets/recipe_icons/heart.png"
+			style="width: 20px; height: 20px;">
+		<br />
 	</c:if>
+
+	
 	<form action="/board/edit" method="post">
 		<table border="1">
 			<tr>
@@ -128,13 +132,12 @@ const heartcheck =(num)=>{
 					<th>댓글</th>
 					<td><input type="text" id="com_${b.num }"> <input
 						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br />
-						</td>
+						onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
 				</tr>
 			</c:if>
 			<tr>
 				<th>댓글목록</th>
-<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
+				<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
 				<td><div id="coms_${b.num }"></div></td>
 			</tr>
 		</table>

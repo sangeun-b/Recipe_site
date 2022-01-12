@@ -30,12 +30,21 @@
 	<a href="/board/write" id="boardwrite">글작성</a>
 	<div class="listsort" id="show_locale_switch">
 		<select name="sort" id="sort" title="정렬" class="sort2">
+<!-- 		<select name="sort" id="sort" title="정렬" class="sort2" onchange="mysort(this.value)"> -->
 			<option value="날짜순">날짜순</option>
 			<option value="이름순">이름순</option>
 			<option value="난이도순">난이도순</option>
 			<option value="추천순">추천순</option>
 		</select>
 	</div>
+	
+<!-- 	<script type="text/javascript"> -->
+<!-- // 	function mysort(str){ -->
+<!-- // 		if(str="날짜순"){ -->
+<!-- // 			location.href="/board/list_date"; -->
+<!-- // 		} -->
+<!-- // 	} -->
+<!-- 	</script> -->
 
 	<c:forEach var="b" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
