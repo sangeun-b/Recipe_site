@@ -46,7 +46,7 @@ You don't have any like!
 <c:forEach var="h" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
 			<a href="/board/detail/${h.board.num}">
-			<img src="/board/readimg/${h.board.img_path}" width="100" height="100"></a><br />
+			<img src="/board/readimg/${h.board.img_path}/${h.board.num}" width="100" height="100"></a><br />
 			<a href="/board/detail/${h.board.num }">${h.board.title }</a>
 			<img id="img2_${h.board.num}" onclick="heartcheck(${h.board.num})" src="../resources/assets/recipe_icons/heart_fill.png" style="width:20px; height:20px;" ><br />
 			<input type="hidden" id="boardNum" name = "boardNum" value="${h.board.num}">

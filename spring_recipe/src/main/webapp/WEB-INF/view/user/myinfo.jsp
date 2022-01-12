@@ -20,7 +20,7 @@ RE-PASSWORD:<input type="password" name="pwd2"><br/>
 EMAIL:<input type="email" value="${u.email }" name="email"><br/>
 <input type="submit" value="edit">
 </form>
-<a href=""><input type="button" value="my list"></a><br/>
+<a href="/board/getbywriter/${u.id}"><input type="button" value="my list"></a><br/>
 <a href="/user/out"><input type="button" value="delete"></a><br/>
 </body>
  <!-- Bootstrap core JS-->
