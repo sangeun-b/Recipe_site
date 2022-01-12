@@ -52,7 +52,7 @@ You don't have any like!
 			<input type="hidden" id="boardNum" name = "boardNum" value="${h.board.num}">
 			<input type="hidden" id="userId" name = "userId" value="${h.user.id}">
 		</div>
-	</c:forEach>
+</c:forEach>
 	</c:if>
 
 	

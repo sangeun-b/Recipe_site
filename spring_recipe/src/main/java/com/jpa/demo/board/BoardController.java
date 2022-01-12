@@ -132,6 +132,17 @@ public class BoardController {
 		return "redirect:/board/list";	
 	}
 	
+	
+	
+	  @GetMapping("/recommend/") 
+	  public String recommend(Map map, HttpSession session) {
+	  Board b = service.GetByRandom();
+	  map.put("b", b); 
+	  return "index";
+	  
+	  }
+	 
+		
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
