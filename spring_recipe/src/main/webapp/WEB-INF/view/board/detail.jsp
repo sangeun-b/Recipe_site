@@ -50,6 +50,18 @@ const delCom =(bnum,cnum)=>{
 	location.href="/com/del/"+bnum+"/"+cnum;
 }
 
+const modify= (num) => {
+
+    let flag = confirm("수정하시겠습니까?");
+
+    if(flag){
+
+    location.href="/board/modify/${b.num}";    
+
+    }
+
+}  
+
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />

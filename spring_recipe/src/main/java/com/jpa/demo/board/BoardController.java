@@ -91,7 +91,7 @@ public class BoardController {
 				}
 		}else{
 			System.out.println("이미 있음");		}
-		//2. 어레이 리스트 폴더에 이미지 추가
+		//2. 어레이 리스트 폴더에 이미지 추가 
 
 		ArrayList<MultipartFile> list = b.getFile();// 업로드된 파일을 변수 file에 저장
 		//for (MultipartFile file : list) {
