@@ -121,22 +121,18 @@ const heartcheck =(num)=>{
 
 
 	<form action="/board/edit" method="post">
-		<table border="1">
+		<table border="1" class="Top">
 			<tr>
 				<th>이미지</th>
 				<td><img src="/board/readimg/${b.img_path}/${b.num}"
 					width="200" height="200"></td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td>${b.title }</td>
+				<!--요리제목 -->
+				<td><h3>${b.title }</h3></td>
 			</tr>
 			<tr>
-				<th>작성자</th>
-				<td>${b.writer.id }</td>
-			</tr>
-			<tr>
-				<th>cate</th>
+				<th>카테고리</th>
 				<td>${b.cate }</td>
 			</tr>
 			<tr>
@@ -144,46 +140,60 @@ const heartcheck =(num)=>{
 				<td>${b.difficulty }</td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td><textarea rows="10" cols="45" name="content" ${mode }
-						readonly>${b.content }</textarea></td>
+				<th>작성자</th>
+				<td>${b.writer.id }</td>
 			</tr>
 			<tr>
 				<th>업로드 날짜</th>
 				<td>${b.date }</td>
 			</tr>
-			<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
+		</table>
+		<table border="1" class="ingredient_con">
+			<tr>
+				<th>재료</th>
+				<td>
+					<textarea rows="10" cols="45" name="ingredient" ${mode }>${b.ingredient }</textarea>
+				</td>
+			</tr>
+		</table>
+	<c:forEach var="r" items="${strList }" varStatus="status">
+		<table border="1" class="content_img">
+			<tr>
+				<td>
+<%-- 					<img src="${contentimg[status.index] }"> --%>
+					<input type="image" src="${contentimg[status.index] }">
+				</td>
+			</tr>
+			<tr>
+				<th>레시피</th>
+				<td>
+					<textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
+				</td>
+			</tr>
+	</c:forEach>
 			<tr>
 				<th>변경</th>
-				<td><c:if test="${b.writer.id==sessionScope.loginid}">
-						<input type="submit" value="수정">
-						<input type="button" value="삭제" onclick="del()">
+				<td>
+					<c:if test="${b.writer.id==sessionScope.loginid}">
+					<input type="submit" value="수정">
+					<input type="button" value="삭제" onclick="del()">
 					</c:if>
+				</td>
+			</tr>
 			<tr>
 				<th>댓글</th>
-				<td><input type="text" id="com_${b.num }"> <input
-					type="button" value="작성완료"
-					onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
+				<td>
+					<input type="text" id="com_${b.num }"> 
+					<input type="button" value="작성완료" onclick="com(${b.num }, '${b.writer.id }')"><br/>
+				</td>
 			</tr>
-			<%-- 			</c:if> --%>
-			<!-- 			<tr> -->
-
-			<!-- 				<th>댓글목록</th> -->
-			<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
-			<%-- 				<td><div id="coms_${b.num }"></div></td> --%>
-			<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
-			<%-- 				<td><div id="coms_${b.num }"> --%>
-			<%-- 				<c:if test="${b.writer.id==sessionScope.loginid}"> --%>
-			<%-- 				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick=""> --%>
-			<%-- 				</c:if> --%>
-			<!-- 				</div></td> -->
-			<!-- 			</tr> -->
-			<!-- 		</table> -->
-			<!-- 	</form> -->
-			<!-- Bootstrap core JS -->
-			<script
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-			<script src="../../resources/js/scripts.js"></script>
+		</table>
+	</form>
+			
+<!-- Bootstrap core JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../resources/js/scripts.js"></script>
 </body>
 
 </html>

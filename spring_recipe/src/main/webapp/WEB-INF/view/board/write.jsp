@@ -59,6 +59,7 @@ const remove =(obj)=>{
 					<span>대표이미지</span>
 					<input type="file" name=file multiple>
 				</div>
+				
 				<div class="ingredient-write">
 					<span>재료</span>
 					<textarea rows="5" cols="45" name="ingredient" id="ingredient"></textarea>
@@ -66,6 +67,10 @@ const remove =(obj)=>{
 				<div class="content-write">
 					<span>레시피 내용</span>
 					<textarea rows="10" cols="45" name="content" id="content"></textarea>
+				</div>
+				<div class="img-write">
+					<span>레시피 사진 등록</span>
+					<input type="file" name=file multiple>
 				</div>
 				<div id="box">
 					<input type="button" value="add" onclick="add_textbox()">

@@ -61,34 +61,33 @@ public class BoardController {
 
 	@PostMapping("/write")
 	public String write(Board b) {
-
+		String path = "C:\\img\\";
 		Board b2 = service.saveBoard(b);
-		// 1. 게시글 숫자에 맞게 폴더 생성
-		path += b.getNum();
+		//1. 게시글 숫자에 맞게 폴더 생성
+		path+=b.getNum();
 		File Folder = new File(path);
-		if (!Folder.exists()) {
+		if(!Folder.exists()) {
 			try {
 				Folder.mkdir();
 				System.out.println("폴더 생성");
-			} catch (Exception e) {
+			}catch(Exception e) {
 				e.getStackTrace();
-			}
-		} else {
-			System.out.println("이미 있음");
-		}
-		// 2. 어레이 리스트 폴더에 이미지 추가
+				}
+		}else{
+			System.out.println("이미 있음");		}
+		//2. 어레이 리스트 폴더에 이미지 추가
 
 		ArrayList<MultipartFile> list = b.getFile();// 업로드된 파일을 변수 file에 저장
-		// for (MultipartFile file : list) {
-		for (int i = 0; i < list.size(); i++) {
-			// 3. 각 이미지별 이름 다르게 저장
+		//for (MultipartFile file : list) {
+		for(int i=0; i<list.size(); i++) {
+		//3. 각 이미지별 이름 다르게 저장
 			String ori_fname = list.get(i).getOriginalFilename();// 업로드된 원본 파일명 a.jpg
 			int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
-			String fname = b2.getTitle() + "-" + i + ori_fname.substring(idxOfLastDot);
+			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
 
 			try {
-
-				list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
+			path+="\\";
+			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
 				b2.setImg_path(fname);
 				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 			} catch (IllegalStateException e) {
@@ -98,20 +97,6 @@ public class BoardController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			try {
-				path += "\\";
-				list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-				b2.setImg_path(fname);
-				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
 		}
 		return "redirect:/board/list_cate";
 	}
@@ -144,9 +129,32 @@ public class BoardController {
 
 		Board b = service.getByNum(num);
 
+		String str = b.getContent();
+		String[] strarr = str.split(",");
+		ArrayList<String> strList = new ArrayList<>();
+		for(int i = 0; i<strarr.length; i++) {
+			strList.add(strarr[i]);
+		}
+		
+		String path_img = path+b.getNum();
+		File dir = new File(path_img);
+//		MultipartFile files[] = dir.();
+		File files[] = dir.listFiles();
+		ArrayList<String> fileList = new ArrayList<String>();
+		
+		for(int i = 1; i <files.length; i++) {
+//			File file = files[i];
+			String orifname = files[i].getName();
+			String oriPath = path_img+"\\"+orifname;
+			fileList.add(oriPath);	
+		}
+		System.out.println(fileList);
+		System.out.println(strList);
+		
+		ArrayList<Comment> c = cservice.getByBoard(b);
 		if (id != null || id == "") {
 			User u = uservice.getUser(id);
-			ArrayList<Comment> c = cservice.getByBoard(b);
+			
 			Heart h = hservice.getByHeart(u, b);
 			boolean flag = false;
 			if (h != null) {
@@ -155,10 +163,38 @@ public class BoardController {
 			map.put("flag", flag);
 			map.put("c", c);
 			map.put("b", b);
-
+			map.put("strList", strList);
+			map.put("contentimg", fileList);
 			return "board/detail";
 		}
+		map.put("contentimg", fileList);
+		map.put("c", c);
+		map.put("strList", strList);
 		map.put("b", b);
+		return "board/detail";
+	}
+	
+//	public String Contsplit(@PathVariable("num") int num, Map map) {
+//		Board b = service.getByNum(num);
+//		String str = b.getContent();
+//		String[] strarr = str.split(",");
+//		ArrayList<String> strList = new ArrayList<>();
+//		for(int i = 0; i<strarr.length; i++) {
+//			strList.add(strarr[i]);
+//		}
+//		map.put("strList", strList);
+//		return "board/detail";
+//	}
+//	
+	public String potoget(@PathVariable("num") int num,  Map map) {
+		String path = "C:\\img\\";
+		File dir = new File("디렉토리패스명들어가야하는데..");
+		File files[] = dir.listFiles();
+		
+		for(int i = 0; i<files.length; i++) {
+			File file = files[i];
+		}
+		
 		return "board/detail";
 	}
 
@@ -207,4 +243,5 @@ public class BoardController {
 		return "board/list";
 	}
 
+	
 }
