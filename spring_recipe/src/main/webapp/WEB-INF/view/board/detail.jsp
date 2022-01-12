@@ -15,67 +15,14 @@ window.onload = function(){
 	}else{
 		imgHeart2.src = "../../resources/assets/recipe_icons/heart.png";
 	}
-// 	if(${c} != null ){
-// 		let arr = ${c};
-// 		let txt = "";
-// 		for(let i=0; i<arr.length; i++){
-// 			txt+=arr[i].content+"("+arr[i].writer.id+")<br/>";
-// 			num=arr[0].board.num;
-// 			document.getElementById("coms_"+num).innerHTML = txt;
-// 		}
-// 	}
+	
 }
-const xhttp = new XMLHttpRequest();//비동기 요청 객체
-//응답이 왔을때 자동 호출 //{flag:true}
-xhttp.onload = function() {
-	if(xhttp.readyState==4){//요청이 잘 갔는지 확인
-		if(xhttp.status==200){//응답 결과 코드 . 500:논리적오류. 404:경로문제, 400:서버요구값이 전달안됐을때
-			//let members = eval("("+xhttp.responseText+")");
-			alert(xhttp.responseText);
-			let obj = JSON.parse(xhttp.responseText);//배열{"flag":true} json 형태로 parse
-			let arr = obj.reps;
-			let txt = "";
-			for(let i=0; i<arr.length; i++){
-				txt+=arr[i].content+"("+arr[i].writer.id+")<br/>";
-				num=arr[0].board.num;
-				document.getElementById("coms_"+num).innerHTML = txt;
-			}
-// 			for(let i=0; i<arr.length; i++){
-// 				const box = document.getElementById("coms_"+${b.num });
-// 				txt+=arr[i].content+"("+arr[i].writer.id+")";
-//  				num=arr[i].board.num;
-//  				console.log(arr[i].num);
-//  				cNum=arr[i].num;
-// 				const newP = document.createElement('p');
-// 				newP.innerHTML="<input type='text' name='comment' id='comment' value="+txt+">";
-// 				box.appendChild(newP);
-// 				if(${b.writer.id==sessionScope.loginid}){
-// 					const box = document.getElementById("coms_"+${b.num });
-// 					const newP2 = document.createElement('p');
-// 					newP2.innterHTML = "<input type='button' name='delBtn' value='삭제' onclick='delCom(${b.num}'"+cNum+"')'>";
-// 					box.appendChild(newP2);
-// 				}
-// 			}		
-			
-		}else{
-			alert("응답 error code:"+xhttp.status);
-		}
-	}else{
-		alert("요청 error code:"+xhttp.readyState);
-	}
+
+const com = (num, writer) =>{
+const content = document.getElementById("com_"+num).value;
+location.href="/com/write/${b.num}/"+content;
 
 }
-	const com = (num, writer) => {	
-		const com = document.getElementById("com_"+num).value;
-		let param = "board="+num;
-		param += "&writer=${sessionScope.loginid}";
-		param += "&content="+com;
-		alert(param);
-		xhttp.open("GET", "/com/write?"+param);//요청 설정
-		xhttp.send();//요청 전송. 페이지는 이동하지 않음
-		document.getElementById("com_"+num).value ="";
-	}
-
 const del = (num) => {
 	let flag = confirm("삭제하시겠습니까?");
 	if(flag){
@@ -97,6 +44,9 @@ const heartcheck =(num)=>{
  		location.href="/heart/likeheart/${b.num}";
 	}
 
+}
+const delCom =(bnum,cnum)=>{
+	location.href="/com/del/"+bnum+"/"+cnum;
 }
 
 </script>
@@ -158,6 +108,7 @@ const heartcheck =(num)=>{
 					<td><input type="text" id="com_${b.num }"> <input
 						type="button" value="작성완료"
 						onclick="com(${b.num }, '${b.writer.id }')"><br />
+						<input type="submit" value="Done" name="content">
 						</td>
 				</tr>
 <%-- 			</c:if> --%>
@@ -166,9 +117,20 @@ const heartcheck =(num)=>{
 				<th>댓글목록</th>
 <%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
 				<td><div id="coms_${b.num }">
-<%-- 				<c:if test="${b.writer.id==sessionScope.loginid}"> --%>
-<%-- 				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick=""> --%>
-<%-- 				</c:if> --%>
+				<c:if test="${empty c }">
+				No comment
+				</c:if>
+				<c:if test="${not empty c }">
+				<c:forEach var="c" items="${c }">
+				<div id="com_${c.num }">
+				<input type="text" id="comment" value="${c.content }">
+				<input type="text" id="writer" value="${c.writer.id }">
+				<c:if test="${c.writer.id==sessionScope.loginid}">
+				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
+				</c:if>
+				</div>
+				</c:forEach>
+				</c:if>
 				</div></td>
 			</tr>
 		</table>

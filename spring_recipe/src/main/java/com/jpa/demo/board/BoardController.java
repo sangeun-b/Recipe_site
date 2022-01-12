@@ -62,9 +62,8 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(Board b) {
-		
-		String path = "C:\\img\\";
-		
+
+		String path="C:\\img\\";
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
 		path += b.getNum();

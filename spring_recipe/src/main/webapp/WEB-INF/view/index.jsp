@@ -14,6 +14,7 @@
         <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
+
         <script type ="text/javascript">
         const xhttp = new XMLHttpRequset();
         
@@ -42,7 +43,10 @@
 
      <script>document.write(banner[random_banner]);</script> -->
      
-     
+ 
+        <script>
+        	//var imgArray = new Array();
+        </script>
     </head>
     <body onload="showImage()">
         <!-- Page content-->
