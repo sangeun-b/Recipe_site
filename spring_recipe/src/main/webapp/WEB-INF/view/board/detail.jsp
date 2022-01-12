@@ -30,7 +30,6 @@ xhttp.onload = function() {
 	}else{
 		alert("요청 error code:"+xhttp.readyState);
 	}
-
 }
 	const com = (num, writer) => {	
 		const com = document.getElementById("com_"+num).value;
@@ -45,7 +44,6 @@ xhttp.onload = function() {
 		xhttp.send();//요청 전송. 페이지는 이동하지 않음
 		document.getElementById("com_"+num).value ="";
 	}
-
 const del = (num) => {
 	let flag = confirm("삭제하시겠습니까?");
 	if(flag){
@@ -53,7 +51,6 @@ const del = (num) => {
 	location.href = "/board/del/${b.num }";
 }	
 }
-
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2');
 	if(imgHeart.src.match("heart_fill")){
@@ -66,7 +63,6 @@ const heartcheck =(num)=>{
 		imgHeart.src = "../../resources/assets/recipe_icons/heart_fill.png";
  		location.href="/heart/likeheart/${b.num}";
 	}
-
 }
 </script>
 <link rel="icon" type="image/x-icon"

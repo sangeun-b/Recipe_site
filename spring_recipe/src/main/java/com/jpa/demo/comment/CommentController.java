@@ -38,4 +38,9 @@ public class CommentController {
 		map.put("reps", reps);
 		return map;
 	}
+	@GetMapping("/com_del/{num}") //댓글삭
+	public String del(@PathVariable("num")int num) {
+		service.delComment(num);
+		return "redirect:/board/detail";	
+	}
 }

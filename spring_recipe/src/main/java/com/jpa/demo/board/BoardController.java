@@ -47,7 +47,7 @@ public class BoardController {
 		String fname = b2.getNum() + ori_fname.substring(idxOfLastDot);
 		try {
 			file.transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-			//b2.setImg_path(fname);
+			b2.setImg_path(fname);
 			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
