@@ -87,7 +87,9 @@ public class BoardController {
 			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
 
 			try {
+
 			path += "\\";	
+
 			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
 				b2.setImg_path(fname);
 				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
@@ -104,9 +106,11 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping("/readimg/{fname}")
-	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname) {
-		File f = new File(path + fname);// C:\\img\\imgboard\\fname //보드 넘으로 파일을 가져온다.
+
+	@GetMapping("/readimg/{fname}/{num}")
+	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
+		String path2 = "C:\\img\\"+num+"\\";
+		File f = new File(path2 + fname);// C:\\img\\num\\fname
 		HttpHeaders header = new HttpHeaders();
 		ResponseEntity<byte[]> result = null;
 		try {
