@@ -15,7 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
         <script>
-        	var imgArray = new Array();
+        	//var imgArray = new Array();
         </script>
     </head>
     <body onload="showImage()">
