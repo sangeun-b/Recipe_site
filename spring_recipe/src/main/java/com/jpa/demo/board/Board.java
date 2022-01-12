@@ -42,7 +42,9 @@ public class Board {
 	private Date date;
 	private String difficulty;
 	private String cate;
-
+	private String ingredient;
+	
+	
 	private String img_path; //이미지
 	
 	@PrePersist//insert 실행전 먼저 처리
