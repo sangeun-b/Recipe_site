@@ -15,17 +15,29 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
         <script>
-        window.onload = function(){
-        	location.href="board/ranboard";
+//         window.onload = function(){
+//         	location.href="board/ranboard";
         	
-        }
-const ranImg =()=>{
-	location.href="board/ranboard";
-}
+//         }
+
         </script>
     </head>
-    <body onload="ranImg()">
-       
+    <body>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+                <h1>오늘의 추천</h1>
+                <img id = "introImg" border="0">
+                
+				<div style="border: 1px solid; float: left; width: 33%;">
+					<a href="/board/detail/${b.num }"><img
+					src="/board/readimg/${b.img_path }/${b.num}" width="100" height="100"></a><br />
+					<a href="/board/detail/${b.num }">${b.title }</a><br />
+					난이도 ${b.difficulty }<br />
+			</div>
+
+            </div>
+        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
