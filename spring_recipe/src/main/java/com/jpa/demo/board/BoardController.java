@@ -1,10 +1,10 @@
 package com.jpa.demo.board;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -53,7 +54,7 @@ public class BoardController {
 			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -107,5 +108,5 @@ public class BoardController {
 		ArrayList<Board> list = service.getByCate(cate);
 		map.put("list", list);
 		return "board/list";
-	}
+	}	
 }
