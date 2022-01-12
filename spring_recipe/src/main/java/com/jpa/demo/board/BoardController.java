@@ -117,6 +117,23 @@ public class BoardController {
 		return "redirect:/board/list_cate";
 	}
 	
+	/* C:\img\20\소고기무국-2.jpg */
+	@GetMapping("/multireadimg/{fname}/{num}")
+	public ResponseEntity<byte[]> multiread_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
+		String path2 = "C:\\img\\" + num + "\\";
+		File f = new File(path2 + fname);// C:\\img\\num\\fname
+		HttpHeaders header = new HttpHeaders();
+		ResponseEntity<byte[]> result = null;
+		try {
+			header.add("Content-Type", Files.probeContentType(f.toPath()));// 마임타입
+			result = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f), header, HttpStatus.OK);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
 		String path2 = "C:\\img\\" + num + "\\";
@@ -145,7 +162,7 @@ public class BoardController {
 
 
 		Board b = service.getByNum(num);
-
+		
 		String str = b.getContent();
 		String[] strarr = str.split(",");
 		ArrayList<String> strList = new ArrayList<>();

@@ -111,7 +111,8 @@ const delCom =(bnum,cnum)=>{
 		<table border="1" class="content_img">
 			<tr>
 				<td>
-					<img src="${contentimg[status.index] }"> 
+				
+					<img src="/multiimgboard/read_img/${contentimg[status.index] }"> 
 					<%-- <input type="image" src="${contentimg[status.index] }"> --%>
 				</td>
 			</tr>
