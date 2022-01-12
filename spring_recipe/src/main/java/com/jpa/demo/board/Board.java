@@ -43,8 +43,7 @@ public class Board {
 	private String difficulty;
 	private String cate;
 	
-	@Transient
-	private ArrayList img_path; //이미지
+	private String img_path; //이미지
 	
 	@PrePersist//insert 실행전 먼저 처리
 	public void beforeCreate() {
