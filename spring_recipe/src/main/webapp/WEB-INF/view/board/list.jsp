@@ -49,9 +49,9 @@
 	<c:forEach var="b" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
 			<a href="/board/detail/${b.num }"><img
-				src="/board/readimg/${b.img_path }" width="100" height="100"></a><br />
-			<a href="/board/detail/${b.num }">${b.title }</a><br /> 난이도
-			${b.difficulty }<br />
+				src="/board/readimg/${b.img_path }/${b.num}" width="100" height="100"></a><br />
+			<a href="/board/detail/${b.num }">${b.title }</a><br />
+				난이도 ${b.difficulty }<br />
 		</div>
 	</c:forEach>
 

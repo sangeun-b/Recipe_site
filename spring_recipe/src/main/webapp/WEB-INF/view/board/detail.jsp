@@ -10,6 +10,23 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
+window.onload = function(){
+	if(${flag}==true){
+		var imgHeart2 = document.getElementById('img2');
+			imgHeart2.src = "../../resources/assets/recipe_icons/heart_fill.png";
+	}else{
+		imgHeart2.src = "../../resources/assets/recipe_icons/heart.png";
+	}
+// 	if(${c} != null ){
+// 		let arr = ${c};
+// 		let txt = "";
+// 		for(let i=0; i<arr.length; i++){
+// 			txt+=arr[i].content+"("+arr[i].writer.id+")<br/>";
+// 			num=arr[0].board.num;
+// 			document.getElementById("coms_"+num).innerHTML = txt;
+// 		}
+// 	}
+}
 const xhttp = new XMLHttpRequest();//비동기 요청 객체
 //응답이 왔을때 자동 호출 //{flag:true}
 xhttp.onload = function() {
@@ -25,6 +42,22 @@ xhttp.onload = function() {
 				num=arr[0].board.num;
 				document.getElementById("coms_"+num).innerHTML = txt;
 			}
+// 			for(let i=0; i<arr.length; i++){
+// 				const box = document.getElementById("coms_"+${b.num });
+// 				txt+=arr[i].content+"("+arr[i].writer.id+")";
+//  				num=arr[i].board.num;
+//  				console.log(arr[i].num);
+//  				cNum=arr[i].num;
+// 				const newP = document.createElement('p');
+// 				newP.innerHTML="<input type='text' name='comment' id='comment' value="+txt+">";
+// 				box.appendChild(newP);
+// 				if(${b.writer.id==sessionScope.loginid}){
+// 					const box = document.getElementById("coms_"+${b.num });
+// 					const newP2 = document.createElement('p');
+// 					newP2.innterHTML = "<input type='button' name='delBtn' value='삭제' onclick='delCom(${b.num}'"+cNum+"')'>";
+// 					box.appendChild(newP2);
+// 				}
+// 			}		
 			
 		}else{
 			alert("응답 error code:"+xhttp.status);
@@ -36,9 +69,6 @@ xhttp.onload = function() {
 }
 	const com = (num, writer) => {	
 		const com = document.getElementById("com_"+num).value;
-		alert(com);
-		alert(num);
-		alert(writer);
 		let param = "board="+num;
 		param += "&writer=${sessionScope.loginid}";
 		param += "&content="+com;
@@ -69,6 +99,7 @@ const heartcheck =(num)=>{
  		location.href="/heart/likeheart/${b.num}";
 	}
 }
+
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />
@@ -88,13 +119,13 @@ const heartcheck =(num)=>{
 		<br />
 	</c:if>
 
-	
+
 	<form action="/board/edit" method="post">
 		<table border="1">
 			<tr>
 				<th>이미지</th>
-				<td><img src="/board/readimg/${b.img_path }" width="200"
-					height="200"></td>
+				<td><img src="/board/readimg/${b.img_path}/${b.num}"
+					width="200" height="200"></td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -121,31 +152,38 @@ const heartcheck =(num)=>{
 				<th>업로드 날짜</th>
 				<td>${b.date }</td>
 			</tr>
-			<c:if test="${sessionScope.loginid == b.writer.id }">
-				<tr>
-					<th>변경</th>
-					<td><c:if test="${b.writer.id==sessionScope.loginid}">
-							<input type="submit" value="수정">
-							<input type="button" value="삭제" onclick="del()">
-						</c:if>
-				<tr>
-					<th>댓글</th>
-					<td><input type="text" id="com_${b.num }"> <input
-						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
-				</tr>
-			</c:if>
+			<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
 			<tr>
-				<th>댓글목록</th>
-				<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
-				<td><div id="coms_${b.num }"></div></td>
+				<th>변경</th>
+				<td><c:if test="${b.writer.id==sessionScope.loginid}">
+						<input type="submit" value="수정">
+						<input type="button" value="삭제" onclick="del()">
+					</c:if>
+			<tr>
+				<th>댓글</th>
+				<td><input type="text" id="com_${b.num }"> <input
+					type="button" value="작성완료"
+					onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
 			</tr>
-		</table>
-	</form>
-	<!-- Bootstrap core JS -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="../../resources/js/scripts.js"></script>
+			<%-- 			</c:if> --%>
+			<!-- 			<tr> -->
+
+			<!-- 				<th>댓글목록</th> -->
+			<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
+			<%-- 				<td><div id="coms_${b.num }"></div></td> --%>
+			<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
+			<%-- 				<td><div id="coms_${b.num }"> --%>
+			<%-- 				<c:if test="${b.writer.id==sessionScope.loginid}"> --%>
+			<%-- 				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick=""> --%>
+			<%-- 				</c:if> --%>
+			<!-- 				</div></td> -->
+			<!-- 			</tr> -->
+			<!-- 		</table> -->
+			<!-- 	</form> -->
+			<!-- Bootstrap core JS -->
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+			<script src="../../resources/js/scripts.js"></script>
 </body>
 
 </html>
