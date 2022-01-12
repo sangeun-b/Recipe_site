@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file="header.jsp" %>
@@ -16,15 +15,27 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
         <script>
-        	//var imgArray = new Array();
+//         window.onload = function(){
+//         	location.href="board/ranboard";
+        	
+//         }
+
         </script>
     </head>
-    <body onload="showImage()">
+    <body>
         <!-- Page content-->
         <div class="container">
             <div class="text-center mt-5">
                 <h1>오늘의 추천</h1>
                 <img id = "introImg" border="0">
+                
+				<div style="border: 1px solid; float: left; width: 33%;">
+					<a href="/board/detail/${b.num }"><img
+					src="/board/readimg/${b.img_path }/${b.num}" width="100" height="100"></a><br />
+					<a href="/board/detail/${b.num }">${b.title }</a><br />
+					난이도 ${b.difficulty }<br />
+			</div>
+
             </div>
         </div>
         <!-- Bootstrap core JS-->

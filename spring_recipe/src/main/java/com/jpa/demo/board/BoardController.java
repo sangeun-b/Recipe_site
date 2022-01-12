@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -50,6 +51,19 @@ public class BoardController {
 		ArrayList<Board> list = service.getAll();
 		map.put("list", list);
 	}
+	
+	@GetMapping("/ranboard")
+		public String randomBoard(Map map) {
+			ArrayList<Board> list = service.getAll();
+			Collections.shuffle(list);
+			int r = list.get(0).getNum();			
+			Board b = service.getByNum(r);
+			System.out.println(b);
+			map.put("b", b);
+						
+			return "/home";
+		}
+		
 	
 	@GetMapping("/write")
 	public void writeForm() {}
@@ -146,11 +160,10 @@ public class BoardController {
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
-		
 		Board b = service.getByNum(num);
+		ArrayList<Comment> c = cservice.getByBoard(b);
 		if(id!=null || id =="") {
 		User u = uservice.getUser(id);
-		ArrayList<Comment> c = cservice.getByBoard(b);
 		Heart h = hservice.getByHeart(u,b);
 		boolean flag = false;
 		if(h!=null) {
@@ -162,6 +175,7 @@ public class BoardController {
 		
 		return "board/detail";
 		}
+		map.put("c",c);
 		map.put("b", b);
 		return "board/detail";
 	}
