@@ -58,8 +58,8 @@ public class BoardController {
 			Board b = service.getByNum(r);
 			System.out.println(b);
 			map.put("b", b);
-						
-			return "/home";
+			System.out.println("넘어가는 부분");
+			return "home";
 		}
 		
 	
@@ -117,6 +117,7 @@ public class BoardController {
 		return "redirect:/board/list_cate";
 	}
 	
+	
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
 		String path2 = "C:\\img\\" + num + "\\";
@@ -151,7 +152,7 @@ public class BoardController {
 		ArrayList<String> strList = new ArrayList<>();
 		for(int i = 0; i<strarr.length; i++) {
 			strList.add(strarr[i]);
-		
+		}
 		String path_img = path+b.getNum();
 		File dir = new File(path_img);
 //		MultipartFile files[] = dir.();
@@ -161,8 +162,9 @@ public class BoardController {
 		for(int i = 1; i <files.length; i++) {
 //			File file = files[i];
 			String orifname = files[i].getName();
-			String oriPath = path_img+"\\"+orifname;
-			fileList.add(oriPath);	
+//			String oriPath = path_img+"\\"+orifname;
+//			fileList.add(oriPath);	
+			fileList.add(orifname);	
 		}
 		System.out.println(fileList);
 		System.out.println(strList);

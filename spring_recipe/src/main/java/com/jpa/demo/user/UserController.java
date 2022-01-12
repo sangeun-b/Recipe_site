@@ -55,8 +55,9 @@ public class UserController {
 		String path = "user/login";
 		if(u2!=null && u2.getPwd().equals(u.getPwd())) {
 			session.setAttribute("loginid", u2.getId());
-			path="/index";
+			path="redirect:/board/ranboard";
 		}
+		System.out.println(path);
 		return path;
 	}
 
