@@ -151,16 +151,16 @@ public class BoardController {
 		ArrayList<String> strList = new ArrayList<>();
 		for(int i = 0; i<strarr.length; i++) {
 			strList.add(strarr[i]);
-		
+		}
 		String path_img = path+b.getNum();
 		File dir = new File(path_img);
 //		MultipartFile files[] = dir.();
 		File files[] = dir.listFiles();
 		ArrayList<String> fileList = new ArrayList<String>();
 		
-		for(int i = 1; i <files.length; i++) {
+		for(int j = 1; j <files.length; j++) {
 //			File file = files[i];
-			String orifname = files[i].getName();
+			String orifname = files[j].getName();
 			String oriPath = path_img+"\\"+orifname;
 			fileList.add(oriPath);	
 		}
