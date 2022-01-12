@@ -38,9 +38,19 @@ public class CommentController {
 		map.put("reps", reps);
 		return map;
 	}
+<<<<<<< HEAD
 	@GetMapping("/com_del/{num}") //댓글삭
 	public String del(@PathVariable("num")int num) {
 		service.delComment(num);
 		return "redirect:/board/detail";	
 	}
+=======
+	
+	@GetMapping("/del/{board_num}/{num}")
+	public String delCom(@PathVariable("board_num") int board_num, @PathVariable("num") int num) {
+		service.delComment(num);
+		return "redirect:/com/list/"+board_num;
+	}
+	
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 }

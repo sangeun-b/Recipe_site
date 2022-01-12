@@ -49,9 +49,18 @@ public class Comment {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Board board;
 
+<<<<<<< HEAD
 	@PrePersist // insert 실행전 먼저 처리
 	public void beforeCreate() {
 		date = new Date();// 현재 날짜 객체 생성
 	}
 }
+=======
+@PrePersist//insert 실행전 먼저 처리
+public void beforeCreate() {
+	date = new Date();//현재 날짜 객체 생성
+}
+}
+
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 //Comment – num(int, pk), id(user_id, fk), content(var, not null), date(date), board(board_num, fk) 

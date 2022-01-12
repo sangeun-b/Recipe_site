@@ -46,18 +46,32 @@ public class Board {
 	private Date date;
 	private String difficulty;
 	private String cate;
+<<<<<<< HEAD
 	private String ingredient;
 
 	private String img_path; // 이미지
 	
 	@PrePersist // insert 실행전 먼저 처리
+=======
+
+	private String img_path; //이미지
+	
+	@PrePersist//insert 실행전 먼저 처리
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	public void beforeCreate() {
 		date = new Date();// 현재 날짜 객체 생성
 	}
+<<<<<<< HEAD
 
 	@Transient // 테이블 컬럼으로 만들지마라. 폼에서 값을 받아오는 용도로 사용.
 	private MultipartFile file;
 
+=======
+	
+	@Transient   //테이블 컬럼으로 만들지마라. 폼에서 값을 받아오는 용도로 사용. 
+	private ArrayList<MultipartFile> file;
+	
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	// vo - 에 arraylist로 생성 dom
 
 	// 찜, 테이블 아이디 번호 출력

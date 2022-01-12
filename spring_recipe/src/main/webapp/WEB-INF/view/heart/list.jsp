@@ -40,7 +40,7 @@ const heartcheck =(num)=>{
 </head>
 <body>
 <c:if test="${empty list }">
-Nothing to display
+You don't have any like!
 </c:if>
 <c:if test="${not empty list }">
 <c:forEach var="h" items="${list }">
