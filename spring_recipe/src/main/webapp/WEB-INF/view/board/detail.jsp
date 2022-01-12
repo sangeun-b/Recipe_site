@@ -8,13 +8,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-// window.onload = function(){
-// 	if(${flag}==true){
-// 		var imgHeart2 = document.getElementById('img2');
-// 			imgHeart2.src = "../../resources/assets/recipe_icons/heart_fill.png";
-// 	}else{
-// 		imgHeart2.src = "../../resources/assets/recipe_icons/heart.png";
-// 	}
+window.onload = function(){
+	if(${flag}==true){
+		var imgHeart2 = document.getElementById('img2');
+			imgHeart2.src = "../../resources/assets/recipe_icons/heart_fill.png";
+	}else{
+		imgHeart2.src = "../../resources/assets/recipe_icons/heart.png";
+	}
 // 	if(${c} != null ){
 // 		let arr = ${c};
 // 		let txt = "";
@@ -43,14 +43,16 @@ xhttp.onload = function() {
 // 			for(let i=0; i<arr.length; i++){
 // 				const box = document.getElementById("coms_"+${b.num });
 // 				txt+=arr[i].content+"("+arr[i].writer.id+")";
-//  				num=arr[0].board.num;
+//  				num=arr[i].board.num;
+//  				console.log(arr[i].num);
+//  				cNum=arr[i].num;
 // 				const newP = document.createElement('p');
-// 				newP.innerHTML="<input type='text' name='comment' id='comment' value='txt'><input type='button' name='delBtn' value='삭제'>";
+// 				newP.innerHTML="<input type='text' name='comment' id='comment' value="+txt+">";
 // 				box.appendChild(newP);
 // 				if(${b.writer.id==sessionScope.loginid}){
 // 					const box = document.getElementById("coms_"+${b.num });
 // 					const newP2 = document.createElement('p');
-// 					newP2.innterHTML = "<input type='button' name='delBtn' value='삭제' onclick='delCom(${b.num})'>";
+// 					newP2.innterHTML = "<input type='button' name='delBtn' value='삭제' onclick='delCom(${b.num}'"+cNum+"')'>";
 // 					box.appendChild(newP2);
 // 				}
 // 			}		
@@ -96,6 +98,7 @@ const heartcheck =(num)=>{
 	}
 
 }
+
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />
@@ -115,7 +118,7 @@ const heartcheck =(num)=>{
 		<table border="1">
 			<tr>
 				<th>이미지</th>
-				<td><img src="/board/readimg/${b.img_path }" width="200"
+				<td><img src="/board/readimg/${b.img_path}/${b.num}" width="200"
 					height="200"></td>
 			</tr>
 			<tr>
