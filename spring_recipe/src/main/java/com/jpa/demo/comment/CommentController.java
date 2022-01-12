@@ -23,6 +23,7 @@ public class CommentController {
 	@GetMapping("/write")
 	public String write(Comment c) {
 		System.out.println(c);
+		System.out.println("NOOOOOOOOO");
 		service.saveComment(c);
 		return "redirect:/com/list/"+c.getBoard().getNum();
 	}
@@ -37,4 +38,11 @@ public class CommentController {
 		map.put("reps", reps);
 		return map;
 	}
+	
+	@GetMapping("/del/{num}/{board_num}")
+	public String delCom(@PathVariable("num") int num, @PathVariable("board_num") int board_num) {
+		service.delComment(num);
+		return "redirect:/com/list/"+board_num;
+	}
+	
 }

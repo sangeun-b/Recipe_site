@@ -9,57 +9,53 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
  <link rel ="icon" type="image/x-icon"
-	href="../resources/assets/favicon.ico" />
+	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
-<script>
+<script type="text/javascript">
 //만약 flag가 true면 fill heart, flag가 false면 빈 heart
 //하트 클릭해서 DB에 저장되면 빈 하트 -> 채워진 하트
-//1. click -> show & hide?
-//2. click -> class name 변경해서 css로 변경
 
-//jqury
-
-// $(document).ready(function(){
-   
-
-//     /*img1을 클릭했을 때 img2를 보여줌*/
-//     $("#img1").click(function(){
-//         $("#img1").hide();
-//         $("#img2").show();
-//     });
-
-//     /*img2를 클릭했을 때 img1을 보여줌*/
-//     $("#img2").click(function(){
-//         $("#img1").show();
-//         $("#img2").hide();
-//     });
-// });
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
  	
-	var checked = 0;
-// 	const ck = document.getElementById("img1").alt;
-// 	if(document.getElementById)
 	
-}, false);
+// }, false);
+
+const heartcheck =(num)=>{
+	var imgHeart = document.getElementById('img2_'+num);
+	alert(num);
+	if(imgHeart.src.match("heart_fill")){
+		imgHeart.src = "../resources/assets/recipe_icons/heart.png";
+		location.href="/heart/likeheartlist/"+num;
+	}else{
+		imgHeart.src = "../resources/assets/recipe_icons/heart_fill.png";
+		location.href="/heart/likeheartlist/"+num;
+// 		xhttp.open("GET", "/heart/likeheart");
+// 		xhttp.send();
+	}
+
+}
 
 </script>
 </head>
 <body>
-	<c:forEach var="h" items="${list } varStatus="status">
+<c:if test="${empty list }">
+Nothing to display
+</c:if>
+<c:if test="${not empty list }">
+<c:forEach var="h" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
-			<a href="/board/detail/${board_list[status.index].num}"><img
-				src="/board/readimg/${board_list[status.index].img_path }" width="100" height="100"></a><br />
-			<a href="/board/detail/${board_list[status.index].num }">${board_list[status.index].title }</a><br />
-			<img id="img1" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
-			<img id="img2" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
+			<a href="/board/detail/${h.board.num}">
+			<img src="/board/readimg/${h.board.img_path}" width="100" height="100"></a><br />
+			<a href="/board/detail/${h.board.num }">${h.board.title }</a>
+			<img id="img2_${h.board.num}" onclick="heartcheck(${h.board.num})" src="../resources/assets/recipe_icons/heart_fill.png" style="width:20px; height:20px;" ><br />
+			<input type="hidden" id="boardNum" name = "boardNum" value="${h.board.num}">
+			<input type="hidden" id="userId" name = "userId" value="${h.user.id}">
 		</div>
 	</c:forEach>
-	
-	<c:if test = "${user==null }">
-	<img id="img1" alt="heart" src="../resources/assets/recipe_icons/heart.png" style="width:40px; height:40px;">
-	<img id="img2" alt="fillheart" src="../resources/assets/recipe_icons/heart_fill.png" style="width:40px; height:40px; display:none"><br />
 	</c:if>
+
+	
 	
 <%-- <!-- 회원으로 로그인 중일 때만 찜 기능 가능.  --> --%>
 	

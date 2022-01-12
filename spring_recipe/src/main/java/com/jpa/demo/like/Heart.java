@@ -32,14 +32,15 @@ public class Heart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id", nullable = false)
-	@OnDelete(action=OnDeleteAction.CASCADE) 
-	private User user;
-	
 	@OneToOne
 	@JoinColumn(name="board_num", nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
-//
+	
+	@ManyToOne
+	@JoinColumn(name="user_id", nullable = false)
+	@OnDelete(action=OnDeleteAction.CASCADE) 
+	private User user;
+
+
 }

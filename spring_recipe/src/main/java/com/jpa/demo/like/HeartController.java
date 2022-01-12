@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jpa.demo.board.Board;
 import com.jpa.demo.board.BoardService;
 import com.jpa.demo.user.User;
+import com.jpa.demo.user.UserService;
+
 
 @Controller
 @RequestMapping("/heart")
@@ -21,43 +24,103 @@ public class HeartController {
 
 	@Autowired
 	private HeartService service;
-	
 
 	@Autowired
 	private BoardService bservice;
 	
-	@ResponseBody
-	@RequestMapping("/likeheart")
-	public Map likeHeart(Heart h) {
-		
-		Map map = new HashMap();
-//		String userId = h.getUser().getId();
-//		int boardNum = h.getBoard().getNum();
-		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
+	@Autowired
+	private UserService uservice;
+	
+//	@ResponseBody
+//	@RequestMapping("/likeheart")
+//	public Map likeHeart(Heart h,Map map) {
+////		String userId = h.getUser().getId();
+////		int boardNum = h.getBoard().getNum();
+//		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
+//		boolean flag = false;
+//		if(h2!=null) {
+//			//db에 있으면 삭제
+//			service.delHeart(h2.getNum());
+//			flag = true;
+//		}else {
+//			//db에 없으면 저장
+//			service.saveHeart(h);
+//		}
+//		map.put("flag", flag);
+//		
+//		return map;
+//	}
+
+	@GetMapping("/likeheart/{num}")
+	public String likeHeart(@PathVariable("num") int num, HttpSession session, Map map) {
+		String id = (String) session.getAttribute("loginid");
+		Board board = bservice.getByNum(num);
+		User user = uservice.getUser(id);
+		Heart h2 = service.getByHeart(user, board);
+		Heart h = new Heart();
+		String para = "";
 		boolean flag = false;
 		if(h2!=null) {
-			//db에 있으면 삭제
+			System.out.println(h2.getNum());
 			service.delHeart(h2.getNum());
+			//map.put("b",board);
+			para = Integer.toString(h2.getBoard().getNum());
 			flag = true;
-		}else {
-			//db에 없으면 저장
+		} else {
+			h.setUser(user);
+			h.setBoard(board);
+			System.out.println(h);
 			service.saveHeart(h);
+			para = Integer.toString(h.getBoard().getNum());
+//			Board board2 = bservice.getByNum(num);
+			//map.put("b", board2);
 		}
-		map.put("flag", flag);
 		
-		return map;
+		return "redirect:/board/detail/"+para;
+	}
+	
+	@GetMapping("/likeheartlist/{num}")
+	public String likeHeartList(@PathVariable("num") int num, HttpSession session) {
+		String id = (String) session.getAttribute("loginid");
+		Board board = bservice.getByNum(num);
+		User user = uservice.getUser(id);
+		Heart h2 = service.getByHeart(user, board);
+		Heart h = new Heart();
+		String para = "";
+		if(h2!=null) {
+			System.out.println(h2.getNum());
+			service.delHeart(h2.getNum());
+			//map.put("b",board);
+			para = Integer.toString(h2.getBoard().getNum());
+		} else {
+			h.setUser(user);
+			h.setBoard(board);
+			System.out.println(h);
+			service.saveHeart(h);
+			Board board2 = bservice.getByNum(num);
+			para = Integer.toString(h.getBoard().getNum());
+			//map.put("b", board2);
+		}
+		
+		return "redirect:/heart/list";
 	}
 
-
 	@GetMapping("/list")
-	public String allHeart(User u, Map map) {
+	public String allHeart(HttpSession session,Map map) {
+		String id = (String) session.getAttribute("loginid");
+		User u = new User();
+		u.setId(id);
 		ArrayList<Heart> list = service.getByUser(u);
-		ArrayList<Board> board_list = new ArrayList<Board>();
-		for(Heart h : list) {
-			board_list.add(bservice.getByNum(h.getNum()));
-		}
+		System.out.println(list.toString());
 		map.put("list", list);
-		map.put("board_list", board_list);
+//		ArrayList<Board> board_list = new ArrayList<Board>();
+//		for(Heart h : list) {
+//			board_list.add(bservice.getByNum(h.getNum()));
+//			System.out.println(h);
+//		}
+//		
+//		
+//		map.put("board_list", board_list);
 		return "heart/list";
 	}
 	
@@ -65,6 +128,6 @@ public class HeartController {
 	@GetMapping("/del/{num}")
 	public String delHeart(@PathVariable("num") int num) {
 		service.delHeart(num);
-		return "redirect:/heart/list";
+		return "redirect:/board/detail";
 	}
 }
