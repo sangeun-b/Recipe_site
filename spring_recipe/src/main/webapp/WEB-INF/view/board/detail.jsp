@@ -35,27 +35,38 @@ xhttp.onload = function() {
 			let obj = JSON.parse(xhttp.responseText);//배열{"flag":true} json 형태로 parse
 			let arr = obj.reps;
 			let txt = "";
-			for(let i=0; i<arr.length; i++){
-				txt+=arr[i].content+"("+arr[i].writer.id+")<br/>";
-				num=arr[0].board.num;
-				document.getElementById("coms_"+num).innerHTML = txt;
+			
+			const box = document.getElementById("coms_"+${b.num });
+			if(document.getElementById('commentList')){
+				box.innerHTML="";
 			}
-// 			for(let i=0; i<arr.length; i++){
-// 				const box = document.getElementById("coms_"+${b.num });
-// 				txt+=arr[i].content+"("+arr[i].writer.id+")";
-//  				num=arr[i].board.num;
-//  				console.log(arr[i].num);
-//  				cNum=arr[i].num;
-// 				const newP = document.createElement('p');
-// 				newP.innerHTML="<input type='text' name='comment' id='comment' value="+txt+">";
-// 				box.appendChild(newP);
-// 				if(${b.writer.id==sessionScope.loginid}){
-// 					const box = document.getElementById("coms_"+${b.num });
-// 					const newP2 = document.createElement('p');
-// 					newP2.innterHTML = "<input type='button' name='delBtn' value='삭제' onclick='delCom(${b.num}'"+cNum+"')'>";
-// 					box.appendChild(newP2);
-// 				}
-// 			}		
+			for(let i=0; i<arr.length; i++){
+				const newP = document.createElement('p');
+				newP.id="commentList"
+				console.log(arr.length);
+				console.log(arr[i]);
+				let txt2 = "";	
+				cNum = arr[i].num;
+				writer = arr[i].writer.id;
+				txt=arr[i].content+"("+arr[i].writer.id+")";
+				bnum=arr[i].board.num;
+				console.log(cNum);
+				console.log(writer);
+				console.log(txt);
+				console.log(bnum);
+				if(writer != "${sessionScope.loginid}"){
+				txt2 = "<input type='text' name='comment' id='comment' value="+txt+">";
+				newP.innerHTML= txt2;
+				console.log(txt2);
+				box.appendChild(newP);
+				}else{
+				txt2 = "<input type='text' name='comment' id='comment' value="+txt+"><input type='button' name='delBtn' value='삭제' onclick='delCom("+bnum+","+cNum+")'>";
+				newP.innerHTML=txt2;
+				console.log(txt2);
+				box.appendChild(newP);
+				}
+				
+			}		
 			
 		}else{
 			alert("응답 error code:"+xhttp.status);
@@ -97,6 +108,9 @@ const heartcheck =(num)=>{
  		location.href="/heart/likeheart/${b.num}";
 	}
 
+}
+const delCom =(bnum,cnum)=>{
+	location.href="/com/del/"+bnum+"/"+cnum;
 }
 
 </script>
