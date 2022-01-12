@@ -33,7 +33,8 @@ import com.jpa.demo.user.UserService;
 public class BoardController {
 	@Autowired
 	private BoardService service;
-	private String path = "C:\\img\\";
+//	private String path = "C:\\img\\";
+	private String path = "/Users/jeonghyunkyu/Desktop/img/";
 
 	@Autowired
 	private CommentService cservice;
@@ -76,7 +77,8 @@ public class BoardController {
 	@PostMapping("/write")
 	public String write(Board b) {
 
-		String path = "C:\\img\\";
+//		String path = "C:\\img\\";
+		String path = "/Users/jeonghyunkyu/Desktop/img/";
 
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
@@ -102,7 +104,7 @@ public class BoardController {
 			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
 
 			try {
-			path+="\\";
+			path+="/";
 			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
 				b2.setImg_path(fname);
 				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
@@ -113,13 +115,15 @@ public class BoardController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		}
 		return "redirect:/board/list_cate";
 	}
 	
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
-		String path2 = "C:\\img\\" + num + "\\";
+//		String path2 = "C:\\img\\" + num + "\\";
+		String path2 = "/Users/jeonghyunkyu/Desktop/img/" + num + "/";
 		File f = new File(path2 + fname);// C:\\img\\num\\fname
 		HttpHeaders header = new HttpHeaders();
 		ResponseEntity<byte[]> result = null;
@@ -151,7 +155,7 @@ public class BoardController {
 		ArrayList<String> strList = new ArrayList<>();
 		for(int i = 0; i<strarr.length; i++) {
 			strList.add(strarr[i]);
-		
+		}
 		String path_img = path+b.getNum();
 		File dir = new File(path_img);
 //		MultipartFile files[] = dir.();
@@ -161,7 +165,7 @@ public class BoardController {
 		for(int i = 1; i <files.length; i++) {
 //			File file = files[i];
 			String orifname = files[i].getName();
-			String oriPath = path_img+"\\"+orifname;
+			String oriPath = path_img+"/"+orifname;
 			fileList.add(oriPath);	
 		}
 		System.out.println(fileList);
@@ -203,17 +207,7 @@ public class BoardController {
 //		return "board/detail";
 //	}
 //	
-	public String potoget(@PathVariable("num") int num,  Map map) {
-		String path = "C:\\img\\";
-		File dir = new File("디렉토리패스명들어가야하는데..");
-		File files[] = dir.listFiles();
-		
-		for(int i = 0; i<files.length; i++) {
-			File file = files[i];
-		}
-		
-		return "board/detail";
-	}
+
 
 	@PostMapping("/edit")
 	public String edit(Board b) {
