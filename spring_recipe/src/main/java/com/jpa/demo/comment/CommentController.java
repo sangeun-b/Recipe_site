@@ -24,6 +24,7 @@ import com.jpa.demo.user.UserService;
 public class CommentController {
 	@Autowired
 	private CommentService service;
+<<<<<<< HEAD
 
 	@Autowired
 	private UserService uservice;
@@ -46,6 +47,26 @@ public class CommentController {
 	@GetMapping("/write/{num}/{content}")
 	public String writeComment(@PathVariable("num") int board_num, @PathVariable("content") String content,
 			HttpSession session) {
+=======
+	
+	@Autowired
+	private UserService uservice;
+	
+	@Autowired
+	private BoardService bservice;
+	
+	//댓글작성 
+//	@GetMapping("/write")
+//	public String write(Comment c) {
+//		System.out.println(c);
+//		System.out.println("NOOOOOOOOO");
+//		service.saveComment(c);
+//		return "redirect:/com/list/"+c.getBoard().getNum();
+//	}
+	
+	@GetMapping("/write/{num}/{content}")
+	public String writeComment(@PathVariable("num") int board_num, @PathVariable("content") String content,HttpSession session) {
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 		String id = (String) session.getAttribute("loginid");
 		User u = uservice.getUser(id);
 		Board b = bservice.getByNum(board_num);
@@ -55,13 +76,25 @@ public class CommentController {
 		c.setContent(content);
 		System.out.println(c);
 		service.saveComment(c);
+<<<<<<< HEAD
 		return "redirect:/board/detail/" + board_num;
+=======
+		return "redirect:/board/detail/"+board_num;
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	}
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	@ResponseBody
 	@GetMapping("/list/{img_num}")
+<<<<<<< HEAD
 
 	public Map list(@PathVariable("img_num") int img_num, Map map) {
+=======
+	public Map list(@PathVariable("img_num")int img_num, Map map){
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 		Board b = new Board();
 		b.setNum(img_num);
 		ArrayList<Comment> reps = service.getByBoard(b);
@@ -72,7 +105,11 @@ public class CommentController {
 	@GetMapping("/del/{board_num}/{num}")
 	public String delCom(@PathVariable("board_num") int board_num, @PathVariable("num") int num) {
 		service.delComment(num);
+<<<<<<< HEAD
 		return "redirect:/board/detail/" + board_num;
+=======
+		return "redirect:/board/detail/"+board_num;
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 
 	}
 

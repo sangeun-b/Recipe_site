@@ -46,12 +46,21 @@ public class Board {
 	private Date date;
 	private String difficulty;
 	private String cate;
+<<<<<<< HEAD
 
 	private String ingredient;
 
 	private String img_path; // 이미지
 
 	@PrePersist // insert 실행전 먼저 처리
+=======
+	private String ingredient;
+	
+	
+	private String img_path; //이미지
+	
+	@PrePersist//insert 실행전 먼저 처리
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	public void beforeCreate() {
 		date = new Date();// 현재 날짜 객체 생성
 	}

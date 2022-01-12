@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -19,8 +20,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+<<<<<<< HEAD
 import org.springframework.web.server.session.HeaderWebSessionIdResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+=======
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 
 import com.jpa.demo.comment.Comment;
 import com.jpa.demo.comment.CommentService;
@@ -34,6 +38,7 @@ import com.jpa.demo.user.UserService;
 public class BoardController {
 	@Autowired
 	private BoardService service;
+<<<<<<< HEAD
 
 	@Autowired
 	private CommentService cservice;
@@ -44,14 +49,45 @@ public class BoardController {
 	@Autowired
 	private UserService uservice;
 
+=======
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	private String path = "C:\\img\\";
 
+<<<<<<< HEAD
+=======
+	@Autowired
+	private CommentService cservice;
+
+	@Autowired
+	private HeartService hservice;
+
+	@Autowired
+	private UserService uservice;
+
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	@GetMapping("/list")
 	public void list(Map map) {
 		ArrayList<Board> list = service.getAll();
 		map.put("list", list);
 	}
+<<<<<<< HEAD
 
+=======
+	
+	@GetMapping("/ranboard")
+		public String randomBoard(Map map) {
+			ArrayList<Board> list = service.getAll();
+			Collections.shuffle(list);
+			int r = list.get(0).getNum();			
+			Board b = service.getByNum(r);
+			System.out.println(b);
+			map.put("b", b);
+						
+			return "/home";
+		}
+		
+	
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	@GetMapping("/write")
 	public void writeForm() {
 	}
@@ -64,7 +100,13 @@ public class BoardController {
 
 	@PostMapping("/write")
 	public String write(Board b) {
+<<<<<<< HEAD
 		String path = "C:\\img\\";
+=======
+
+		String path = "C:\\img\\";
+
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 		Board b2 = service.saveBoard(b);
 		// 1. 게시글 숫자에 맞게 폴더 생성
 		path += b.getNum();
@@ -101,10 +143,13 @@ public class BoardController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
+<<<<<<< HEAD
 
 		return "redirect:/board/list";
+=======
+		return "redirect:/board/list_cate";
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	}
 
 	@GetMapping("/readimg/{fname}/{num}")
@@ -127,7 +172,63 @@ public class BoardController {
 	public String del(@PathVariable("num") int num) {
 		service.delBoard(num);
 		return "redirect:/board/list";
+<<<<<<< HEAD
+=======
 	}
+
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
+		String id = (String) session.getAttribute("loginid");
+
+
+		Board b = service.getByNum(num);
+
+		String str = b.getContent();
+		String[] strarr = str.split(",");
+		ArrayList<String> strList = new ArrayList<>();
+		for(int i = 0; i<strarr.length; i++) {
+			strList.add(strarr[i]);
+		
+		String path_img = path+b.getNum();
+		File dir = new File(path_img);
+//		MultipartFile files[] = dir.();
+		File files[] = dir.listFiles();
+		ArrayList<String> fileList = new ArrayList<String>();
+		
+		for(int i = 1; i <files.length; i++) {
+//			File file = files[i];
+			String orifname = files[i].getName();
+			String oriPath = path_img+"\\"+orifname;
+			fileList.add(oriPath);	
+		}
+		System.out.println(fileList);
+		System.out.println(strList);
+		
+		ArrayList<Comment> c = cservice.getByBoard(b);
+		if (id != null || id == "") {
+			User u = uservice.getUser(id);
+			
+			Heart h = hservice.getByHeart(u, b);
+			boolean flag = false;
+			if (h != null) {
+				flag = true;
+			}
+			map.put("flag", flag);
+			map.put("c", c);
+			map.put("b", b);
+			map.put("strList", strList);
+			map.put("contentimg", fileList);
+			return "board/detail";
+		}
+
+		map.put("contentimg", fileList);
+		map.put("c", c);
+		map.put("strList", strList);
+		map.put("b", b);
+		return "board/detail";
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
+	}
+<<<<<<< HEAD
 
 	@GetMapping("/detail/{num}")
 	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
@@ -149,6 +250,30 @@ public class BoardController {
 			return "board/detail";
 		}
 		map.put("b", b);
+=======
+	
+//	public String Contsplit(@PathVariable("num") int num, Map map) {
+//		Board b = service.getByNum(num);
+//		String str = b.getContent();
+//		String[] strarr = str.split(",");
+//		ArrayList<String> strList = new ArrayList<>();
+//		for(int i = 0; i<strarr.length; i++) {
+//			strList.add(strarr[i]);
+//		}
+//		map.put("strList", strList);
+//		return "board/detail";
+//	}
+//	
+	public String potoget(@PathVariable("num") int num,  Map map) {
+		String path = "C:\\img\\";
+		File dir = new File("디렉토리패스명들어가야하는데..");
+		File files[] = dir.listFiles();
+		
+		for(int i = 0; i<files.length; i++) {
+			File file = files[i];
+		}
+		
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 		return "board/detail";
 	}
 
@@ -170,6 +295,16 @@ public class BoardController {
 
 	}
 
+<<<<<<< HEAD
+=======
+//	@GetMapping("/list_date")
+//	public String list_date(Map map) {
+//		ArrayList<Board> list = service.findAllOrderByDateDesc();
+//		map.put("list", list);
+//		return "board/list";
+//	}
+
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 	@GetMapping("/write/{num}")
 	public String write(@PathVariable("num") int num, Map map) {
 		Board b = service.getByNum(num);
@@ -190,6 +325,7 @@ public class BoardController {
 		return "board/list";
 	}
 
+<<<<<<< HEAD
 	// 수정페이지 이동
 	@GetMapping("/modify/{num}")
 	public String boardModifyGET(@PathVariable("num") int num, Map map) {
@@ -205,4 +341,7 @@ public class BoardController {
 		rttr.addFlashAttribute("result", "modify success");
 		return "redirect:/board/detail";
 	}
+=======
+	
+>>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 }

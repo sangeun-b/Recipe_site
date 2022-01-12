@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" type="image/x-icon"
-	href="../../resources/assets/main-logo.svg" />
-<!-- Core theme CSS (includes Bootstrap)-->
+	href="../resources/assets/main-logo.svg" />
+
 <link href="../../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-		<form action="/board/getbytitle" method="post">
+	<form action="/board/getbytitle" method="post">
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
 				<input type="text" name="word" placeholder="검색어를 입력하시오">
@@ -26,10 +26,11 @@
 			</div>
 		</div>
 	</form>
-	
+
 	<a href="/board/write" id="boardwrite">글작성</a>
 	<div class="listsort" id="show_locale_switch">
 		<select name="sort" id="sort" title="정렬" class="sort2">
+<!-- 		<select name="sort" id="sort" title="정렬" class="sort2" onchange="mysort(this.value)"> -->
 			<option value="날짜순">날짜순</option>
 			<option value="이름순">이름순</option>
 			<option value="난이도순">난이도순</option>
@@ -37,6 +38,14 @@
 		</select>
 	</div>
 	
+<!-- 	<script type="text/javascript"> -->
+<!-- // 	function mysort(str){ -->
+<!-- // 		if(str="날짜순"){ -->
+<!-- // 			location.href="/board/list_date"; -->
+<!-- // 		} -->
+<!-- // 	} -->
+<!-- 	</script> -->
+
 	<c:forEach var="b" items="${list }">
 		<div style="border: 1px solid; float: left; width: 33%;">
 			<a href="/board/detail/${b.num }"><img
@@ -45,6 +54,9 @@
 				난이도 ${b.difficulty }<br />
 		</div>
 	</c:forEach>
+
+
+
 
 	<!-- Bootstrap core JS -->
 	<script

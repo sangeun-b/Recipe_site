@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="../header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 const add_textbox =()=>{
 	const box = document.getElementById("box");
 	const newP = document.createElement('p');
-	newP.innerHTML ="<textarea rows='10' cols='45' name='content' id='content'></textarea><input type='file' name='file'><input type='button' value='삭제' onclick='remove(this)'>";
+	newP.innerHTML ="<textarea rows='10' cols='45' name='content' id='content'></textarea><input type='file' name='file' multiple><input type='button' value='삭제' onclick='remove(this)'>";
 	box.appendChild(newP);
 
 }
@@ -56,8 +57,9 @@ const remove =(obj)=>{
 				</div>
 				<div class="img-write">
 					<span>대표이미지</span>
-					<input type="file" name=file>
+					<input type="file" name=file multiple>
 				</div>
+				
 				<div class="ingredient-write">
 					<span>재료</span>
 					<textarea rows="5" cols="45" name="ingredient" id="ingredient"></textarea>
@@ -65,6 +67,10 @@ const remove =(obj)=>{
 				<div class="content-write">
 					<span>레시피 내용</span>
 					<textarea rows="10" cols="45" name="content" id="content"></textarea>
+				</div>
+				<div class="img-write">
+					<span>레시피 사진 등록</span>
+					<input type="file" name=file multiple>
 				</div>
 				<div id="box">
 					<input type="button" value="add" onclick="add_textbox()">
