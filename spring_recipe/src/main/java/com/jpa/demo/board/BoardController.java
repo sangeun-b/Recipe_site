@@ -1,4 +1,5 @@
 package com.jpa.demo.board;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.session.HeaderWebSessionIdResolver;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jpa.demo.comment.Comment;
 import com.jpa.demo.comment.CommentService;
@@ -26,86 +28,70 @@ import com.jpa.demo.like.Heart;
 import com.jpa.demo.like.HeartService;
 import com.jpa.demo.user.User;
 import com.jpa.demo.user.UserService;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	private BoardService service;
 
-	
 	@Autowired
 	private CommentService cservice;
-	
+
 	@Autowired
 	private HeartService hservice;
-	
+
 	@Autowired
 	private UserService uservice;
-	
+
 	private String path = "C:\\img\\";
 
-	
 	@GetMapping("/list")
 	public void list(Map map) {
 		ArrayList<Board> list = service.getAll();
 		map.put("list", list);
 	}
-	
+
 	@GetMapping("/write")
-	public void writeForm() {}
-	
+	public void writeForm() {
+	}
+
 //	@PostMapping("/write")
 //	public String write(Board b) {
 //		service.saveBoard(b);
 //		return "redirect:/board/list";
 //	}
-	
+
 	@PostMapping("/write")
 	public String write(Board b) {
-		String path="C:\\img\\";
+		String path = "C:\\img\\";
 		Board b2 = service.saveBoard(b);
-<<<<<<< HEAD
-		
-		MultipartFile file = b.getFile();// 업로드된 파일을 변수 file에 저장
-		String ori_fname = file.getOriginalFilename();// 업로드된 원본 파일명 a.jpg
-		int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
-		String fname = b2.getNum() + ori_fname.substring(idxOfLastDot);
-		try {
-			file.transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
-			b2.setImg_path(fname);
-			service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-=======
-		//1. 게시글 숫자에 맞게 폴더 생성
-		path+=b.getNum();
+		// 1. 게시글 숫자에 맞게 폴더 생성
+		path += b.getNum();
 		File Folder = new File(path);
-		if(!Folder.exists()) {
+		if (!Folder.exists()) {
 			try {
 				Folder.mkdir();
 				System.out.println("폴더 생성");
-			}catch(Exception e) {
+			} catch (Exception e) {
 				e.getStackTrace();
-				}
-		}else{
-			System.out.println("이미 있음");		}
-		//2. 어레이 리스트 폴더에 이미지 추가
+			}
+		} else {
+			System.out.println("이미 있음");
+		}
+		// 2. 어레이 리스트 폴더에 이미지 추가
 
 		ArrayList<MultipartFile> list = b.getFile();// 업로드된 파일을 변수 file에 저장
-		//for (MultipartFile file : list) {
-		for(int i=0; i<list.size(); i++) {
-		//3. 각 이미지별 이름 다르게 저장
+		// for (MultipartFile file : list) {
+		for (int i = 0; i < list.size(); i++) {
+			// 3. 각 이미지별 이름 다르게 저장
 			String ori_fname = list.get(i).getOriginalFilename();// 업로드된 원본 파일명 a.jpg
 			int idxOfLastDot = ori_fname.lastIndexOf(".");// 파일명에서 .위치
-			String fname = b2.getTitle() + "-"+ i +ori_fname.substring(idxOfLastDot);
+			String fname = b2.getTitle() + "-" + i + ori_fname.substring(idxOfLastDot);
 
 			try {
-			path+="\\";
-			list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
+				path += "\\";
+				list.get(i).transferTo(new File(path + fname));// 업로드된 파일을 서버 컴퓨터(path)에 복사
 				b2.setImg_path(fname);
 				service.saveBoard(b2);// 방금 추가한 행의 img_path컬럼값을 방금 업로드한 경로로 수정
 			} catch (IllegalStateException e) {
@@ -116,15 +102,14 @@ public class BoardController {
 				e.printStackTrace();
 			}
 
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 		}
-	
+
 		return "redirect:/board/list";
 	}
-	
+
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
-		String path2 = "C:\\img\\"+num+"\\";
+		String path2 = "C:\\img\\" + num + "\\";
 		File f = new File(path2 + fname);// C:\\img\\num\\fname
 		HttpHeaders header = new HttpHeaders();
 		ResponseEntity<byte[]> result = null;
@@ -139,29 +124,29 @@ public class BoardController {
 	}
 
 	@GetMapping("/del/{num}")
-	public String del(@PathVariable("num")int num) {
+	public String del(@PathVariable("num") int num) {
 		service.delBoard(num);
-		return "redirect:/board/list";	
+		return "redirect:/board/list";
 	}
-	
+
 	@GetMapping("/detail/{num}")
-	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
+	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
-		
+
 		Board b = service.getByNum(num);
-		if(id!=null || id =="") {
-		User u = uservice.getUser(id);
-		ArrayList<Comment> c = cservice.getByBoard(b);
-		Heart h = hservice.getByHeart(u,b);
-		boolean flag = false;
-		if(h!=null) {
-			flag = true;
-		}
-		map.put("flag", flag);
-		map.put("c",c);
-		map.put("b",b);
-		
-		return "board/detail";
+		if (id != null || id == "") {
+			User u = uservice.getUser(id);
+			ArrayList<Comment> c = cservice.getByBoard(b);
+			Heart h = hservice.getByHeart(u, b);
+			boolean flag = false;
+			if (h != null) {
+				flag = true;
+			}
+			map.put("flag", flag);
+			map.put("c", c);
+			map.put("b", b);
+
+			return "board/detail";
 		}
 		map.put("b", b);
 		return "board/detail";
@@ -175,20 +160,23 @@ public class BoardController {
 
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
-		ArrayList<Board> list = service.getByTitle("%"+word+"%");
+		ArrayList<Board> list = service.getByTitle("%" + word + "%");
 		map.put("list", list);
 		return "board/list";
 	}
-	@GetMapping("/list_cate")
-    public void list_cate() {
 
-    }
+	@GetMapping("/list_cate")
+	public void list_cate() {
+
+	}
+
 	@GetMapping("/write/{num}")
-	public String write(@PathVariable("num")int num, Map map) {
-		Board b= service.getByNum(num);
-		map.put("b",b);
+	public String write(@PathVariable("num") int num, Map map) {
+		Board b = service.getByNum(num);
+		map.put("b", b);
 		return "board/write";
 	}
+
 //	@PostMapping("/getbycate")
 //	public String getByCate(String word, Map map) {
 //		ArrayList<Board> list = service.getByCate(word);
@@ -196,11 +184,25 @@ public class BoardController {
 //		return "board/list";
 //	}
 	@GetMapping("/getbycate/{cate}")
-	public String getByCate(@PathVariable("cate")String cate, Map map) {
+	public String getByCate(@PathVariable("cate") String cate, Map map) {
 		ArrayList<Board> list = service.getByCate(cate);
 		map.put("list", list);
 		return "board/list";
 	}
-	
-}
 
+	// 수정페이지 이동
+	@GetMapping("/modify/{num}")
+	public String boardModifyGET(@PathVariable("num") int num, Map map) {
+		Board b = service.getByNum(num);
+		map.put("b", b);
+		return "board/modify";
+	}
+
+	// 페이지 수정
+	@PostMapping("/modify/{num}")
+	public String boardModifyPOST(Board b, RedirectAttributes rttr) {
+		service.saveBoard(b);
+		rttr.addFlashAttribute("result", "modify success");
+		return "redirect:/board/detail";
+	}
+}
