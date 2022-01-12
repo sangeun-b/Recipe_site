@@ -112,7 +112,8 @@ const delCom =(bnum,cnum)=>{
 			<tr>
 				<td>
 <%-- 					<img src="${contentimg[status.index] }"> --%>
-					<input type="image" src="${contentimg[status.index] }">
+						<img src="/board/readimg/${contentimg[status.index] }/${b.num}"width="200" height="200">
+<%-- 					<input type="image" src="${contentimg[status.index] }"> --%>
 				</td>
 			</tr>
 			<tr>
@@ -153,7 +154,7 @@ const delCom =(bnum,cnum)=>{
 				<c:if test="${not empty c }">
 				<c:forEach var="c" items="${c }">
 				<div id="com_${c.num }">
-				<input type="text" id="comment" value="${c.content }" >
+				<input type="text" id="comment" value="${c.content }">
 				<input type="text" id="writer" value="${c.writer.id }">
 				<c:if test="${c.writer.id==sessionScope.loginid}">
 				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
