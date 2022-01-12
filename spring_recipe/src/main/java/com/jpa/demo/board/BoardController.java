@@ -1,4 +1,5 @@
 package com.jpa.demo.board;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.server.session.HeaderWebSessionIdResolver;
 
 import com.jpa.demo.comment.Comment;
 import com.jpa.demo.comment.CommentService;
@@ -27,25 +27,23 @@ import com.jpa.demo.like.Heart;
 import com.jpa.demo.like.HeartService;
 import com.jpa.demo.user.User;
 import com.jpa.demo.user.UserService;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	private BoardService service;
-
-	
-	@Autowired
-	private CommentService cservice;
-	
-	@Autowired
-	private HeartService hservice;
-	
-	@Autowired
-	private UserService uservice;
-	
 	private String path = "C:\\img\\";
 
-	
+	@Autowired
+	private CommentService cservice;
+
+	@Autowired
+	private HeartService hservice;
+
+	@Autowired
+	private UserService uservice;
+
 	@GetMapping("/list")
 	public void list(Map map) {
 		ArrayList<Board> list = service.getAll();
@@ -66,17 +64,20 @@ public class BoardController {
 		
 	
 	@GetMapping("/write")
-	public void writeForm() {}
-	
+	public void writeForm() {
+	}
+
 //	@PostMapping("/write")
 //	public String write(Board b) {
 //		service.saveBoard(b);
 //		return "redirect:/board/list";
 //	}
-	
+
 	@PostMapping("/write")
 	public String write(Board b) {
-		String path="C:\\img\\";
+
+		String path = "C:\\img\\";
+
 		Board b2 = service.saveBoard(b);
 		//1. 게시글 숫자에 맞게 폴더 생성
 		path+=b.getNum();
@@ -112,15 +113,13 @@ public class BoardController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
-	
-		return "redirect:/board/list";
+		return "redirect:/board/list_cate";
 	}
 	
 	@GetMapping("/readimg/{fname}/{num}")
 	public ResponseEntity<byte[]> read_img(@PathVariable("fname") String fname, @PathVariable("num") int num) {
-		String path2 = "C:\\img\\"+num+"\\";
+		String path2 = "C:\\img\\" + num + "\\";
 		File f = new File(path2 + fname);// C:\\img\\num\\fname
 		HttpHeaders header = new HttpHeaders();
 		ResponseEntity<byte[]> result = null;
@@ -135,31 +134,84 @@ public class BoardController {
 	}
 
 	@GetMapping("/del/{num}")
-	public String del(@PathVariable("num")int num) {
+	public String del(@PathVariable("num") int num) {
 		service.delBoard(num);
-		return "redirect:/board/list";	
+		return "redirect:/board/list";
+	}
+
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
+		String id = (String) session.getAttribute("loginid");
+
+
+		Board b = service.getByNum(num);
+
+		String str = b.getContent();
+		String[] strarr = str.split(",");
+		ArrayList<String> strList = new ArrayList<>();
+		for(int i = 0; i<strarr.length; i++) {
+			strList.add(strarr[i]);
+		
+		String path_img = path+b.getNum();
+		File dir = new File(path_img);
+//		MultipartFile files[] = dir.();
+		File files[] = dir.listFiles();
+		ArrayList<String> fileList = new ArrayList<String>();
+		
+		for(int i = 1; i <files.length; i++) {
+//			File file = files[i];
+			String orifname = files[i].getName();
+			String oriPath = path_img+"\\"+orifname;
+			fileList.add(oriPath);	
+		}
+		System.out.println(fileList);
+		System.out.println(strList);
+		
+		ArrayList<Comment> c = cservice.getByBoard(b);
+		if (id != null || id == "") {
+			User u = uservice.getUser(id);
+			
+			Heart h = hservice.getByHeart(u, b);
+			boolean flag = false;
+			if (h != null) {
+				flag = true;
+			}
+			map.put("flag", flag);
+			map.put("c", c);
+			map.put("b", b);
+			map.put("strList", strList);
+			map.put("contentimg", fileList);
+			return "board/detail";
+		}
+
+		map.put("contentimg", fileList);
+		map.put("c", c);
+		map.put("strList", strList);
+		map.put("b", b);
+		return "board/detail";
 	}
 	
-	@GetMapping("/detail/{num}")
-	public String detail(@PathVariable("num")int num, Map map, HttpSession session) {
-		String id = (String) session.getAttribute("loginid");
-		Board b = service.getByNum(num);
-		ArrayList<Comment> c = cservice.getByBoard(b);
-		if(id!=null || id =="") {
-		User u = uservice.getUser(id);
-		Heart h = hservice.getByHeart(u,b);
-		boolean flag = false;
-		if(h!=null) {
-			flag = true;
-		}
-		map.put("flag", flag);
-		map.put("c",c);
-		map.put("b",b);
+//	public String Contsplit(@PathVariable("num") int num, Map map) {
+//		Board b = service.getByNum(num);
+//		String str = b.getContent();
+//		String[] strarr = str.split(",");
+//		ArrayList<String> strList = new ArrayList<>();
+//		for(int i = 0; i<strarr.length; i++) {
+//			strList.add(strarr[i]);
+//		}
+//		map.put("strList", strList);
+//		return "board/detail";
+//	}
+//	
+	public String potoget(@PathVariable("num") int num,  Map map) {
+		String path = "C:\\img\\";
+		File dir = new File("디렉토리패스명들어가야하는데..");
+		File files[] = dir.listFiles();
 		
-		return "board/detail";
+		for(int i = 0; i<files.length; i++) {
+			File file = files[i];
 		}
-		map.put("c",c);
-		map.put("b", b);
+		
 		return "board/detail";
 	}
 
@@ -171,20 +223,30 @@ public class BoardController {
 
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
-		ArrayList<Board> list = service.getByTitle("%"+word+"%");
+		ArrayList<Board> list = service.getByTitle("%" + word + "%");
 		map.put("list", list);
 		return "board/list";
 	}
-	@GetMapping("/list_cate")
-    public void list_cate() {
 
-    }
+	@GetMapping("/list_cate")
+	public void list_cate() {
+
+	}
+
+//	@GetMapping("/list_date")
+//	public String list_date(Map map) {
+//		ArrayList<Board> list = service.findAllOrderByDateDesc();
+//		map.put("list", list);
+//		return "board/list";
+//	}
+
 	@GetMapping("/write/{num}")
-	public String write(@PathVariable("num")int num, Map map) {
-		Board b= service.getByNum(num);
-		map.put("b",b);
+	public String write(@PathVariable("num") int num, Map map) {
+		Board b = service.getByNum(num);
+		map.put("b", b);
 		return "board/write";
 	}
+
 //	@PostMapping("/getbycate")
 //	public String getByCate(String word, Map map) {
 //		ArrayList<Board> list = service.getByCate(word);
@@ -192,11 +254,11 @@ public class BoardController {
 //		return "board/list";
 //	}
 	@GetMapping("/getbycate/{cate}")
-	public String getByCate(@PathVariable("cate")String cate, Map map) {
+	public String getByCate(@PathVariable("cate") String cate, Map map) {
 		ArrayList<Board> list = service.getByCate(cate);
 		map.put("list", list);
 		return "board/list";
 	}
+
 	
 }
-
