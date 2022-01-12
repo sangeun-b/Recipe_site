@@ -123,7 +123,7 @@ const delCom =(bnum,cnum)=>{
 				<c:if test="${not empty c }">
 				<c:forEach var="c" items="${c }">
 				<div id="com_${c.num }">
-				<input type="text" id="comment" value="${c.content }" >
+				<input type="text" id="comment" value="${c.content }">
 				<input type="text" id="writer" value="${c.writer.id }">
 				<c:if test="${c.writer.id==sessionScope.loginid}">
 				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
