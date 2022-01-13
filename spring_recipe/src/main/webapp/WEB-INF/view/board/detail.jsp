@@ -32,7 +32,12 @@ const del = (num) => {
 	location.href = "/board/del/${b.num }";
 }	
 }
-
+const modify= (num) => {
+	let flag = confirm("수정하시겠습니까?");
+	if(flag){
+	location.href ="/board/modify/${b.num}";	
+	}
+}
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2');
 	if(imgHeart.src.match("heart_fill")){
@@ -70,7 +75,7 @@ const delCom =(bnum,cnum)=>{
 	</c:if>
 
 
-	<form action="/board/edit" method="post">
+	<form action="/board/modify/${b.num}" method="post">
 		<table border="1" class="Top">
 			<tr>
 				<th>이미지</th>
@@ -102,72 +107,67 @@ const delCom =(bnum,cnum)=>{
 		<table border="1" class="ingredient_con">
 			<tr>
 				<th>재료</th>
-				<td>
-					<textarea rows="10" cols="45" name="ingredient" ${mode }>${b.ingredient }</textarea>
+				<td><textarea rows="10" cols="45" name="ingredient" ${mode }>${b.ingredient }</textarea>
 				</td>
 			</tr>
 		</table>
-	<c:forEach var="r" items="${strList }" varStatus="status">
-		<table border="1" class="content_img">
-			<tr>
-				<td>
- 					<img src="/board/readimg/${contentimg[status.index]}/${b.num}"> 
-					<%-- <input type="image" src="${contentimg[status.index] }"> --%>
-				</td>
-			</tr>
-			<tr>
-				<th>레시피</th>
-				<td>
-					<textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
-				</td>
-			</tr>
-	</c:forEach>
-			
-		
-<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
+		<c:forEach var="r" items="${strList }" varStatus="status">
+			<table border="1" class="content_img">
+				<tr>
+					<td><img
+						src="/board/readimg/${contentimg[status.index]}/${b.num}" width="200" height="200">
+					</td>
+				</tr>
+				<tr>
+					<th>레시피</th>
+					<td><textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
+					</td>
+				</tr>
+				</c:forEach>
+
+
+				<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
 				<tr>
 					<th>변경</th>
 					<td><c:if test="${b.writer.id==sessionScope.loginid}">
-							<input type="submit" value="수정">
+							<a href="/board/modify/${b.num}"><input type="button" value="수정"></a>
 							<input type="button" value="삭제" onclick="del()">
-						</c:if>
-          </td>
-    </tr>
+						</c:if></td>
+				</tr>
 				<tr>
 					<th>댓글</th>
 					<td><input type="text" id="com_${b.num }"> <input
 						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br />
-						<input type="submit" value="Done" name="content">
-						</td>
+						onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
 				</tr>
-<%-- 			</c:if> --%>
-			<tr>
-			
-				<th>댓글목록</th>
-<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
-				<td><div id="coms_${b.num }">
-				<c:if test="${empty c }">
+				<%-- 			</c:if> --%>
+				<tr>
+
+					<th>댓글목록</th>
+					<%-- 				<td><input type="text" id="com_${b.num }" readonly> --%>
+					<td><div id="coms_${b.num }">
+							<c:if test="${empty c }">
 				No comment
 				</c:if>
-				<c:if test="${not empty c }">
-				<c:forEach var="c" items="${c }">
-				<div id="com_${c.num }">
-				<input type="text" id="comment" value="${c.content }" >
-				<input type="text" id="writer" value="${c.writer.id }">
-				<c:if test="${c.writer.id==sessionScope.loginid}">
-				<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
-				</c:if>
-				</div>
-				</c:forEach>
-				</c:if>
-				</div></td>
+							<c:if test="${not empty c }">
+								<c:forEach var="c" items="${c }">
+									<div id="com_${c.num }">
+										<input type="text" id="comment" value="${c.content }">
+										<input type="text" id="writer" value="${c.writer.id }">
+										<c:if test="${c.writer.id==sessionScope.loginid}">
+											<input type="button" id="coms_${b.num }_btn" value="삭제"
+												onclick="delCom(${b.num},${c.num })">
+										</c:if>
+									</div>
+								</c:forEach>
+							</c:if>
+						</div></td>
 
-			</tr>
-		</table>
+				</tr>
+			</table>
 	</form>
-			
-<!-- Bootstrap core JS -->
+
+	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
