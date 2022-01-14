@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.jpa.demo.user.User;
 
 
+
+
 @Service
 public class BoardService {
 	@Autowired
