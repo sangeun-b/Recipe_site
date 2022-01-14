@@ -15,7 +15,9 @@ public class CommentService {
 	public Comment saveComment(Comment c) {
 		return dao.save(c);
 	}
-	
+	public Comment getComment(int num) {
+		return dao.findById(num).orElse(null);
+	}
 	public ArrayList<Comment> getByBoard(Board b){
 		return dao.findByBoard(b);
 	}

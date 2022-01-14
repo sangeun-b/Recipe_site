@@ -1,6 +1,6 @@
+
 package com.jpa.demo.board;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +15,4 @@ public interface BoardDao extends JpaRepository<Board, Integer> {
 	
 	ArrayList<Board> findByCate(String cate);
 
-	//정렬
-//	ArrayList<Board> findAllOrderByDateDesc();
 }

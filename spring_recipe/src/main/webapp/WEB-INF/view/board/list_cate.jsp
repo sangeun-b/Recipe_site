@@ -28,15 +28,19 @@
 			</div>
 		</div>
 	</form>
+
+<c:if test="${not empty sessionScope.loginid}">
 	<a href="/board/write" id="boardwrite"><img
 		src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaFZ0VIv31hUzlKKNFY8-1wn_scvovMPrrQ&usqp=CAU"
 		width="50" height="50" class="boardwriteimg"></a>
+		</c:if>
+
 	<div id="cate" class="cate">
+
 		<div id="cate_ko" class="cate_ko">
 			<h6 class="h6a">한식</h6>
-			<a href="/board/getbycate/한식"><img
-				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
-				class="koimg" width="220" height="170" /></a>
+			<a href="/board/getbycate/한식"><img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" class="koimg" width="220" height="170" /></a>
+
 		</div>
 		<div id="cate_ch" class="cate_ch">
 			<h6 class="h6a">중식</h6>
@@ -51,6 +55,7 @@
 				class="jaimg" width="220" height="170" /></a>
 		</div>
 		<div id="cate_we" class="cate_we">
+
 			<h6 class="h6a">양식</h6>
 			<a href="/board/getbycate/양식"><img
 				src="https://images.chosun.com/resizer/wsSVlD2KlkIAXTYSWUZxQSceAUE=/960x504/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HS2MWHN32OMYMSDYNGYRIZCXNI.jpg"
@@ -64,8 +69,11 @@
 		</div>
 	</div>
 	<!-- Bootstrap core JS -->
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
 </body>
+
 </html>
+

@@ -30,16 +30,7 @@ public class CommentController {
 	
 	@Autowired
 	private BoardService bservice;
-	
-	//댓글작성 
-//	@GetMapping("/write")
-//	public String write(Comment c) {
-//		System.out.println(c);
-//		System.out.println("NOOOOOOOOO");
-//		service.saveComment(c);
-//		return "redirect:/com/list/"+c.getBoard().getNum();
-//	}
-	
+		
 	@GetMapping("/write/{num}/{content}")
 	public String writeComment(@PathVariable("num") int board_num, @PathVariable("content") String content,HttpSession session) {
 		String id = (String) session.getAttribute("loginid");
@@ -53,7 +44,15 @@ public class CommentController {
 		service.saveComment(c);
 		return "redirect:/board/detail/"+board_num;
 	}
-
+	
+	@GetMapping("/edit/{num}/{content}")
+	public String editCom(@PathVariable("num") int num, @PathVariable("content") String content) {
+		Comment c =service.getComment(num);
+		c.setContent(content);
+		service.saveComment(c);
+		return "redirect:/board/detail/"+c.getBoard().getNum();
+		
+	}
 	
 	@ResponseBody
 	@GetMapping("/list/{img_num}")

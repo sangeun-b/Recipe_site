@@ -65,12 +65,13 @@ const modify= (num) => {
 	href="../../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../../resources/css/styles.css" rel="stylesheet" />
+<link href="../../resources/css/detail.css" rel="stylesheet" />
 </head>
 <body>
 	<c:if test="${sessionScope.loginid != b.writer.id }">
 		<c:set var="mode">readonly</c:set>
 	</c:if>
-	<h3>레시피 상세 페이지</h3>
+
 	<input type="hidden" name="num" id="num" value="${b.num }">
 	<c:if test="${sessionScope.loginid != null}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
@@ -81,34 +82,30 @@ const modify= (num) => {
 
 
 	<form action="/board/edit" method="post">
-		<table border="1" class="Top">
-			<tr>
-				<th>이미지</th>
-				<td><img src="/board/readimg/${b.img_path}/${b.num}"
-					width="200" height="200"></td>
-			</tr>
-			<tr>
-				<!--요리제목 -->
-				<td><h3>${b.title }</h3></td>
-			</tr>
-			<tr>
-				<th>카테고리</th>
-				<td>${b.cate }</td>
-			</tr>
-			<tr>
-				<th>난이도</th>
-				<td>${b.difficulty }</td>
-			</tr>
-			<tr>
-				<th>작성자</th>
-				<td>${b.writer.id }</td>
-			</tr>
-			<tr>
-				<th>업로드 날짜</th>
-				<td>${b.date }</td>
-			</tr>
 
-		</table>
+        <div  class="imaframe">
+		<img class="main-image" src="/board/readimg/${b.img_path}/${b.num}"
+			srcset="/board/readimg/${b.img_path }/${b.num} 2x,
+             /board/readimg/${b.img_path }/${b.num} 3x">
+		</div>
+		<div class="title">${b.title }</div>
+		
+		
+		<div class="textarea">
+			<div class ="info">
+				<div class="cate">카테고리</div>
+				<div class="diff">난이도</div>
+				<div class="writer">작성자</div>
+				<div class="date">작성일</div>	
+			</div>
+			<div class="content">
+				<div class="cate1">${b.cate }</div>
+				<div class="diff1">${b.difficulty }</div>
+				<div class="writer1">${b.writer.id }</div>
+				<div class="date1">${b.date }</div>
+			</div>
+		</div>
+		
 		<table border="1" class="ingredient_con">
 			<tr>
 				<th>재료</th>
@@ -116,11 +113,12 @@ const modify= (num) => {
 				</td>
 			</tr>
 		</table>
+
 		<c:forEach var="r" items="${strList }" varStatus="status">
 			<table border="1" class="content_img">
 				<tr>
 					<td>
-						<%-- 					<img src="${contentimg[status.index] }">  --%> <img
+						<%--<img src="${contentimg[status.index] }"> --%> <img
 						src="/board/readimg/${contentimg[status.index] }/${b.num}"
 						width="200" height="200"> <%-- 					<input type="image" src="${contentimg[status.index] }"> --%>
 					</td>
@@ -133,11 +131,12 @@ const modify= (num) => {
 				</c:forEach>
 
 
-				<%-- 			<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
+				<%--<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
+
 				<tr>
 					<th>변경</th>
 					<td><c:if test="${b.writer.id==sessionScope.loginid}">
-							<input type="submit" value="수정">
+							<input type="submit" value="수정" onclick="modify()">
 							<input type="button" value="삭제" onclick="del()">
 						</c:if></td>
 				</tr>
@@ -148,9 +147,9 @@ const modify= (num) => {
 						onclick="com(${b.num }, '${b.writer.id }')"><br /> <input
 						type="submit" value="Done" name="content"></td>
 				</tr>
+
 				<%-- 			</c:if> --%>
 				<tr>
-
 					<th>댓글목록</th>
 					<td><div id="coms_${b.num }">
 							<c:if test="${empty c }">
@@ -172,6 +171,7 @@ const modify= (num) => {
 										<c:if test="${c.writer.id==sessionScope.loginid}">
 											<input type="button" id="coms_${b.num }_btn" value="삭제"
 												onclick="delCom(${b.num},${c.num })">
+
 										</c:if>
 									</div>
 								</c:forEach>
@@ -188,5 +188,3 @@ const modify= (num) => {
 </body>
 
 </html>
-
-

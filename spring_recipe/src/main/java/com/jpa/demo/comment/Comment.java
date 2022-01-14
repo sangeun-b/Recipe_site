@@ -55,5 +55,4 @@ public void beforeCreate() {
 }
 }
 
-//Comment – num(int, pk), id(user_id, fk), content(var, not null), date(date), board(board_num, fk) 
 

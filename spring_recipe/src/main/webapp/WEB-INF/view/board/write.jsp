@@ -56,8 +56,8 @@ const remove =(obj)=>{
 						<input type="radio" id="cate5" name="cate" value="기타">기타
 				</div>
 				<div class="img-write">
-					<span>대표이미지</span>
-					<input type="file" name=file multiple>
+					<span>대표이미지 : 마지막으로 등록된 사진이 보입니다</span>
+
 				</div>
 				
 				<div class="ingredient-write">
@@ -76,7 +76,7 @@ const remove =(obj)=>{
 					<input type="button" value="add" onclick="add_textbox()">
 				</div>
 				<div class="img-write">
-					<span>완성된 사진 등록하시오</span>
+					<span>대표 이미지를 등록해주세요</span>
 					<input type="file" name=file multiple>
 				</div>
 				<div class="submit-write">
