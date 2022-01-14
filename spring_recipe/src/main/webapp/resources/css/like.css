@@ -1,29 +1,68 @@
 @charset "UTF-8";
-\.container2{
-/*   border: 3px solid green; */
-  border-radius: 30px;
-  padding: 10px;
-  position: absolute;
-  top: 30%;
-  left: 33%;
-  width: 40%;
-  height: 40%;
-  margin: -50px 0 0 -50px;
-  
+@font-face {
+    font-family: 'Middleschool_student';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Middleschool_student.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-/* .center{ */
-/*   margin: auto; */
-/*   width: 50%; */
-/*   border: 3px solid green; */
-/*   padding: 10px; */
-/* } */
-.imgs{
-		margin:-50px -50px -50px -50px;
-        border-radius: 50px;
-        width:60%;
-        height:60%;
-        position: relative;
+img.imgs{
+/* 		margin:-50px -50px -50px -50px; */
+        border-radius: 15px;
+        width:200px;
+        height:200px;
+        position: realative;
         top:35%;
         left:40%;
-        box-shadow: 5px 5px 3px grey;
+        box-shadow: 2px 2px 2px grey;
+        
     }
+img.hearticon{
+/* 	margin-top: 10px; */
+	width:15px;
+	height:15px;
+}
+ .noheart{
+	text-align: center;
+	position:absolute;
+	height:300px;
+	width:400px;
+	margin:-150px 0px 0px -200px;
+	top:50%;
+	left:50%;
+	padding:5px;
+ }
+ .noheart2{
+ display:inline-block;
+ text-align:center;
+ width:100%;
+ margin-top: 25%;
+ font-family: 'Middleschool_student';
+ font-size:xx-large;
+ }
+ 
+ .heartlist{
+ float:left;
+ width:400px;
+ text-align:center;
+ }
+ 
+ .heartall{
+/*  display: flex; */
+ float:left;
+  margin-left:200px;
+/*   justify-content: center; */
+  margin-top:80px;
+/*   align-items: center; */
+/*   min-height: 100vh; */
+ }
+ 
+ .title{
+ font-family: 'Middleschool_student';
+ font-size:x-large;
+ }
+ .maintitle{
+ margin-top:50px;
+ font-family: 'Middleschool_student';
+ font-size:xx-large;
+ text-align:center;
+ }

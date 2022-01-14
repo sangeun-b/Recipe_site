@@ -22,6 +22,7 @@ const add_textbox =()=>{
 	newP.innerHTML ="<textarea rows='10' cols='45' name='content' id='content'></textarea><input type='file' name='file' multiple><input type='button' value='삭제' onclick='remove(this)'>";
 	box.appendChild(newP);
 }
+
 const remove =(obj)=>{
 	document.getElementById('box').removeChild(obj.parentNode);
 }
@@ -72,15 +73,22 @@ const remove =(obj)=>{
 					<textarea rows="10" cols="45" name="content" id="content">${r }</textarea>
 				</div>
 				<div class="img-write">
-					<span>레시피 사진 등록</span>
+					<span>레시피 사진 등록</span></br>
 					<span> 등록되어있는 파일 : ${contentimg[status.index] }</span>
 					<input type="file" name="file" multiple>
 					
 				</div>
 				</c:forEach>
+				
 				<div id="box">
 					<input type="button" value="add" onclick="add_textbox()">
 				</div>
+				<div class="img-write">
+					<span>대표 이미지를 등록해주세요</span>
+					<input type="file" name=file multiple>
+				</div>
+
+				<div>
 				 <input class="submit-write" type="submit" role="button" value="수정">
 				</div>
 				<div class="reset-write">
