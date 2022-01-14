@@ -100,7 +100,7 @@ const delCom =(bnum,cnum)=>{
 		<table border="1" class="ingredient_con">
 			<tr>
 				<th>재료</th>
-				<td><textarea rows="10" cols="45" name="ingredient">${b.ingredient }</textarea>
+				<td><textarea rows="10" cols="45" name="ingredient" readonly>${b.ingredient } </textarea>
 
 				</td>
 			</tr>
@@ -116,7 +116,7 @@ const delCom =(bnum,cnum)=>{
 			<tr>
 				<th>레시피</th>
 				<td>
-					<textarea rows="10" cols="45" name="content">${r }</textarea>
+					<textarea rows="10" cols="45" name="content" readonly >${r }</textarea>
 				</td>
 			</tr>
 	</c:forEach>
@@ -150,8 +150,7 @@ const delCom =(bnum,cnum)=>{
 									<div id="com_${c.num }">
 										<c:choose>
 											<c:when test="${c.writer.id==sessionScope.loginid}">
-
-												<input type="text" id="comment_${c.board.num }" value="${c.content }">
+												<input type="text" id="comment_${c.board.num }" value="${c.content }" readonly>
 											</c:when>
 											<c:otherwise>
 												<input type="text" id="comment_${c.board.num }" value="${c.content }"
