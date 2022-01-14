@@ -50,6 +50,7 @@ const delCom =(bnum,cnum)=>{
 	location.href="/com/del/"+bnum+"/"+cnum;
 	}
 }
+
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />
@@ -100,9 +101,11 @@ const delCom =(bnum,cnum)=>{
 			<tr>
 				<th>재료</th>
 				<td><textarea rows="10" cols="45" name="ingredient">${b.ingredient }</textarea>
+
 				</td>
 			</tr>
 		</table>
+    
 	<c:forEach var="r" items="${strList }" varStatus="status">
 		<table border="1" class="content_img">
 			<tr>
@@ -117,6 +120,7 @@ const delCom =(bnum,cnum)=>{
 				</td>
 			</tr>
 	</c:forEach>
+
 				<c:if test="${sessionScope.loginid == b.writer.id }">
 					<tr>
 					<th>변경</th>
@@ -128,21 +132,23 @@ const delCom =(bnum,cnum)=>{
 						</td>
 				</tr>
 				</c:if>
+
 				<tr>
 					<th>댓글</th>
-					<td><input type="text" id="com_${b.num }"> <input
-						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br /> </td>
+					<td><input type="text" id="com_${b.num }"> 
+            <input type="button" value="작성완료" onclick="com(${b.num }, '${b.writer.id }')"><br /> </td>
 				</tr>
 
 			<tr>
 							<c:if test="${not empty c }">
 							<th>댓글목록</th>
 					<td>
+
 								<c:forEach var="c" items="${c }">
 									<div id="com_${c.num }">
 										<c:choose>
 											<c:when test="${c.writer.id==sessionScope.loginid}">
+
 												<input type="text" id="comment_${c.board.num }" value="${c.content }">
 											</c:when>
 											<c:otherwise>
@@ -152,8 +158,7 @@ const delCom =(bnum,cnum)=>{
 										</c:choose>
 										<input type="text" id="writer" value="${c.writer.id }" readonly>
 										<c:if test="${c.writer.id==sessionScope.loginid}">
-										<input type="button" id="coms_${b.num }_btn" value="삭제"
-												onclick="delCom(${b.num},${c.num })">
+										<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
 											
 										</c:if>
 									</div>
@@ -162,9 +167,10 @@ const delCom =(bnum,cnum)=>{
 						</c:if>
 				</tr>
 		</table>
+
 	</form>
-			
-<!-- Bootstrap core JS -->
+	<!-- 			<img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" alt="dimg" /> -->
+	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
