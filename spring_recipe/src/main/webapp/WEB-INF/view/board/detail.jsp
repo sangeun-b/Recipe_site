@@ -137,7 +137,7 @@ const modify= (num) => {
 				<tr>
 					<th>변경</th>
 					<td><c:if test="${b.writer.id==sessionScope.loginid}">
-							<input type="submit" value="수정" onclick="modify()">
+							<input type="submit" value="수정">
 							<input type="button" value="삭제" onclick="del()">
 						</c:if></td>
 				</tr>
@@ -150,6 +150,7 @@ const modify= (num) => {
 				</tr>
 				<%-- 			</c:if> --%>
 				<tr>
+
 					<th>댓글목록</th>
 					<td><div id="coms_${b.num }">
 							<c:if test="${empty c }">
@@ -171,7 +172,6 @@ const modify= (num) => {
 										<c:if test="${c.writer.id==sessionScope.loginid}">
 											<input type="button" id="coms_${b.num }_btn" value="삭제"
 												onclick="delCom(${b.num},${c.num })">
-											
 										</c:if>
 									</div>
 								</c:forEach>
