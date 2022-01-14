@@ -60,7 +60,7 @@ const delCom =(bnum,cnum)=>{
 <body>
 	<h3>레시피 상세 페이지</h3>
 	<input type="hidden" name="num" id="num" value="${b.num }">
-	<c:if test="${sessionScope.loginid != null}">
+	<c:if test="${not empty sessionScope.loginid}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
 			src="../../resources/assets/recipe_icons/heart.png"
 			style="width: 20px; height: 20px;">
@@ -93,7 +93,7 @@ const delCom =(bnum,cnum)=>{
 			</tr>
 			<tr>
 				<th>업로드 날짜</th>
-				<td>${b.date }</td>
+				<td>${sdate }</td>
 			</tr>
 
 		</table>

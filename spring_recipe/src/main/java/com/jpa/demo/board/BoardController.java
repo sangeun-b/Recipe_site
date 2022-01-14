@@ -201,6 +201,12 @@ public class BoardController {
 		String id = (String) session.getAttribute("loginid");
 
 		Board b = service.getByNum(num);
+		
+		Date d1 = b.getDate();
+		SimpleDateFormat format1 = new SimpleDateFormat("YYYY년 MM월 DD일");
+		String date_string = format1.format(d1);
+		
+		
 		ArrayList strList = splitContent(b);
 		ArrayList fileList = getImgFile(b);
 		System.out.println(fileList);
@@ -220,6 +226,7 @@ public class BoardController {
 			map.put("b", b);
 			map.put("strList", strList);
 			map.put("contentimg", fileList);
+			map.put("sdate", date_string);
 			return "board/detail";
 		}
 
@@ -227,6 +234,7 @@ public class BoardController {
 		map.put("c", c);
 		map.put("strList", strList);
 		map.put("b", b);
+		map.put("sdate", date_string);
 		return "board/detail";
 	}
 
@@ -286,4 +294,5 @@ public class BoardController {
 		map.put("contentimg", fileList);
 		return "board/modify";
 	}
+	
 }
