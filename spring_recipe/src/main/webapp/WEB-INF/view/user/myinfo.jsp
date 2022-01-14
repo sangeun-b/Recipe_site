@@ -12,7 +12,6 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/myinfo.css" rel="stylesheet" />
 <link href="../resources/css/styles.css" rel="stylesheet" />
-<!-- 형규님 추가-->
 
 <script>
 const ckEdit =()=>{
@@ -36,10 +35,11 @@ const ckDel=()=>{
 <body>
 	<form name="editForm" action="/user/edit" method="post">
 		<div class=aboutme>나의정보</div>
+		<span class="myinfoframe">
 		<div class=id_text>아이디</div>
 		<div class=id>
 			<input type="text" name="id" value="${u.id }" readonly
-				style="border: none; background: transparent;"><br />
+				style="border: none; background: transparent; padding: 9px;">
 		</div>
 		<div class=password_text>비밀번호</div>
 		<div class=password>
@@ -56,21 +56,25 @@ const ckDel=()=>{
 			<input type="email" value="${u.email }" name="email"
 				style="border: none; background: transparent;"><br />
 		</div>
-		<div class=change>
-			<input type="button" class="change_text" value="수정하기"
-				onclick="ckEdit()"
-				style="position: absolute; width: 150px; height: 26px; left: 510px; top: 480px; background: #C4C4C4; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: none; border-radius: 10px;">
-		</div>
+		</span>
+		<span class="buttonframe">
+	
+			<input class=change type="button" value="수정하기"
+				onclick="ckEdit()">
+		
+		<a href="/user/out"><input class="delete_account" type="button" value="회원탈퇴"
+			style="border: none;  padding: 8px;"></a> <br>
+		
+		</span>
+		
 	</form>
 	<div class=myrecipe>
 		<a href="/board/getbywriter/${u.id}"><input type="button"
 			value="나의 레시피 보기" style="border: none; background: transparent;"></a>
 		<br>
 	</div>
-	<div class=delete_account>
-		<input type="button" value="회원탈퇴" onclick="ckDel()"
-			style="border: none; background: transparent;"></a> <br>
-	</div>
+
+	
 
 </body>
 <!-- Bootstrap core JS-->
