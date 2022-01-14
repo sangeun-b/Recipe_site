@@ -40,12 +40,13 @@ const heartcheck =(num)=>{
 </section>
 </c:if>
 
-<div class="heartall">
+
 <c:if test="${not empty list }">
 <div class="maintitle">
 ${sessionScope.loginid } 님의 찜리스트 
 <img class="hearticon" src="../resources/assets/recipe_icons/heart_fill.png" >
 </div>
+<div class="heartall">
 <c:forEach var="h" items="${list }">
 
 		<div class="heartlist">
