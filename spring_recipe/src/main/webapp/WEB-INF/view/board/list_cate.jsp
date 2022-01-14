@@ -11,7 +11,6 @@
 	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
-
 <link rel="stylesheet" href="../resources/css/list_cate_style.css">
 </head>
 <body>
@@ -37,12 +36,11 @@
 		</c:if>
 
 	<div id="cate" class="cate">
+
 		<div id="cate_ko" class="cate_ko">
 			<h6 class="h6a">한식</h6>
-			<a href="/board/getbycate/한식"><img
+			<a href="/board/getbycate/한식"><img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" class="koimg" width="220" height="170" /></a>
 
-				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
-				class="koimg" width="220" height="170" /></a>
 		</div>
 		<div id="cate_ch" class="cate_ch">
 			<h6 class="h6a">중식</h6>

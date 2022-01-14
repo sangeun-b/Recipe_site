@@ -11,7 +11,6 @@
 	href="../resources/assets/main-logo.svg" />
 
 <link href="../../resources/css/styles.css" rel="stylesheet" />
-<link href="../../resources/css/list_style.css" rel="stylesheet" />
 </head>
 <body>
 	<form action="/board/getbytitle" method="post">

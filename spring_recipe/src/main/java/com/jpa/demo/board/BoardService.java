@@ -35,6 +35,7 @@ public class BoardService {
 		return dao.findByCate(cate);
 	}
 
+	
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
 	}

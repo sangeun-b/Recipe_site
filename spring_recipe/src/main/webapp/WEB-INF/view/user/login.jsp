@@ -9,7 +9,8 @@
 <title>쿡엔코아</title>
 <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
-        <link href="../resources/css/styles.css" rel="stylesheet" />
+        <link href="../resources/css/login.css" rel="stylesheet" />
+		<link href="../resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
 <form action="/user/login" method="post">
@@ -17,12 +18,14 @@
 	src="../resources/assets/main-logo.svg"
 
 	alt="로딩오류"><br/>
+<div class="login-form">
 <label class="control-label" for="IDInput">아이디 입력</label>
 <input class="form-control" id="IDInput"type="text" name="id" required><br/>
 <label class="control-label" for="PWDInput">비밀번호 입력</label>
 <input class="form-control" id="PWDInput" type="password" name="pwd" required><br/>
 <input type="submit" class="btn btn-primary" value="Login">
 <a href="/user/join"><input type="button" name="btnJoin" class="btn btn-default" value="회원가입"></a>
+</div>
 </form>
 
  <!-- Bootstrap core JS -->
