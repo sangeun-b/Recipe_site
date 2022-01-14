@@ -20,6 +20,7 @@ xhttp.onload = function() {
 				if(res){
 					if(document.getElementById("idtxt")){
 						document.getElementById("idtxt").remove();
+						document.getElementById("idck").style.display="none";
 						}
 				const newP = document.createElement("span");
 				newP.setAttribute("id","idtxt");
@@ -28,11 +29,12 @@ xhttp.onload = function() {
 				txt ="사용 가능한 아이디입니다.";
 				box.appendChild(newP);
 				document.getElementById("idtxt").innerHTML="사용가능한 아이디입니다.";
-				return res.flag;
+				
 				}
 			}else{
 				if(document.getElementById("idtxt")){
 				   document.getElementById("idtxt").remove();
+				   imgCk.style.display="none";
 				}
 				const newP = document.createElement("span");
 				newP.setAttribute("id","idtxt");
@@ -41,8 +43,7 @@ xhttp.onload = function() {
 				imgCk.style.display="";
 				box.appendChild(newP);
 				document.getElementById("idtxt").innerHTML="이미 가입된 아이디 입니다.";
-				alert(res.flag);
-				return res.flag;
+				
 			}
 			
 		}else{
@@ -60,6 +61,7 @@ const check=()=>{
 		var box = document.getElementById("idckall");
 		if(document.getElementById("idtxt")){
 			document.getElementById("idtxt").remove();
+			imgCk.style.display="none";
 			}
 		const newP = document.createElement("span");
 		newP.setAttribute("id","idtxt");
@@ -107,14 +109,12 @@ const check=()=>{
 		}
 	newP2.setAttribute("id","pwdtxt");
 	if(pwd1.length < 8 ) {
-		alert('비밀번호는 8글자 이상이여야 합니다.');
 		imgCk.src="../../resources/assets/recipe_icons/close.png";
 		imgCk.style.display="";
 		box.appendChild(newP2);
 		document.getElementById("pwdtxt").innerHTML ="비밀번호는 8글자 이상이여야 합니다.";
 		return false;
 	} else if( pwd1 != pwd2 ) {
-		alert("비밀번호가 서로 다릅니다");
 		imgCk.src="../../resources/assets/recipe_icons/close.png";
 		imgCk.style.display="";
 		box.appendChild(newP2);
