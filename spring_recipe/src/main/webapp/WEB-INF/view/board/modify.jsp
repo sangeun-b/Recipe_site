@@ -59,9 +59,8 @@ const remove =(obj)=>{
 						value="기타">기타
 				</div>
 				<div class="img-write">
-					<span>대표이미지</span>
+					<span>현재 대표이미지</span>
 					<img src="/board/readimg/${b.img_path}/${b.num}" width="200" height="200">
-                    <span> 마지막으로 등록된 사진이 보입니다</span>
 				</div>
 				<div class="ingredient-write">
 					<span>재료</span>
