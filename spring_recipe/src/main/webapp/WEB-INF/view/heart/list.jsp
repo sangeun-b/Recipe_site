@@ -30,24 +30,40 @@ const heartcheck =(num)=>{
 </script>
 </head>
 <body>
-<div class="nolist">
+
 <c:if test="${empty list }">
-찜한 게시물이 없습니다. 마음에 드는 레시피의 하트를 눌러 찜해보세요!
-</c:if>
+<section class="noheart">
+<div class="noheart2">
+찜한 게시물이 없습니다.</br>
+마음에 드는 레시피의 하트를 눌러 찜해보세요<img class="hearticon" src="../resources/assets/recipe_icons/heart_fill.png" >
 </div>
+</section>
+</c:if>
+
+<div class="heartall">
 <c:if test="${not empty list }">
+<div class="maintitle">
+${sessionScope.loginid } 님의 찜리스트 
+<img class="hearticon" src="../resources/assets/recipe_icons/heart_fill.png" >
+</div>
 <c:forEach var="h" items="${list }">
-		<div id="likelist">
+
+		<div class="heartlist">
 			<a href="/board/detail/${h.board.num}">
-			<img src="/board/readimg/${h.board.img_path}/${h.board.num}" width="100" height="100"></a><br />
-			<a href="/board/detail/${h.board.num }">${h.board.title }</a>
-			<img id="img2_${h.board.num}" onclick="heartcheck(${h.board.num})" src="../resources/assets/recipe_icons/heart_fill.png" style="width:20px; height:20px;" ><br />
+<%-- 			<img src="/board/readimg/${h.board.img_path}/${h.board.num}" width="100" height="100"></a><br /> --%>
+			<img class="imgs" src="/board/readimg/${h.board.img_path}/${h.board.num}"></a><br />
+			<div class="info">
+			<a class="title" href="/board/detail/${h.board.num }">${h.board.title }</a>
+			<img class="hearticon" id="img2_${h.board.num}" onclick="heartcheck(${h.board.num})" src="../resources/assets/recipe_icons/heart_fill.png" ><br />
+			</div>
 			<input type="hidden" id="boardNum" name = "boardNum" value="${h.board.num}">
 			<input type="hidden" id="userId" name = "userId" value="${h.user.id}">
 		</div>
 
 </c:forEach>
 	</c:if>	
+	</div>
+	
 </body>
 <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
