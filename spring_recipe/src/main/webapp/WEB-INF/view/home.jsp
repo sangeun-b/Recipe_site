@@ -14,13 +14,6 @@
         <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
-        <script>
-//         window.onload = function(){
-//         	location.href="board/ranboard";
-        	
-//         }
-
-        </script>
     </head>
     <body>
         <!-- Page content-->
@@ -33,7 +26,6 @@
 					<a href="/board/detail/${b.num }"><img
 					src="/board/readimg/${b.img_path }/${b.num}" width="100" height="100"></a><br />
 					<a href="/board/detail/${b.num }">${b.title }</a><br />
-					난이도 ${b.difficulty }<br />
 			</div>
 
             </div>

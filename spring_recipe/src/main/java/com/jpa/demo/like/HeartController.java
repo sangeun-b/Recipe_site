@@ -27,93 +27,34 @@ public class HeartController {
 	@Autowired
 	private BoardService bservice;
 	
-//<<<<<<< HEAD
-//	@ResponseBody
-//	@RequestMapping("/likeheart")
-//	public Map likeHeart(Heart h,Map map) {
-////		String userId = h.getUser().getId();
-////		int boardNum = h.getBoard().getNum();
-//		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
-//		boolean flag = false;
-//		if(h2!=null) {
-//			//db에 있으면 삭제
-//			service.delHeart(h2.getNum());
-//			flag = true;
-//		}else {
-//			//db에 없으면 저장
-//			service.saveHeart(h);
-//		}
-//		map.put("flag", flag);
-//		
-//		return map;
-//	}
-//
-//	@GetMapping("/list")
-//	public String allHeart(HttpSession session,Map map) {
-//		String id = (String) session.getAttribute("loginid");
-//		User u = new User();
-//		u.setId(id);
-//		ArrayList<Heart> list = service.getByUser(u);
-//		ArrayList<Board> board_list = new ArrayList<Board>();
-//		for(Heart h : list) {
-//			board_list.add(bservice.getByNum(h.getNum()));
-//		}
-//		map.put("list", list);
-//		map.put("board_list", board_list);
-//	
-//	@GetMapping("/del/{num}")
-//	public String delHeart(@PathVariable("num") int num) {
-//		service.delHeart(num);
-//		return "redirect:/heart/list";
-//	}
-//=======
 	@Autowired
 	private UserService uservice;
 	
-//	@ResponseBody
-//	@RequestMapping("/likeheart")
-//	public Map likeHeart(Heart h,Map map) {
-////		String userId = h.getUser().getId();
-////		int boardNum = h.getBoard().getNum();
-//		Heart h2 = service.getByHeart(h.getUser(), h.getBoard());
-//		boolean flag = false;
-//		if(h2!=null) {
-//			//db에 있으면 삭제
-//			service.delHeart(h2.getNum());
-//			flag = true;
-//		}else {
-//			//db에 없으면 저장
-//			service.saveHeart(h);
-//		}
-//		map.put("flag", flag);
-//		
-//		return map;
-//	}
-
-	@GetMapping("/likeheart/{num}")
-	public String likeHeart(@PathVariable("num") int num, HttpSession session, Map map) {
-		String id = (String) session.getAttribute("loginid");
-		Board board = bservice.getByNum(num);
-		User user = uservice.getUser(id);
-		Heart h2 = service.getByHeart(user, board);
+	public String ckHeart(Board b, User u) {
+		Heart h2 = service.getByHeart(u, b);
 		Heart h = new Heart();
 		String para = "";
 		boolean flag = false;
 		if(h2!=null) {
 			System.out.println(h2.getNum());
 			service.delHeart(h2.getNum());
-			//map.put("b",board);
 			para = Integer.toString(h2.getBoard().getNum());
 			flag = true;
 		} else {
-			h.setUser(user);
-			h.setBoard(board);
+			h.setUser(u);
+			h.setBoard(b);
 			System.out.println(h);
 			service.saveHeart(h);
 			para = Integer.toString(h.getBoard().getNum());
-//			Board board2 = bservice.getByNum(num);
-			//map.put("b", board2);
 		}
+		return para;
+	}
+	@GetMapping("/likeheart/{num}")
+	public String likeHeart(@PathVariable("num") int num, HttpSession session, Map map) {
+		String id = (String) session.getAttribute("loginid");
+		Board board = bservice.getByNum(num);
+		User user = uservice.getUser(id);
+		String para = ckHeart(board,user);
 		
 		return "redirect:/board/detail/"+para;
 	}
@@ -123,23 +64,7 @@ public class HeartController {
 		String id = (String) session.getAttribute("loginid");
 		Board board = bservice.getByNum(num);
 		User user = uservice.getUser(id);
-		Heart h2 = service.getByHeart(user, board);
-		Heart h = new Heart();
-		String para = "";
-		if(h2!=null) {
-			System.out.println(h2.getNum());
-			service.delHeart(h2.getNum());
-			//map.put("b",board);
-			para = Integer.toString(h2.getBoard().getNum());
-		} else {
-			h.setUser(user);
-			h.setBoard(board);
-			System.out.println(h);
-			service.saveHeart(h);
-			Board board2 = bservice.getByNum(num);
-			para = Integer.toString(h.getBoard().getNum());
-			//map.put("b", board2);
-		}
+		ckHeart(board, user);
 		
 		return "redirect:/heart/list";
 	}
@@ -152,14 +77,6 @@ public class HeartController {
 		ArrayList<Heart> list = service.getByUser(u);
 		System.out.println(list.toString());
 		map.put("list", list);
-//		ArrayList<Board> board_list = new ArrayList<Board>();
-//		for(Heart h : list) {
-//			board_list.add(bservice.getByNum(h.getNum()));
-//			System.out.println(h);
-//		}
-//		
-//		
-//		map.put("board_list", board_list);
 		return "heart/list";
 	}
 	
