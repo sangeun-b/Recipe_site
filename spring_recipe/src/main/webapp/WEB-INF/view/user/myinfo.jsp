@@ -12,7 +12,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/myinfo.css" rel="stylesheet" />
 <link href="../resources/css/styles.css" rel="stylesheet" />
-
+<!-- 형규님 추가-->
 
 <script>
 const ckEdit =()=>{
