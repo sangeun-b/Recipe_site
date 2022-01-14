@@ -18,7 +18,7 @@
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
 				<input type="text" name="word" class="inputsearch"
-					placeholder="음식 이름을 입력하시오" style="width: 300px;">
+					placeholder="음식 이름을 입력하세요" style="width: 300px;">
 			</div>
 			<div id="search_button" class="search_button">
 				<input type="image"
@@ -41,33 +41,33 @@
 			<h6 class="h6a">한식</h6>
 			<a href="/board/getbycate/한식"><img
 				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
-				class="koimg" width="250" height="190" /></a>
+				class="koimg" width="300" height="240" /></a>
 
 		</div>
 		<div id="cate_ch" class="cate_ch">
 			<h6 class="h6a">중식</h6>
 			<a href="/board/getbycate/중식"><img
 				src="https://ww.namu.la/s/d4c53737b61fec8cf0fa02206d85a5022fc5465593f2e0190648f7c5911acd836a5f7a1db0f19f0136ec1c178d782465a9455b31d178b79df5133fc6b493a41f6acde683b0a01c418bd30dfe56c67705"
-				class="chimg" width="250" height="190" /></a>
+				class="chimg" width="300" height="240" /></a>
 		</div>
 		<div id="cate_ja" class="cate_ja">
 			<h6 class="h6a">일식</h6>
 			<a href="/board/getbycate/일식"><img
 				src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000370/img/basic/a0000370_main.jpg?20201002142956&q=80&rw=750&rh=536"
-				class="jaimg" width="250" height="190" /></a>
+				class="jaimg" width="300" height="240" /></a>
 		</div>
 		<div id="cate_we" class="cate_we">
 
 			<h6 class="h6a">양식</h6>
 			<a href="/board/getbycate/양식"><img
 				src="https://images.chosun.com/resizer/wsSVlD2KlkIAXTYSWUZxQSceAUE=/960x504/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HS2MWHN32OMYMSDYNGYRIZCXNI.jpg"
-				class="weimg" width="250" height="190" /></a>
+				class="weimg" width="300" height="240" /></a>
 		</div>
 		<div id="cate_no" class="cate_no">
 			<h6 class="h6a">기타</h6>
 			<a href="/board/getbycate/기타"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ZgC3N_s-iusayd97_1fykOL9nGbAPerD-g&usqp=CAU "
-				class="noimg" width="250" height="190" /></a>
+				class="noimg" width="300" height="240" /></a>
 		</div>
 	</div>
 	<!-- Bootstrap core JS -->

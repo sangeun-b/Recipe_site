@@ -2,7 +2,7 @@
 
 .search {
 	position: absolute;
-	left: 30%;
+	left: 34%;
 	top: 17%;
 	width: 465px;
 	height: 100px;
@@ -53,7 +53,7 @@
 }
 
 .listout .listin {
-	width: 400px;
+	width: 500px;
 	text-align: center;
 	float: left;
 }
@@ -63,8 +63,8 @@
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.25);
-	width: 300px;
-	height: 240px;
+	width: 380px;
+	height: 320px;
 }
 
 .listout .listin .listtitle {

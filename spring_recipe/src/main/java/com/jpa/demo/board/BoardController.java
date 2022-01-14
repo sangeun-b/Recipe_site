@@ -38,8 +38,9 @@ import com.jpa.demo.user.UserService;
 public class BoardController {
 	@Autowired
 	private BoardService service;
+	
 	private String path = "C:\\img\\";
-	private UserService usservice;
+	
 	@Autowired
 	private CommentService cservice;
 
@@ -59,11 +60,14 @@ public class BoardController {
 	@GetMapping("/ranboard")
 	public String randomBoard(Map map) {
 		ArrayList<Board> list = service.getAll();
+		if(list!=null) {
 		Collections.shuffle(list);
 		int r = list.get(0).getNum();			
 		Board b = service.getByNum(r);
 		map.put("b", b);
+		}
 		return "home";
+		
 		}
 		
 	@GetMapping("/write")

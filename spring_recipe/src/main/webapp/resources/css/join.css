@@ -1,14 +1,90 @@
 @charset "EUC-KR";
 
-.join-form {
-	width:300px; 
-	height:36px; 
-	border-radius:3px; 
-	line-height:36px;
-	color:black; 
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+/* .join-form { */
+/* 	width:300px;  */
+/* 	height:36px;  */
+/* 	border-radius:3px;  */
+/* 	line-height:36px; */
+/* 	color:black;  */
+/* 	margin-left: auto; */
+/* 	margin-right: auto; */
+/* 	} */
+
+.logo{
+ 	text-align:center;
+ 	height:280px;
+
+}
+
+img #mainlogo {
+	width:150px;
+	height:150px;  
 	}
 	
-	img { display: block; margin: 0px auto; }
+.joinform{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.info{
+	float:left;
+	width:300px;
+	
+}
+img .ckicon{
+	float:left;
+	width:5px;
+	height:5px;
+}
+input{
+	width:100%;
+}
+.btns{
+
+}
+.btnJoin {
+    background-color: #0c3461; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    width:100%;
+}
+.btnReset{
+	 background-color: #0c3461; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4px;
+    border-radius: 4px;
+    width:100%;
+    cursor: pointer;
+}
+.btnck{
+	background-color: #0c3461; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+/* input{ */
+/* 	border-radius: 3px; */
+/* } */

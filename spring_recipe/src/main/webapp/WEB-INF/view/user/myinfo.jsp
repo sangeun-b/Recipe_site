@@ -12,7 +12,6 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/myinfo.css" rel="stylesheet" />
 <link href="../resources/css/styles.css" rel="stylesheet" />
-<!-- 형규님 추가-->
 
 <script>
 const ckEdit =()=>{
@@ -22,6 +21,15 @@ const ckEdit =()=>{
 		return false;
 	}
 }
+
+const ckDel=()=>{
+	if(confirm("탈퇴하시겠습니까?")==true){
+		location.href="/user/out";
+	}else{
+		return false;
+	}	
+}
+
 </script>
 </head>
 <body>
@@ -65,6 +73,7 @@ const ckEdit =()=>{
 			value="나의 레시피 보기" style="border: none; background: transparent;"></a>
 		<br>
 	</div>
+
 	
 
 </body>

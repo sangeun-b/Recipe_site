@@ -18,7 +18,7 @@
 		<div id="search" class="search">
 			<div id="search_text" class="search_text">
 				<input type="text" name="word" class="inputsearch"
-					placeholder="음식 이름을 입력하시오" style="width: 300px;">
+					placeholder="음식 이름을 입력하세요" style="width: 300px;">
 			</div>
 			<div id="search_button" class="search_button">
 				<input type="image"
