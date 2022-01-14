@@ -124,9 +124,11 @@ const delCom =(bnum,cnum)=>{
 				<c:if test="${sessionScope.loginid == b.writer.id }">
 					<tr>
 					<th>변경</th>
+
 					<td>
 					<c:if test="${b.writer.id==sessionScope.loginid}">
 							<a href="/board/modify/${b.num }"><input type="button" value="수정"></a>
+
 							<input type="button" value="삭제" onclick="del()">
 						</c:if>
 						</td>
@@ -158,8 +160,10 @@ const delCom =(bnum,cnum)=>{
 										</c:choose>
 										<input type="text" id="writer" value="${c.writer.id }" readonly>
 										<c:if test="${c.writer.id==sessionScope.loginid}">
+
 										<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
 											
+
 										</c:if>
 									</div>
 								</c:forEach>
