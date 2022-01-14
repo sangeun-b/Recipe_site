@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jpa.demo.user.User;
+
+
 @Service
 public class BoardService {
 	@Autowired
@@ -32,12 +34,6 @@ public class BoardService {
 	public ArrayList<Board> getByCate(String cate){//cate별 검색
 		return dao.findByCate(cate);
 	}
-	
-//	public ArrayList<Board> findAllOrderByDateDesc(){
-//		return dao.findAllOrderByDateDesc();
-//	}
-//	
-	
 
 	
 	public void delBoard(int num) {//삭제

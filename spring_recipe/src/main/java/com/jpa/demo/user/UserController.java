@@ -31,6 +31,7 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
+	
 	@ResponseBody 
 	@RequestMapping("idcheck")
 	public Map idCheck(String id) {

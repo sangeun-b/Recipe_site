@@ -21,7 +21,7 @@ const add_textbox =()=>{
 	const newP = document.createElement('p');
 	newP.innerHTML ="<textarea rows='10' cols='45' name='content' id='content'></textarea><input type='file' name='file' multiple><input type='button' value='삭제' onclick='remove(this)'>";
 	box.appendChild(newP);
-
+	
 }
 const remove =(obj)=>{
 	document.getElementById('box').removeChild(obj.parentNode);
@@ -56,8 +56,8 @@ const remove =(obj)=>{
 						<input type="radio" id="cate5" name="cate" value="기타">기타
 				</div>
 				<div class="img-write">
-					<span>대표이미지</span>
-					<input type="file" name=file multiple>
+					<span>대표이미지 : 마지막으로 등록된 사진이 보입니다</span>
+
 				</div>
 				
 				<div class="ingredient-write">
@@ -74,6 +74,10 @@ const remove =(obj)=>{
 				</div>
 				<div id="box">
 					<input type="button" value="add" onclick="add_textbox()">
+				</div>
+				<div class="img-write">
+					<span>대표 이미지를 등록해주세요</span>
+					<input type="file" name=file multiple>
 				</div>
 				<div class="submit-write">
 					<input type="submit" value="작성">

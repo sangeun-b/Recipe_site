@@ -25,11 +25,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Board {
-//Board – num(int, pk), title(var, not null), 
-//	content(var, not null), 작성자id(user_id, fk), 
-//	date(date), difficulty(1~5), 
-//	cate(1-한식 2-양식 3-일식 4-중식 5-기타)  
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int num;
@@ -57,7 +52,4 @@ public class Board {
 	@Transient   //테이블 컬럼으로 만들지마라. 폼에서 값을 받아오는 용도로 사용. 
 	private ArrayList<MultipartFile> file;
 	
-	// vo - 에 arraylist로 생성 dom
-	
-	// 찜, 테이블 아이디 번호 출력
 }

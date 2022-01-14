@@ -12,39 +12,30 @@
 	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
+<link href="../resources/css/like.css" rel="stylesheet" />
 <script type="text/javascript">
-//만약 flag가 true면 fill heart, flag가 false면 빈 heart
-//하트 클릭해서 DB에 저장되면 빈 하트 -> 채워진 하트
-
 // document.addEventListener('DOMContentLoaded', function() {
- 	
-	
 // }, false);
-
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2_'+num);
-	alert(num);
 	if(imgHeart.src.match("heart_fill")){
 		imgHeart.src = "../resources/assets/recipe_icons/heart.png";
 		location.href="/heart/likeheartlist/"+num;
 	}else{
 		imgHeart.src = "../resources/assets/recipe_icons/heart_fill.png";
 		location.href="/heart/likeheartlist/"+num;
-// 		xhttp.open("GET", "/heart/likeheart");
-// 		xhttp.send();
 	}
-
 }
 
 </script>
 </head>
 <body>
 <c:if test="${empty list }">
-You don't have any like!
+찜하신 게시물이 없습니다. 레시피의 하트를 눌러 찜해보세요!
 </c:if>
 <c:if test="${not empty list }">
 <c:forEach var="h" items="${list }">
-		<div style="border: 1px solid; float: left; width: 33%;">
+		<div id="likelist">
 			<a href="/board/detail/${h.board.num}">
 			<img src="/board/readimg/${h.board.img_path}/${h.board.num}" width="100" height="100"></a><br />
 			<a href="/board/detail/${h.board.num }">${h.board.title }</a>
@@ -52,13 +43,9 @@ You don't have any like!
 			<input type="hidden" id="boardNum" name = "boardNum" value="${h.board.num}">
 			<input type="hidden" id="userId" name = "userId" value="${h.user.id}">
 		</div>
-</c:forEach>
-	</c:if>
 
-	
-	
-<%-- <!-- 회원으로 로그인 중일 때만 찜 기능 가능.  --> --%>
-	
+</c:forEach>
+	</c:if>	
 </body>
 <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
