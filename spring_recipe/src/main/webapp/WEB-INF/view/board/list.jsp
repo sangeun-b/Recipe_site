@@ -43,13 +43,7 @@
 		</select>
 	</div>
 
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 	function mysort(str){ -->
-	<!-- // 		if(str="날짜순"){ -->
-	<!-- // 			location.href="/board/list_date"; -->
-	<!-- // 		} -->
-	<!-- // 	} -->
-	<!-- 	</script> -->
+	
 	<div class="listout">
 	<c:forEach var="b" items="${list }">
 		<div class="listin">
@@ -57,7 +51,7 @@
 				src="/board/readimg/${b.img_path }/${b.num}" class="listimg"
 				name="listimg" width="200" height="160"></a><br /> <a
 				href="/board/detail/${b.num }">${b.title }</a><br /> 난이도
-			${b.difficulty }<br />
+			<span>${b.difficulty }<br /></span>
 		</div>
 	</c:forEach>
 	</div>

@@ -7,13 +7,14 @@
 	width: 465px;
 	height: 100px;
 	background: white;
+	
 }
 
 .search .search_text {
 	position: absolute;
 	left: 31%;
 	top: 31%;
-}
+}	
 
 .search .search_text .inputsearch {
 	border-style: none;
@@ -39,21 +40,22 @@
 }
 
 .listout {
-	width: 300px;
+	width: 675px;
+
+}
+.listin {
+	width: 225px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.listin{
-	width: 300px;
-}
 .listout .listimg {
-	width: 200px;
-	height: 125px;
+	width: 250px;
+	height: 170px;
 	text-align: center;
 	display: block;
 	text-decoration: none;
-	float: left;
+	float: left;	
 }
 
 /* .listout .listimg { */
