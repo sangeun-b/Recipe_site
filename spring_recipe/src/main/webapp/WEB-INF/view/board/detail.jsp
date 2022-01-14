@@ -19,10 +19,12 @@ window.onload = function(){
 	}
 	
 }
+
 const com = (num, writer) =>{
 const content = document.getElementById("com_"+num).value;
 console.log(content);
 location.href="/com/write/${b.num}/"+content;
+
 }
 const del = (num) => {
 	let flag = confirm("레시피를 삭제하시겠습니까?");
@@ -30,6 +32,7 @@ const del = (num) => {
 	location.href = "/board/del/${b.num }";
 }	
 }
+
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2');
 	if(imgHeart.src.match("heart_fill")){
@@ -40,12 +43,14 @@ const heartcheck =(num)=>{
  		location.href="/heart/likeheart/${b.num}";
 	}
 }
+
 const delCom =(bnum,cnum)=>{
 	let flag = confirm("댓글을 삭제하시겠습니까?");
 	if(flag){
 	location.href="/com/del/"+bnum+"/"+cnum;
 	}
 }
+
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />
@@ -95,7 +100,7 @@ const delCom =(bnum,cnum)=>{
 		<table border="1" class="ingredient_con">
 			<tr>
 				<th>재료</th>
-				<td><textarea rows="10" cols="45" name="ingredient">${b.ingredient }</textarea>
+				<td><textarea rows="10" cols="45" name="ingredient" readonly>${b.ingredient } </textarea>
 
 				</td>
 			</tr>
@@ -111,7 +116,7 @@ const delCom =(bnum,cnum)=>{
 			<tr>
 				<th>레시피</th>
 				<td>
-					<textarea rows="10" cols="45" name="content">${r }</textarea>
+					<textarea rows="10" cols="45" name="content" readonly >${r }</textarea>
 				</td>
 			</tr>
 	</c:forEach>
@@ -145,8 +150,7 @@ const delCom =(bnum,cnum)=>{
 									<div id="com_${c.num }">
 										<c:choose>
 											<c:when test="${c.writer.id==sessionScope.loginid}">
-
-												<input type="text" id="comment_${c.board.num }" value="${c.content }">
+												<input type="text" id="comment_${c.board.num }" value="${c.content }" readonly>
 											</c:when>
 											<c:otherwise>
 												<input type="text" id="comment_${c.board.num }" value="${c.content }"
