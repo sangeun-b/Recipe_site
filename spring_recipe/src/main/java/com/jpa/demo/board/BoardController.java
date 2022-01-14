@@ -3,8 +3,12 @@ package com.jpa.demo.board;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -57,26 +61,15 @@ public class BoardController {
 			Board b = service.getByNum(r);
 			System.out.println(b);
 			map.put("b", b);
-			System.out.println("넘어가는 부분");
 			return "home";
 		}
 		
-	
 	@GetMapping("/write")
 	public void writeForm() {
 	}
 
-//	@PostMapping("/write")
-//	public String write(Board b) {
-//		service.saveBoard(b);
-//		return "redirect:/board/list";
-//	}
-
-	@PostMapping("/write")
-	public String write(Board b) {
-
+	public void saveImg(Board b) {
 		String path = "C:\\img\\";
-
 		Board b2 = service.saveBoard(b);
 		// 1. 게시글 숫자에 맞게 폴더 생성
 		path += b.getNum();
@@ -94,6 +87,7 @@ public class BoardController {
 		// 2. 어레이 리스트 폴더에 이미지 추가
 
 		ArrayList<MultipartFile> list = b.getFile();// 업로드된 파일을 변수 file에 저장
+
 		// for (MultipartFile file : list) {
 		for (int i = 0; i < list.size(); i++) {
 			// 3. 각 이미지별 이름 다르게 저장
@@ -114,6 +108,10 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
+	}
+	@PostMapping("/write")
+	public String write(Board b) {
+		saveImg(b);		
 		return "redirect:/board/list_cate";
 	}
 
@@ -132,39 +130,77 @@ public class BoardController {
 		}
 		return result;
 	}
-
+	
+	public void delFile(Board b) {
+		String path_img = path+b.getNum();
+		File dir = new File(path_img);
+		File files[] = dir.listFiles();
+		if(dir.exists()) {
+			try {
+				File[] fileList = dir.listFiles();
+				for(int j=0; j<fileList.length; j++) {
+					fileList[j].delete();
+					System.out.println("파일 삭제 완료");
+				}
+			}catch(Exception e) {
+				e.getStackTrace();
+				}
+		}
+	}
+	public void delFolder(Board b) {
+		String path_img = path+b.getNum();
+		File dir = new File(path_img);
+		File files[] = dir.listFiles();
+		if(dir.exists()) {
+			try {
+				File[] fileList = dir.listFiles();
+				if(fileList.length==0 && dir.isDirectory()) {
+					dir.delete();
+					System.out.println("폴더 삭제 완료");
+				}
+			}catch(Exception e) {
+				e.getStackTrace();
+				}
+		}
+	}
 	@GetMapping("/del/{num}")
 	public String del(@PathVariable("num") int num) {
+		Board b = service.getByNum(num);
+		delFile(b);
+		delFolder(b);
 		service.delBoard(num);
 		return "redirect:/board/list";
 	}
-
-	@GetMapping("/detail/{num}")
-	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
-		String id = (String) session.getAttribute("loginid");
-
-
-		Board b = service.getByNum(num);
-
+	
+	public ArrayList splitContent(Board b) {
 		String str = b.getContent();
 		String[] strarr = str.split(",");
 		ArrayList<String> strList = new ArrayList<>();
 		for(int i = 0; i<strarr.length; i++) {
 			strList.add(strarr[i]);
 		}
+		return strList;
+		
+	}
+	public ArrayList getImgFile(Board b) {
 		String path_img = path+b.getNum();
 		File dir = new File(path_img);
-//		MultipartFile files[] = dir.();
 		File files[] = dir.listFiles();
 		ArrayList<String> fileList = new ArrayList<String>();
 		
-		for(int i = 1; i <files.length; i++) {
-//			File file = files[i];
+		for(int i = 0; i <files.length; i++) {
 			String orifname = files[i].getName();
-//			String oriPath = path_img+"\\"+orifname;
-//			fileList.add(oriPath);	
 			fileList.add(orifname);	
 		}
+		return fileList;
+	}
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable("num") int num, Map map, HttpSession session) {
+		String id = (String) session.getAttribute("loginid");
+
+		Board b = service.getByNum(num);
+		ArrayList strList = splitContent(b);
+		ArrayList fileList = getImgFile(b);
 		System.out.println(fileList);
 		System.out.println(strList);
 		
@@ -191,26 +227,6 @@ public class BoardController {
 		map.put("b", b);
 		return "board/detail";
 	}
-	
-//	public String Contsplit(@PathVariable("num") int num, Map map) {
-//		Board b = service.getByNum(num);
-//		String str = b.getContent();
-//		String[] strarr = str.split(",");
-//		ArrayList<String> strList = new ArrayList<>();
-//		for(int i = 0; i<strarr.length; i++) {
-//			strList.add(strarr[i]);
-//		}
-//		map.put("strList", strList);
-//		return "board/detail";
-//	}
-//	
-
-
-	@PostMapping("/edit")
-	public String edit(Board b) {
-		service.saveBoard(b);
-		return "redirect:/board/list";
-	}
 
 	@PostMapping("/getbytitle")
 	public String getByTitle(String word, Map map) {
@@ -232,13 +248,6 @@ public class BoardController {
 
 	}
 
-//	@GetMapping("/list_date")
-//	public String list_date(Map map) {
-//		ArrayList<Board> list = service.findAllOrderByDateDesc();
-//		map.put("list", list);
-//		return "board/list";
-//	}
-
 	@GetMapping("/write/{num}")
 	public String write(@PathVariable("num") int num, Map map) {
 		Board b = service.getByNum(num);
@@ -246,12 +255,6 @@ public class BoardController {
 		return "board/write";
 	}
 
-//	@PostMapping("/getbycate")
-//	public String getByCate(String word, Map map) {
-//		ArrayList<Board> list = service.getByCate(word);
-//		map.put("list", list);
-//		return "board/list";
-//	}
 	@GetMapping("/getbycate/{cate}")
 	public String getByCate(@PathVariable("cate") String cate, Map map) {
 		ArrayList<Board> list = service.getByCate(cate);
@@ -259,4 +262,26 @@ public class BoardController {
 		return "board/list";
 	}
 
+	@PostMapping("/modify")
+	public String update(Board b) {
+		String path = "C:\\img\\";
+		Date now = new Date();
+		b.setDate(now);
+		System.out.println(now);
+		delFile(b);
+		saveImg(b);
+		return "redirect:/board/detail/"+b.getNum();
+	}
+	@GetMapping("/modify/{num}")
+	public String updateForm(@PathVariable("num") int num, Map map) {
+		Board b=service.getByNum(num);
+		ArrayList strList = splitContent(b);
+		ArrayList fileList = getImgFile(b);
+		System.out.println(strList);
+		System.out.println(fileList);
+		map.put("b",b);
+		map.put("strList", strList);
+		map.put("contentimg", fileList);
+		return "board/modify";
+	}
 }

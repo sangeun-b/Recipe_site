@@ -15,6 +15,4 @@ public interface BoardDao extends JpaRepository<Board, Integer> {
 	
 	ArrayList<Board> findByCate(String cate);
 
-	//정렬
-//	ArrayList<Board> findAllOrderByDateDesc();
 }
