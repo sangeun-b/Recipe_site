@@ -13,9 +13,9 @@
 window.onload = function(){
 	if(${flag}==true){
 		var imgHeart2 = document.getElementById('img2');
-			imgHeart2.src = "../../resources/assets/recipe_icons/heart_fill.png";
+			imgHeart2.src = "../../resources/assets/recipe_icons/after-zzim.svg";
 	}else{
-		imgHeart2.src = "../../resources/assets/recipe_icons/heart.png";
+		imgHeart2.src = "../../resources/assets/recipe_icons/before-zzim.svg";
 	}
 	
 }
@@ -35,11 +35,11 @@ const del = (num) => {
 
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2');
-	if(imgHeart.src.match("heart_fill")){
-		imgHeart.src = "../../resources/assets/recipe_icons/heart.png";
+	if(imgHeart.src.match("after-zzim.svg")){
+		imgHeart.src = "../../resources/assets/recipe_icons/before-zzim.svg";
  		location.href="/heart/likeheart/${b.num}";
 	}else{
-		imgHeart.src = "../../resources/assets/recipe_icons/heart_fill.png";
+		imgHeart.src = "../../resources/assets/recipe_icons/after-zzim.svg";
  		location.href="/heart/likeheart/${b.num}";
 	}
 }
@@ -56,127 +56,128 @@ const delCom =(bnum,cnum)=>{
 	href="../../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../../resources/css/styles.css" rel="stylesheet" />
+<link href="../../resources/css/detail.css" rel="stylesheet" />
+
 </head>
 <body>
-	<h3>레시피 상세 페이지</h3>
+<span class="space">
 	<input type="hidden" name="num" id="num" value="${b.num }">
-	<c:if test="${not empty sessionScope.loginid}">
+	<c:if test="${not empty sessionScope.loginid != null}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
-			src="../../resources/assets/recipe_icons/heart.png"
-			style="width: 20px; height: 20px;">
+			src="../../resources/assets/recipe_icons/before-zzim.svg">
 		<br />
 	</c:if>
 
 
 	<form action="/board/edit" method="post">
-		<table border="1" class="Top">
-			<tr>
-				<th>이미지</th>
-				<td><img src="/board/readimg/${b.img_path}/${b.num}"
-					width="200" height="200"></td>
-			</tr>
-			<tr>
-				<!--요리제목 -->
-				<td><h3>${b.title }</h3></td>
-			</tr>
-			<tr>
-				<th>카테고리</th>
-				<td>${b.cate }</td>
-			</tr>
-			<tr>
-				<th>난이도</th>
-				<td>${b.difficulty }</td>
-			</tr>
-			<tr>
-				<th>작성자</th>
-				<td>${b.writer.id }</td>
-			</tr>
-			<tr>
-				<th>업로드 날짜</th>
-				<td>${sdate }</td>
-			</tr>
+		<img class="main-image" src="/board/readimg/${b.img_path}/${b.num}">
 
-		</table>
-		<table border="1" class="ingredient_con">
-			<tr>
-				<th>재료</th>
-				<td><textarea rows="10" cols="45" name="ingredient" readonly>${b.ingredient } </textarea>
+		<span class="title">${b.title }</span>
 
-				</td>
-			</tr>
-		</table>
-    
-	<c:forEach var="r" items="${strList }" varStatus="status">
-		<table border="1" class="content_img">
-			<tr>
-				<td>
-						<img src="/board/readimg/${contentimg[status.index] }/${b.num}"width="200" height="200">
-				</td>
-			</tr>
-			<tr>
-				<th>레시피</th>
-				<td>
-					<textarea rows="10" cols="45" name="content" readonly >${r }</textarea>
-				</td>
-			</tr>
-	</c:forEach>
+		<span class="menuframe">
+			<span class="cate">카테고리</span>
+			<span class="diff">난이도</span>
+			<span class="writer">작성자</span>
+			<span class="date">작성일</span>
+		</span>
+		
+		<span class="contextframe">
+			<span class="cate1">${b.cate }</span>
+			<span class="diff1">${b.difficulty }</span>
+			<span class="writer1">${b.writer.id }</span>
+			<span class="date1">${b.date }</span>
+		</span>
 
+
+			
+		<span class="ingredientmenu">재료</span>
+		<textarea rows="10" cols="45" name="content" class="ingredientcontent" >${b.ingredient }</textarea>
+
+	<span class="recipeframes">	
+				<c:forEach var="r" items="${strList }" varStatus="status">
+				
+				<textarea class="recipetext"rows="10" cols="45" name="content">${r }</textarea>
+				</c:forEach>
+				
+				
+		</span>
+
+		<span class="recipeimagesframes">
+				<c:forEach var="r" items="${strList }" varStatus="status">
+						
+							<img class="recipeimages"
+							src="/board/readimg/${contentimg[status.index] }/${b.num}">
+		
+				</c:forEach>
+				<!-- 댓글부분 -->
+				<input class="comment" type="text" id="com_${b.num }">
+				<input class="comment-button" type="button" value="댓글작성" 
+					        onclick="com(${b.num }, '${b.writer.id }')">
+				
+				
+					
+				<c:if test="${not empty c }">
+						<div class=comment-menu></div>
+						<c:forEach var="c" items="${c }">
+								<%-- <div id="com_${c.num }"> --%>
+									<input class="comment-writer" type="text" id="writer" value="${c.writer.id }" readonly>
+									<c:if test="${c.writer.id==sessionScope.loginid}">
+
+										<input class="del-comment-button"type="button" id="coms_${b.num }_btn" value="삭제"
+											onclick="delCom(${b.num},${c.num })">
+									</c:if>
+								
+									<c:choose>
+										<c:when test="${c.writer.id==sessionScope.loginid}">
+
+											<input class="comment-content" type="text" id="comment_${c.board.num }"
+												value="${c.content }">
+										</c:when>
+										<c:otherwise>
+											<input class="comment-content" type="text" id="comment_${c.board.num }"
+												value="${c.content }" readonly>
+										</c:otherwise>
+									</c:choose>
+									
+								<!-- </div> -->
+						</c:forEach>
+					</c:if>
+					<!-- 댓글부분 -->
+		</span>
+				
+	
+				
+				
+				
+				<%-- <c:if test="${sessionScope.loginid == b.writer.id }">
+					<tr>
+						<td><c:if test="${b.writer.id==sessionScope.loginid}">
+								<a href="/board/modify/${b.num }"><input class="edit-btn" type="button"
+									value="수정"></a>
+								
+								<input class="del-btn"type="button" value="삭제" onclick="del()">
+							</c:if></td>
+					</tr>
+				</c:if> --%>
+				
 				<c:if test="${sessionScope.loginid == b.writer.id }">
 					<tr>
-					<th>변경</th>
-
-					<td>
-					<c:if test="${b.writer.id==sessionScope.loginid}">
-							<a href="/board/modify/${b.num }"><input type="button" value="수정"></a>
-
-							<input type="button" value="삭제" onclick="del()">
-						</c:if>
-						</td>
-				</tr>
+						<td><c:if test="${b.writer.id==sessionScope.loginid}">
+								<a href="/board/modify/${b.num }"><input class="edit-btn2" type="button"
+									value="수정"></a>
+								
+								<input class="del-btn2" type="button" value="삭제" onclick="del()">
+							</c:if></td>
+					</tr>
 				</c:if>
-
-				<tr>
-					<th>댓글</th>
-					<td><input type="text" id="com_${b.num }"> 
-            <input type="button" value="작성완료" onclick="com(${b.num }, '${b.writer.id }')"><br /> </td>
-				</tr>
-
-			<tr>
-							<c:if test="${not empty c }">
-							<th>댓글목록</th>
-					<td>
-
-								<c:forEach var="c" items="${c }">
-									<div id="com_${c.num }">
-										<c:choose>
-											<c:when test="${c.writer.id==sessionScope.loginid}">
-												<input type="text" id="comment_${c.board.num }" value="${c.content }" readonly>
-											</c:when>
-											<c:otherwise>
-												<input type="text" id="comment_${c.board.num }" value="${c.content }"
-													readonly>
-											</c:otherwise>
-										</c:choose>
-										<input type="text" id="writer" value="${c.writer.id }" readonly>
-										<c:if test="${c.writer.id==sessionScope.loginid}">
-
-										<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
-											
-
-										</c:if>
-									</div>
-								</c:forEach>
-							</td>
-						</c:if>
-				</tr>
-		</table>
-
+				
 	</form>
 	<!-- 			<img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" alt="dimg" /> -->
 	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
+</span>
 </body>
 
 </html>
