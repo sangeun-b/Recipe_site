@@ -170,7 +170,7 @@ const delCom =(bnum,cnum)=>{
 							</c:if></td>
 					</tr>
 				</c:if>
-				
+				<!-- 수정완료 -->
 	</form>
 	<!-- 			<img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" alt="dimg" /> -->
 	<!-- Bootstrap core JS -->
