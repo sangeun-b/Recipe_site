@@ -56,7 +56,7 @@ const remove =(obj)=>{
 						<input type="radio" id="cate5" name="cate" value="기타">기타
 				</div>
 				<div class="img-write">
-					<span>대표이미지 : 마지막으로 등록된 사진이 보입니다</span>
+					<span>대표이미지</span>
 
 				</div>
 				

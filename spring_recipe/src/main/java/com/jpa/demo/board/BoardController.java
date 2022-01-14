@@ -38,8 +38,9 @@ import com.jpa.demo.user.UserService;
 public class BoardController {
 	@Autowired
 	private BoardService service;
+	
 	private String path = "C:\\img\\";
-	private UserService usservice;
+	
 	@Autowired
 	private CommentService cservice;
 
