@@ -24,7 +24,7 @@
 <label class="control-label" for="PWDInput">비밀번호 입력</label>
 <input class="form-control" id="PWDInput" type="password" name="pwd" required><br/>
 <input type="submit" class="btn btn-primary" value="Login">
-<a href="/user/join"><input type="button" name="btnJoin" class="btn btn-default" value="회원가입"></a>
+<a href="/user/join"><input type="button" name="btnJoin" class="btn-default" value="회원가입"></a>
 </div>
 </form>
 

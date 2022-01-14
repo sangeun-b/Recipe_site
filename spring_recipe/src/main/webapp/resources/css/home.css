@@ -57,7 +57,7 @@
 	width: 603px;
 	height: 684px;
 	left: calc(50% - 603px/ 2 + 0.5px);
-	top: calc(50% - 684px/ 2 - 10px);
+	top: calc(50% - 584px/ 2 - 10px);
 }
 
 img.recommending {
@@ -91,6 +91,7 @@ img.recommending {
 	align-self: stretch;
 	flex-grow: 1;
 	margin: 10px 0px;
+	font-family: KoreanTITGD3R;
 }
 
 .recipename {
@@ -111,5 +112,6 @@ img.recommending {
 	order: 0;
 	align-self: stretch;
 	flex-grow: 1;
-	margin: 10px 0px;
+	margin: -10px 0px;
+	text-decoration-line: none;
 }
