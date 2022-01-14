@@ -15,14 +15,14 @@
 <link href="../resources/css/like.css" rel="stylesheet" />
 <script type="text/javascript">
 // document.addEventListener('DOMContentLoaded', function() {
-// }, false);
+// }, false);before-zzim.svg after-zzim.svg
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2_'+num);
-	if(imgHeart.src.match("heart_fill")){
-		imgHeart.src = "../resources/assets/recipe_icons/heart.png";
+	if(imgHeart.src.match("after-zzim.svg")){
+		imgHeart.src = "../resources/assets/recipe_icons/before-zzim.svg";
 		location.href="/heart/likeheartlist/"+num;
 	}else{
-		imgHeart.src = "../resources/assets/recipe_icons/heart_fill.png";
+		imgHeart.src = "../resources/assets/recipe_icons/after-zzim.svg";
 		location.href="/heart/likeheartlist/"+num;
 	}
 }

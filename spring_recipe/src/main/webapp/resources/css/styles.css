@@ -151,7 +151,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-  font-size: 0.8rem;
+  font-size: 1.5rem;
 }
 
 p {
@@ -239,6 +239,7 @@ sup {
 a {
   color: #0d6efd;
   text-decoration: underline;
+  text-decoration-line: none;
 }
 a:hover {
   color: #0a58ca;

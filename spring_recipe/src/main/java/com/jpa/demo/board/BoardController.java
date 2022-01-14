@@ -283,6 +283,7 @@ public class BoardController {
 		saveImg(b);
 		return "redirect:/board/detail/"+b.getNum();
 	}
+
 	@GetMapping("/modify/{num}")
 	public String updateForm(@PathVariable("num") int num, Map map) {
 		Board b=service.getByNum(num);
@@ -295,5 +296,5 @@ public class BoardController {
 		map.put("contentimg", fileList);
 		return "board/modify";
 	}
-	
+
 }
