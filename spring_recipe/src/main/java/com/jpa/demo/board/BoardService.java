@@ -2,6 +2,7 @@ package com.jpa.demo.board;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.jpa.demo.user.User;
@@ -41,4 +42,5 @@ public class BoardService {
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
 	}
+	
 }

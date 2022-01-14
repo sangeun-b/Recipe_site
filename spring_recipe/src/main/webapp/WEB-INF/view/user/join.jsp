@@ -75,6 +75,7 @@ const check=()=>{
 	
 	<div class="join-form">
 <form action="/user/join" method="post">
+
 아이디 입력</br><input type="text" name="id" id="id" class="join-form"><input type="button" value="중복확인" onclick="check()">
 <div id="res"><br/>
 비밀번호 입력<br/><input type="password" name="pwd" id="pwd"class="join-form"><br/><br/>
