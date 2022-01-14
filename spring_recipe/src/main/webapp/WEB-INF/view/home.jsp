@@ -30,7 +30,7 @@
 
 	<section class="Frame-4">
 		<div class="Frame-2">
-			<span class="title">오늘의 추천 레시피</span>
+			<span class="title">추천 레시피</span>
 		</div>
 
 		<div class="Frame-1">
