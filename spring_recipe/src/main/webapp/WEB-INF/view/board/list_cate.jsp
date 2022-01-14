@@ -11,6 +11,7 @@
 	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
+<link href="../resources/css/list.css" rel="stylesheet" />
 </head>
 <body>
 	<form action="/board/getbytitle" method="post">
@@ -27,38 +28,38 @@
 		</div>
 	</form>
 	<a href="/board/write" id="boardwrite">글작성</a>
-	<div id="cate" class="cate">
+<!-- 	<div id="cate" class="cate"> -->
 		<div id="cate_ko" class="cate_ko">
 			<h5>한식</h5>
-			<a href="/board/getbycate/한식"><img
+			<a href="/board/getbycate/한식"><img id="imgs"
 				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
 				width="300" height="200" /></a>
 		</div>
 		<div id="cate_ch" class="cate_ch">
-			<h5>중식</h5>
-			<a href="/board/getbycate/중식"><img
-				src="https://ww.namu.la/s/d4c53737b61fec8cf0fa02206d85a5022fc5465593f2e0190648f7c5911acd836a5f7a1db0f19f0136ec1c178d782465a9455b31d178b79df5133fc6b493a41f6acde683b0a01c418bd30dfe56c67705"
-				width="300" height="200" /></a>
-		</div>
+            <h5>중식</h5>
+            <a href="/board/getbycate/중식"><img id="imgs"
+                src="https://ww.namu.la/s/d4c53737b61fec8cf0fa02206d85a5022fc5465593f2e0190648f7c5911acd836a5f7a1db0f19f0136ec1c178d782465a9455b31d178b79df5133fc6b493a41f6acde683b0a01c418bd30dfe56c67705"
+                width="300" height="200" /></a>
+        </div>
 		<div id="cate_ja" class="cate_ja">
 			<h5>일식</h5>
-			<a href="/board/getbycate/일식"><img
+			<a href="/board/getbycate/일식"><img id="imgs"
 				src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000370/img/basic/a0000370_main.jpg?20201002142956&q=80&rw=750&rh=536"
 				width="300" height="200" /></a>
 		</div>
 		<div id="cate_we" class="cate_we">
 			<h5>양식</h5>
-			<a href="/board/getbycate/양식"><img
+			<a href="/board/getbycate/양식"><img id="imgs"
 				src="https://images.chosun.com/resizer/wsSVlD2KlkIAXTYSWUZxQSceAUE=/960x504/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HS2MWHN32OMYMSDYNGYRIZCXNI.jpg"
 				width="300" height="200" /></a>
 		</div>
 		<div id="cate_no" class="cate_no">
 			<h5>기타</h5>
-			<a href="/board/getbycate/기타"> <img
+			<a href="/board/getbycate/기타"> <img id="imgs"
 				src="https://www.logoyogo.com/web/wp-content/uploads/edd/2021/02/logoyogo-1-291.jpg "
 				width="300" height="200" /></a>
 		</div>
-	</div>
+<!-- 	</div> -->
 <!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

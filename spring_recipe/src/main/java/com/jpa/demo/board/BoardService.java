@@ -33,12 +33,6 @@ public class BoardService {
 	public ArrayList<Board> getByCate(String cate){//cate별 검색
 		return dao.findByCate(cate);
 	}
-	
-//	public ArrayList<Board> findAllOrderByDateDesc(){
-//		return dao.findAllOrderByDateDesc();
-//	}
-//	
-	
 
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
