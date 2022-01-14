@@ -30,9 +30,12 @@
 		</div>
 	</form>
 
+<c:if test="${not empty sessionScope.loginid}">
 	<a href="/board/write" id="boardwrite"><img
 		src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaFZ0VIv31hUzlKKNFY8-1wn_scvovMPrrQ&usqp=CAU"
 		width="50" height="50" class="boardwriteimg"></a>
+		</c:if>
+
 	<div id="cate" class="cate">
 		<div id="cate_ko" class="cate_ko">
 			<h6 class="h6a">한식</h6>
@@ -73,4 +76,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
 </body>
+
 </html>
+

@@ -28,10 +28,11 @@
 			</div>
 		</div>
 	</form>
-
+<c:if test="${not empty sessionScope.loginid}">
 	<a href="/board/write" id="boardwrite"><img
 		src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaFZ0VIv31hUzlKKNFY8-1wn_scvovMPrrQ&usqp=CAU"
 		width="50" height="50" class="boardwriteimg"></a>
+</c:if>
 
 	<div class="listsort" id="show_locale_switch">
 		<select name="sort" id="sort" title="정렬" class="sort2">

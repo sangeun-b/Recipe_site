@@ -189,7 +189,7 @@ public class BoardController {
 		File files[] = dir.listFiles();
 		ArrayList<String> fileList = new ArrayList<String>();
 		
-		for(int i = 0; i <files.length; i++) {
+		for(int i = 0; i <files.length-1; i++) {
 			String orifname = files[i].getName();
 			fileList.add(orifname);	
 		}
