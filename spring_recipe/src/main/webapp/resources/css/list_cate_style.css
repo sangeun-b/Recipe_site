@@ -2,7 +2,7 @@
 
 .search {
 	position: absolute;
-	left: 28%;
+	left: 30%;
 	top: 17%;
 	width: 465px;
 	height: 100px;
@@ -32,7 +32,7 @@
 }
 
 .boardwriteimg {
-	position: absolute;
+	position: fixed;
 	left: 93%;
 	top: 90%;
 }
@@ -93,32 +93,31 @@
 }
 
 .cate_ko .h6a {
-	/* 	font-family: Merriweather, serif; */
 	height: 15px;
 	font-weight: 900;
+	font-size: 1rem;
 }
 
 .cate_ch .h6a {
-	/* 	font-family: Merriweather, serif; */
 	height: 15px;
 	font-weight: 900;
+	font-size: 1rem;
 }
 
 .cate_ja .h6a {
-	/* 	font-family: Merriweather, serif; */
 	height: 15px;
 	font-weight: 900;
+	font-size: 1rem;
 }
 
 .cate_we .h6a {
-	/* 	font-family: Merriweather, serif; */
 	height: 15px;
 	font-weight: 900;
+	font-size: 1rem;
 }
 
 .cate_no .h6a {
-	/* 	pC */
-	/* 	font-family: Merriweather, serif; */
 	height: 15px;
 	font-weight: 900;
+	font-size: 1rem;
 }

@@ -75,7 +75,6 @@ const check=()=>{
 	
 	<div class="join-form">
 <form action="/user/join" method="post">
-<<<<<<< HEAD
 아이디 입력</br><input type="text" name="id" id="id" class="join-form"><input type="button" value="중복확인" onclick="check()">
 <div id="res"><br/>
 비밀번호 입력<br/><input type="password" name="pwd" id="pwd"class="join-form"><br/><br/>
@@ -84,17 +83,6 @@ const check=()=>{
 <input type="submit"  class="btn btn-primary" value="회원가입" >
 <input type="reset" class="btn btn-primary" value="초기화" >
 	</div>
-=======
-ID: <input type="text" name="id" id="id">
-<input type="button" value="Check" onclick="check()"><br/>
-<!-- <div id="res"></div><br/> -->
-PASSWORD: <input type="password" name="pwd" id="pwd"><br/>
-RE-PASSWORD : <input type="password" name="pwd2" id="pwd2">
-<input type="button" value="비밀번호 확인" onclick="pwdCheck()"><br/>
-EMAIL: <input type="email" name="email"><br/>
-<input type="submit" value="Join" >
-<input type="reset" value="Reset" >
->>>>>>> branch 'main' of https://github.com/sangeun-b/Recipe_site.git
 </form>
 
  <!-- Bootstrap core JS-->

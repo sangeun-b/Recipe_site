@@ -2,19 +2,18 @@
 
 .search {
 	position: absolute;
-	left: 28%;
+	left: 30%;
 	top: 17%;
 	width: 465px;
 	height: 100px;
 	background: white;
-	
 }
 
 .search .search_text {
 	position: absolute;
 	left: 31%;
 	top: 31%;
-}	
+}
 
 .search .search_text .inputsearch {
 	border-style: none;
@@ -37,30 +36,56 @@
 	left: 93%;
 	top: 90%;
 	display: flex;
+	position: fixed;
+}
+
+.listsort {
+	position: absolute;
+	left: 78%;
+	top: 30%;
 }
 
 .listout {
-	width: 675px;
-
-}
-.listin {
-	width: 225px;
-	margin-left: auto;
-	margin-right: auto;
+	/* 	width: 675px; */
+	position: absolute;
+	left: 10%;
+	top: 35%;
 }
 
-.listout .listimg {
-	width: 250px;
-	height: 170px;
+.listout .listin {
+	width: 400px;
 	text-align: center;
-	display: block;
-	text-decoration: none;
-	float: left;	
+	float: left;
 }
 
-/* .listout .listimg { */
-/* 	width: 30px; */
-/* 	position: absolute; */
-/* 	left: 40%; */
-/* 	top: 30%; */
-/* } */
+.listout .listin .listimg {
+	border-radius: 15%;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+	width: 300px;
+	height: 240px;
+}
+
+.listout .listin .listtitle {
+	/* 	margin-top: 3000; */
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+	font-size: 20px;
+	color: black;
+}
+
+a {
+	text-decoration-line: none;
+}
+
+.listout .listin .difname {
+	font-weight: 600;
+}
+
+.listout .listin .difflist {
+	width: 100px;
+	color: red;
+	font-size: 20px;
+}

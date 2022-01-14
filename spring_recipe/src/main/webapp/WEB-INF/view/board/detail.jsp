@@ -19,26 +19,20 @@ window.onload = function(){
 	}
 	
 }
-
 const com = (num, writer) =>{
 const content = document.getElementById("com_"+num).value;
+console.log(content);
 location.href="/com/write/${b.num}/"+content;
-
 }
 const del = (num) => {
-	let flag = confirm("삭제하시겠습니까?");
+	let flag = confirm("레시피를 삭제하시겠습니까?");
 	if(flag){
-	//자바스크립트 페이지 이동
 	location.href = "/board/del/${b.num }";
 }	
 }
-
 const heartcheck =(num)=>{
 	var imgHeart = document.getElementById('img2');
 	if(imgHeart.src.match("heart_fill")){
-		console.log(num);
-		alert(num);
-		alert(${b.num})
 		imgHeart.src = "../../resources/assets/recipe_icons/heart.png";
  		location.href="/heart/likeheart/${b.num}";
 	}else{
@@ -47,31 +41,19 @@ const heartcheck =(num)=>{
 	}
 }
 const delCom =(bnum,cnum)=>{
+	let flag = confirm("댓글을 삭제하시겠습니까?");
+	if(flag){
 	location.href="/com/del/"+bnum+"/"+cnum;
+	}
 }
-const modify= (num) => {
-
-    let flag = confirm("수정하시겠습니까?");
-
-    if(flag){
-
-    location.href="/board/modify/${b.num}";    
-
-    }
-
-}  
 </script>
 <link rel="icon" type="image/x-icon"
 	href="../../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../../resources/css/styles.css" rel="stylesheet" />
-<link href="../../resources/css/detail.css" rel="stylesheet" />
 </head>
 <body>
-	<c:if test="${sessionScope.loginid != b.writer.id }">
-		<c:set var="mode">readonly</c:set>
-	</c:if>
-
+	<h3>레시피 상세 페이지</h3>
 	<input type="hidden" name="num" id="num" value="${b.num }">
 	<c:if test="${sessionScope.loginid != null}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
@@ -82,103 +64,109 @@ const modify= (num) => {
 
 
 	<form action="/board/edit" method="post">
+		<table border="1" class="Top">
+			<tr>
+				<th>이미지</th>
+				<td><img src="/board/readimg/${b.img_path}/${b.num}"
+					width="200" height="200"></td>
+			</tr>
+			<tr>
+				<!--요리제목 -->
+				<td><h3>${b.title }</h3></td>
+			</tr>
+			<tr>
+				<th>카테고리</th>
+				<td>${b.cate }</td>
+			</tr>
+			<tr>
+				<th>난이도</th>
+				<td>${b.difficulty }</td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td>${b.writer.id }</td>
+			</tr>
+			<tr>
+				<th>업로드 날짜</th>
+				<td>${b.date }</td>
+			</tr>
 
-        <div  class="imaframe">
-		<img class="main-image" src="/board/readimg/${b.img_path}/${b.num}"
-			srcset="/board/readimg/${b.img_path }/${b.num} 2x,
-             /board/readimg/${b.img_path }/${b.num} 3x">
-		</div>
-		<div class="title">${b.title }</div>
-		
-		
-		<div class="textarea">
-			<div class ="info">
-				<div class="cate">카테고리</div>
-				<div class="diff">난이도</div>
-				<div class="writer">작성자</div>
-				<div class="date">작성일</div>	
-			</div>
-			<div class="content">
-				<div class="cate1">${b.cate }</div>
-				<div class="diff1">${b.difficulty }</div>
-				<div class="writer1">${b.writer.id }</div>
-				<div class="date1">${b.date }</div>
-			</div>
-		</div>
-		
+		</table>
 		<table border="1" class="ingredient_con">
 			<tr>
 				<th>재료</th>
-				<td><textarea rows="10" cols="45" name="ingredient" ${mode }>${b.ingredient }</textarea>
+				<td><textarea rows="10" cols="45" name="ingredient">${b.ingredient }</textarea>
+
 				</td>
 			</tr>
 		</table>
+    
+	<c:forEach var="r" items="${strList }" varStatus="status">
+		<table border="1" class="content_img">
+			<tr>
+				<td>
+						<img src="/board/readimg/${contentimg[status.index] }/${b.num}"width="200" height="200">
+				</td>
+			</tr>
+			<tr>
+				<th>레시피</th>
+				<td>
+					<textarea rows="10" cols="45" name="content">${r }</textarea>
+				</td>
+			</tr>
+	</c:forEach>
 
-		<c:forEach var="r" items="${strList }" varStatus="status">
-			<table border="1" class="content_img">
-				<tr>
-					<td>
-						<%--<img src="${contentimg[status.index] }"> --%> <img
-						src="/board/readimg/${contentimg[status.index] }/${b.num}"
-						width="200" height="200"> <%-- 					<input type="image" src="${contentimg[status.index] }"> --%>
-					</td>
-				</tr>
-				<tr>
-					<th>레시피</th>
-					<td><textarea rows="10" cols="45" name="content" ${mode }>${r }</textarea>
-					</td>
-				</tr>
-				</c:forEach>
-
-
-				<%--<c:if test="${sessionScope.loginid == b.writer.id }"> --%>
-
-				<tr>
+				<c:if test="${sessionScope.loginid == b.writer.id }">
+					<tr>
 					<th>변경</th>
-					<td><c:if test="${b.writer.id==sessionScope.loginid}">
-							<input type="submit" value="수정" onclick="modify()">
+
+					<td>
+					<c:if test="${b.writer.id==sessionScope.loginid}">
+							<a href="/board/modify/${b.num }"><input type="button" value="수정"></a>
+
 							<input type="button" value="삭제" onclick="del()">
-						</c:if></td>
+						</c:if>
+						</td>
 				</tr>
+				</c:if>
+
 				<tr>
 					<th>댓글</th>
-					<td><input type="text" id="com_${b.num }"> <input
-						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br /> <input
-						type="submit" value="Done" name="content"></td>
+					<td><input type="text" id="com_${b.num }"> 
+            <input type="button" value="작성완료" onclick="com(${b.num }, '${b.writer.id }')"><br /> </td>
 				</tr>
 
-				<%-- 			</c:if> --%>
-				<tr>
-					<th>댓글목록</th>
-					<td><div id="coms_${b.num }">
-							<c:if test="${empty c }">
-							</c:if>
+			<tr>
 							<c:if test="${not empty c }">
+							<th>댓글목록</th>
+					<td>
+
 								<c:forEach var="c" items="${c }">
 									<div id="com_${c.num }">
 										<c:choose>
 											<c:when test="${c.writer.id==sessionScope.loginid}">
-												<input type="text" id="comment" value="${c.content }">
+
+												<input type="text" id="comment_${c.board.num }" value="${c.content }">
 											</c:when>
 											<c:otherwise>
-												<input type="text" id="comment" value="${c.content }"
+												<input type="text" id="comment_${c.board.num }" value="${c.content }"
 													readonly>
 											</c:otherwise>
 										</c:choose>
-										<input type="text" id="writer" value="${c.writer.id }"
-											readonly>
+										<input type="text" id="writer" value="${c.writer.id }" readonly>
 										<c:if test="${c.writer.id==sessionScope.loginid}">
-											<input type="button" id="coms_${b.num }_btn" value="삭제"
-												onclick="delCom(${b.num},${c.num })">
+
+										<input type="button" id="coms_${b.num }_btn" value="삭제" onclick="delCom(${b.num},${c.num })">
+											
 
 										</c:if>
 									</div>
 								</c:forEach>
-							</c:if>
-						</div></td>
+							</td>
+						</c:if>
 				</tr>
-			</table>
+		</table>
+
 	</form>
 	<!-- 			<img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" alt="dimg" /> -->
 	<!-- Bootstrap core JS -->
