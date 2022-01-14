@@ -30,9 +30,11 @@ const heartcheck =(num)=>{
 </script>
 </head>
 <body>
+<div class="nolist">
 <c:if test="${empty list }">
-찜하신 게시물이 없습니다. 레시피의 하트를 눌러 찜해보세요!
+찜한 게시물이 없습니다. 마음에 드는 레시피의 하트를 눌러 찜해보세요!
 </c:if>
+</div>
 <c:if test="${not empty list }">
 <c:forEach var="h" items="${list }">
 		<div id="likelist">
