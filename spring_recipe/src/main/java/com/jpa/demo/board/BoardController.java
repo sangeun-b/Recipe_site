@@ -54,14 +54,15 @@ public class BoardController {
 		map.put("list", list);
 	}
 
-		public String randomBoard(Map map) {
-			ArrayList<Board> list = service.getAll();
-			Collections.shuffle(list);
-			int r = list.get(0).getNum();			
-			Board b = service.getByNum(r);
-			System.out.println(b);
-			map.put("b", b);
-			return "home";
+		
+	@GetMapping("/ranboard")
+	public String randomBoard(Map map) {
+		ArrayList<Board> list = service.getAll();
+		Collections.shuffle(list);
+		int r = list.get(0).getNum();			
+		Board b = service.getByNum(r);
+		map.put("b", b);
+		return "home";
 		}
 		
 	@GetMapping("/write")
