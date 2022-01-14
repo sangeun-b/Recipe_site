@@ -1,6 +1,6 @@
+
 package com.jpa.demo.board;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.JpaRepository;
