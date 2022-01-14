@@ -35,19 +35,15 @@ img #mainlogo {
 .info{
 	float:left;
 	width:300px;
+	margin-left: 43%;
+    position: relative;
 	
 }
-img .ckicon{
-	float:left;
-	width:5px;
-	height:5px;
-}
+
 .inputinfo{
 	width:100%;
 }
-.btns{
 
-}
 .btnJoin {
     background-color: #0c3461; /* Green */
     border: none;

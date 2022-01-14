@@ -85,7 +85,7 @@ const delCom =(bnum,cnum)=>{
 			<span class="cate1">${b.cate }</span>
 			<span class="diff1">${b.difficulty }</span>
 			<span class="writer1">${b.writer.id }</span>
-			<span class="date1">${b.date }</span>
+			<span class="date1">${sdate }</span>
 		</span>
 
 

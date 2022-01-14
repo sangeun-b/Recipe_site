@@ -22,6 +22,15 @@ const ckEdit =()=>{
 		return false;
 	}
 }
+
+const ckDel=()=>{
+	if(confirm("탈퇴하시겠습니까?")==true){
+		location.href="/user/out";
+	}else{
+		return false;
+	}	
+}
+
 </script>
 </head>
 <body>
@@ -59,7 +68,7 @@ const ckEdit =()=>{
 		<br>
 	</div>
 	<div class=delete_account>
-		<a href="/user/out"><input type="button" value="회원탈퇴"
+		<input type="button" value="회원탈퇴" onclick="ckDel()"
 			style="border: none; background: transparent;"></a> <br>
 	</div>
 

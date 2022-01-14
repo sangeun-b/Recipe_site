@@ -33,12 +33,12 @@ public class Heart {
 	private int num;
 	
 	@OneToOne
-	@JoinColumn(name="board_num", nullable=false)
+	@JoinColumn(name="boardnum", nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private Board board;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id", nullable = false)
+	@JoinColumn(name="userid", nullable = false)
 	@OnDelete(action=OnDeleteAction.CASCADE) 
 	private User user;
 
