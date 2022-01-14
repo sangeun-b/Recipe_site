@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
@@ -72,22 +72,30 @@ const check=()=>{
         <link rel="icon" type="image/x-icon" href="../resources/assets/main-logo.svg" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
+        <link href="../resources/css/join.css" rel="stylesheet" />
 </head>
 <body>
+<img class="main-logo" 
+	src="../resources/assets/main-logo.svg"
+	alt="로딩오류"><br/>
+	
+	<div class="join-form">
 <form action="/user/join" method="post">
-ID: <input type="text" name="id" id="id">
-<input type="button" value="Check" onclick="check()">
-<div id="res"></div><br/>
-PASSWORD: <input type="password" name="pwd" id="pwd"><br/>
-RE-PASSWORD : <input type="password" name="pwd2" id="pwd2"><br/>
-<input type="button" value="비밀번호 확인" onclick="pwdCheck()">
-EMAIL: <input type="email" name="email"><br/>
-<input type="submit" value="Join" >
-<input type="reset" value="Reset" >
+아이디 입력</br><input type="text" name="id" id="id" class="join-form"><input type="button" value="중복확인" onclick="check()">
+<div id="res"><br/>
+비밀번호 입력<br/><input type="password" name="pwd" id="pwd"class="join-form"><br/><br/>
+비밀번호 재확인<br/><input type="password" name="pwd2" id="pwd2"class="join-form"><input type="button" value="비밀번호 확인" onclick="pwdCheck()"><br/><br/>
+이메일 입력<br/><input type="email" name="email"class="join-form"><br/></br>
+<input type="submit"  class="btn btn-primary" value="회원가입" >
+<input type="reset" class="btn btn-primary" value="초기화" >
+	</div>
 </form>
+
  <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="../resources/js/scripts.js"></script>
 </body>
-</html>
+</html> 
+
+

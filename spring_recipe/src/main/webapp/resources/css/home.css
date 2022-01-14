@@ -1,0 +1,115 @@
+@charset "EUC-KR";
+
+/* Frame 1 */
+
+/* Auto layout */
+.Rectangle-1 {
+	width: 583px;
+	height: 664px;
+	flex-grow: 0;
+	padding: 24px 32px 39px 31px;
+	border: solid 1px #000;
+}
+
+.Frame-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+	position: absolute;
+	width: 520px;
+	height: 432px;
+	left: calc(50% - 520px/ 2);
+	top: calc(50% - 432px/ 2 - 10px);
+}
+
+.Frame-3 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+	position: absolute;
+	width: 583px;
+	height: 69px;
+	left: calc(50% - 583px/ 2 + 0.5px);
+	top: calc(50% - 69px/ 2 + 263.5px);
+}
+
+.Frame-2 {
+	/* Auto layout */
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 10px;
+	position: absolute;
+	width: 583px;
+	height: 69px;
+	left: calc(50% - 583px/ 2 + 0.5px);
+	top: calc(50% - 69px/ 2 - 283.5px);
+}
+
+.Frame-4 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 10px;
+	position: absolute;
+	width: 603px;
+	height: 684px;
+	left: calc(50% - 603px/ 2 + 0.5px);
+	top: calc(50% - 684px/ 2 - 10px);
+}
+
+img.recommending {
+	width: 500px;
+	height: 412px;
+	flex-grow: 0;
+	object-fit: cover;
+	border-radius: 33px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
+}
+
+.title {
+	position: static;
+	width: 563px;
+	height: 49px;
+	left: calc(50% - 563px/ 2);
+	top: calc(50% - 49px/ 2);
+	font-family: KoreanTITGD3R;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+	color: #000000;
+	/* identical to box height */
+	text-align: center;
+	color: #000000;
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+	margin: 10px 0px;
+}
+
+.recipename {
+	position: static;
+	width: 563px;
+	height: 49px;
+	left: calc(50% - 563px/ 2);
+	top: calc(50% - 49px/ 2);
+	font-family: Noto Sans;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 41px;
+	text-align: center;
+	color: #000000;
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+	margin: 10px 0px;
+}

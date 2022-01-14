@@ -11,6 +11,7 @@
 	href="../resources/assets/main-logo.svg" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
+<link href="../../resources/css/list_cate.css" rel="stylesheet" />
 </head>
 <body>
 	<form action="/board/getbytitle" method="post">
@@ -28,11 +29,11 @@
 	</form>
 	<a href="/board/write" id="boardwrite">글작성</a>
 	<div id="cate" class="cate">
-		<div id="cate_ko" class="cate_ko">
+		<div  id="cate_ko" class="cate_ko">
 			<h5>한식</h5>
 			<a href="/board/getbycate/한식"><img
 				src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg"
-				width="300" height="200" /></a>
+				 /></a>
 		</div>
 		<div id="cate_ch" class="cate_ch">
 			<h5>중식</h5>
