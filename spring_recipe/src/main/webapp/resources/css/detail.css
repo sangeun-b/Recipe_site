@@ -5,7 +5,7 @@
 	position: absolute;
 	width: 310px;
 	height: 310px;
-	left: 16%;
+	left: 26%;
 	top: 18.4%;
 	box-sizing: border-box;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -17,7 +17,7 @@
 	width: 499px;
 	height: 48px;
 	position: absolute;
-	left: 48.1%;
+	left: 51.1%;
 	top: 18.4%;
 	font-family: NanumGothic;
 	font-size: 48px;
@@ -31,7 +31,7 @@
 .menuframe {
 	width: 249px;
 	height: 164px;
-	left: 48.1%;
+	left: 52.1%;
 	top: 28%;
 	display: flex;
 	flex-direction: column;
@@ -45,7 +45,7 @@
 .contextframe {
 	width: 249px;
 	height: 164px;
-	left: 61.4%;
+	left: 62.4%;
 	top: 28%;
 	display: flex;
 	flex-direction: column;
@@ -160,16 +160,16 @@
 	width: 104px;
 	height: 40px;
 	top: 47%;
-	left: 59%;
+	left: 61.5%;
 	position: absolute;
 }
 
 .ingredientmenu {
-	width: 92px;
-	height: 48px;
+	width: 700px;
+	height: 110px;
 	position: absolute;
-	left: 15.1%;
-	top: 55.4%;
+	left: 7%;
+	top: 54.4%;
 	font-family: NanumGothic;
 	font-size: 29px;
 	font-weight: bold;
@@ -178,23 +178,269 @@
 	color: #000;
 }
 
-.ingredientcontent {
-	position: absolute;
-	left: 16.1%;
-	top: 60.4%;
-	box-sizing: border-box;
-	border: solid 2px #1E90FF;
-	border-radius: 5px;
-	font-size: 16px;
-	width: 1058px;
+textarea.ingredientcontent {
+	position: relative;
+    margin-top: 25%;
+    left: 23%;
+    top: 68.4%;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-size: 15px;
+    width: 1034px;
+    outline-color: #0d3584;
+    border-width: 3px;
+    border-color: #0d3584;
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: center;
 }
-.recipeimages {
+
+.recipeimagesframes {
+	width: 551px;
+	height: auto;
+	left: 23%;
+	top: 28%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 0;
 	position: absolute;
-	left: 16.1%;
-	width: 310px;
+	top: 92%;
+}
+
+.recipeframes {
+	width: 103px;
+	height: auto;
+	left: 49.3%;
+	top: 28%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 0;
+	position: absolute;
+	top: 92%;
+}
+
+.recipeimages {
+	left: 13.1%;
+	top: 43%;
+	width: 543px;
 	height: 310px;
 	box-sizing: border-box;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	border-radius: 25px;
 	object-fit: cover;
+	margin-bottom: 50px;
+}
+
+.recipetext {
+	left: 46.1%;
+	top: 60.4%;
+	box-sizing: border-box;
+	border: solid 3px #0d3584;
+	border-radius: 21px;
+	font-size: 18px;
+	width: 536px;
+	height: 310px;
+	margin-bottom: 50px;
+	vertical-align: middle;
+	padding-right: 25px;
+	padding-bottom: 50px;
+	padding-top: 50px;
+	padding-left: 25px;
+	word-break: break-all;
+	text-align: center;
+}
+
+.edit-btn {
+	left: 64%;
+	top: 47%;
+	width: 66px;
+	height: 37px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+}
+
+.edit-btn2 {
+	left: 86%;
+	top: 88%;
+	width: 66px;
+	height: 66px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border: 1px;
+	border-radius: 100%;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+}
+
+.edit-btn:hover {
+	background-color: #2860ff;
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.edit-btn2:hover {
+	background-color: #2860ff;
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.del-btn {
+	left: 68%;
+	top: 47%;
+	width: 66px;
+	height: 37px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+}
+
+.del-btn2 {
+	left: 90%;
+	top: 88%;
+	width: 66px;
+	height: 66px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 100%;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+}
+
+.del-btn2:hover {
+	background-color: #ff2828;
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.del-btn:hover {
+	background-color: #ff2828;
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.comment {
+	box-sizing: border-box;
+	border: solid 3px #0d3584;
+	border-radius: 8px;
+	font-size: 18px;
+	width: 1038px;
+	height: 64px;
+	text-align: left;
+}
+
+input.comment-button {
+	width: 77px;
+	left: 200%;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #0d3584;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	cursor: pointer;
+	outline: none;
+	align-self: right;
+	margin-top: 10px;
+	margin-left: 959px;
+}
+
+input.comment-writer {
+	border-radius: 58px;
+	font-size: 18px;
+	color: white;
+	background-color: #0d3584;
+	width: auto;
+	height: 38px;
+	text-align: center;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+input.del-comment-button {
+	margin-bottom: 10px;
+	width: 77px;
+	left: 200%;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #ff7d7d;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0px 8px 15px rgb(0 0 0/ 10%);
+	cursor: pointer;
+	outline: none;
+	align-self: right;
+	margin-top: -35px;
+	margin-left: 248px;
+}
+
+input.comment-content {
+	padding-left: 3%;
+	border-radius: 3px;
+	font-size: 18px;
+	color: black;
+	background-color: white;
+	width: 189%;
+	height: 100px;
+	text-align: left;
+	margin-top: 2px;
+}
+
+.space {
+	margin-left: 4%;
 }

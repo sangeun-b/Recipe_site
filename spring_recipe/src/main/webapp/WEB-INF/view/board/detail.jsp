@@ -60,7 +60,7 @@ const delCom =(bnum,cnum)=>{
 
 </head>
 <body>
-
+<span class="space">
 	<input type="hidden" name="num" id="num" value="${b.num }">
 	<c:if test="${not empty sessionScope.loginid != null}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
@@ -93,74 +93,91 @@ const delCom =(bnum,cnum)=>{
 		<span class="ingredientmenu">재료</span>
 		<textarea rows="10" cols="45" name="content" class="ingredientcontent" >${b.ingredient }</textarea>
 
-
-		<c:forEach var="r" items="${strList }" varStatus="status">
-			
+	<span class="recipeframes">	
+				<c:forEach var="r" items="${strList }" varStatus="status">
 				
-					<img class="recipeimages"
-						src="/board/readimg/${contentimg[status.index] }/${b.num}">
-				
-				
-					<th>레시피</th>
-					<td><textarea rows="10" cols="45" name="content">${r }</textarea>
-					</td>
-				
+				<textarea class="recipetext"rows="10" cols="45" name="content">${r }</textarea>
 				</c:forEach>
-
-				<c:if test="${sessionScope.loginid == b.writer.id }">
-					<tr>
-						<th>변경</th>
-
-						<td><c:if test="${b.writer.id==sessionScope.loginid}">
-								<a href="/board/modify/${b.num }"><input type="button"
-									value="수정"></a>
-
-								<input type="button" value="삭제" onclick="del()">
-							</c:if></td>
-					</tr>
-				</c:if>
-
 				
-					<th>댓글</th>
-					<td><input type="text" id="com_${b.num }"> <input
-						type="button" value="작성완료"
-						onclick="com(${b.num }, '${b.writer.id }')"><br /></td>
 				
+		</span>
 
+		<span class="recipeimagesframes">
+				<c:forEach var="r" items="${strList }" varStatus="status">
+						
+							<img class="recipeimages"
+							src="/board/readimg/${contentimg[status.index] }/${b.num}">
+		
+				</c:forEach>
+				<!-- 댓글부분 -->
+				<input class="comment" type="text" id="com_${b.num }">
+				<input class="comment-button" type="button" value="댓글작성" 
+					        onclick="com(${b.num }, '${b.writer.id }')">
 				
-					<c:if test="${not empty c }">
-						<th>댓글목록</th>
-						<td><c:forEach var="c" items="${c }">
-								<div id="com_${c.num }">
+				
+					
+				<c:if test="${not empty c }">
+						<div class=comment-menu></div>
+						<c:forEach var="c" items="${c }">
+								<%-- <div id="com_${c.num }"> --%>
+									<input class="comment-writer" type="text" id="writer" value="${c.writer.id }" readonly>
+									<c:if test="${c.writer.id==sessionScope.loginid}">
+
+										<input class="del-comment-button"type="button" id="coms_${b.num }_btn" value="삭제"
+											onclick="delCom(${b.num},${c.num })">
+									</c:if>
+								
 									<c:choose>
 										<c:when test="${c.writer.id==sessionScope.loginid}">
 
-											<input type="text" id="comment_${c.board.num }"
+											<input class="comment-content" type="text" id="comment_${c.board.num }"
 												value="${c.content }">
 										</c:when>
 										<c:otherwise>
-											<input type="text" id="comment_${c.board.num }"
+											<input class="comment-content" type="text" id="comment_${c.board.num }"
 												value="${c.content }" readonly>
 										</c:otherwise>
 									</c:choose>
-									<input type="text" id="writer" value="${c.writer.id }" readonly>
-									<c:if test="${c.writer.id==sessionScope.loginid}">
-
-										<input type="button" id="coms_${b.num }_btn" value="삭제"
-											onclick="delCom(${b.num},${c.num })">
-
-
-									</c:if>
-								</div>
-							</c:forEach></td>
+									
+								<!-- </div> -->
+						</c:forEach>
 					</c:if>
-				</tr>
+					<!-- 댓글부분 -->
+		</span>
+				
+	
+				
+				
+				
+				<%-- <c:if test="${sessionScope.loginid == b.writer.id }">
+					<tr>
+						<td><c:if test="${b.writer.id==sessionScope.loginid}">
+								<a href="/board/modify/${b.num }"><input class="edit-btn" type="button"
+									value="수정"></a>
+								
+								<input class="del-btn"type="button" value="삭제" onclick="del()">
+							</c:if></td>
+					</tr>
+				</c:if> --%>
+				
+				<c:if test="${sessionScope.loginid == b.writer.id }">
+					<tr>
+						<td><c:if test="${b.writer.id==sessionScope.loginid}">
+								<a href="/board/modify/${b.num }"><input class="edit-btn2" type="button"
+									value="수정"></a>
+								
+								<input class="del-btn2" type="button" value="삭제" onclick="del()">
+							</c:if></td>
+					</tr>
+				</c:if>
+				
 	</form>
 	<!-- 			<img src="https://health.chosun.com/site/data/img_dir/2021/01/27/2021012702508_0.jpg" alt="dimg" /> -->
 	<!-- Bootstrap core JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../resources/js/scripts.js"></script>
+</span>
 </body>
 
 </html>
