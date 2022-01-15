@@ -36,11 +36,8 @@ const ckDel=()=>{
 	<form name="editForm" action="/user/edit" method="post">
 		<div class=aboutme>나의정보</div>
 		<span class="myinfoframe">
-		<div class=id_text>아이디</div>
-		<div class=id>
-			<input type="text" name="id" value="${u.id }" readonly
-				style="border: none; background: transparent; padding: 9px;">
-		</div>
+		<div class=inputinfo>아이디</div>
+			<input type="text" name="id" value="${u.id }" readonly">
 		<div class=password_text>비밀번호</div>
 		<div class=password>
 			<input type="password" value="${u.pwd }" name="pwd"

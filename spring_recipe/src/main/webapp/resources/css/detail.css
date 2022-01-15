@@ -38,9 +38,10 @@
 	position: absolute;
 	left: 51.1%;
 	top: 18.4%;
-	font-family: NanumGothic;
+	font-family: GmarketSansBold;
+    font-style: normal;
 	font-size: 48px;
-	font-weight: bold;
+	font-weight: normal;
 	letter-spacing: -2.16px;
 	text-align: center;
 	color: #000;
@@ -79,7 +80,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -92,7 +93,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -105,7 +106,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -118,7 +119,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -131,7 +132,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -143,7 +144,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -155,7 +156,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -167,7 +168,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -189,7 +190,7 @@
 	position: absolute;
 	left: 7%;
 	top: 54.4%;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 29px;
 	font-weight: bold;
 	letter-spacing: -2.16px;
@@ -260,6 +261,7 @@ textarea.recipetext {
 	box-sizing: border-box;
 	border: solid 3px #0d3584;
 	border-radius: 21px;
+	font-family: GmarketSansLight;
 	font-size: 18px;
 	width: 536px;
 	height: 310px;
@@ -271,6 +273,7 @@ textarea.recipetext {
 	padding-left: 60px;
 	word-break: break-all;
 	text-align: center;
+	font-family: GmarketSansLight;
 }
 
 }
@@ -398,6 +401,7 @@ textarea.recipetext {
 	width: 1038px;
 	height: 64px;
 	text-align: left;
+	font-family: GmarketSansLight;
 }
 
 input.comment-button {
@@ -428,6 +432,7 @@ input.comment-writer {
 	text-align: center;
 	margin-top: 10px;
 	font-weight: bold;
+	font-family: GmarketSansMedium;
 }
 
 input.del-comment-button {
@@ -459,6 +464,7 @@ input.comment-content {
 	height: 100px;
 	text-align: left;
 	margin-top: 2px;
+	font-family: GmarketSansLight;
 }
 
 .space {
