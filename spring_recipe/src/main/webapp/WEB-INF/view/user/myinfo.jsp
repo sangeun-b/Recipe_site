@@ -62,8 +62,9 @@ const ckDel=()=>{
 			<input class=change type="button" value="수정하기"
 				onclick="ckEdit()">
 		
-		<a href="/user/out"><input class="delete_account" type="button" value="회원탈퇴"
-			style="border: none;  padding: 8px;"></a> <br>
+<!-- 		<a href="/user/out"> -->
+		<input class="delete_account" type="button" value="회원탈퇴" onclick="ckDel()"
+			style="border: none;  padding: 8px;"> <br>
 		
 		</span>
 		
