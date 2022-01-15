@@ -33,46 +33,28 @@ const ckDel=()=>{
 </script>
 </head>
 <body>
-	<form name="editForm" action="/user/edit" method="post">
-		<div class=aboutme>나의정보</div>
-		<span class="myinfoframe">
-		<div class=inputinfo>아이디</div>
-			<input type="text" name="id" value="${u.id }" readonly">
-		<div class=password_text>비밀번호</div>
-		<div class=password>
-			<input type="password" value="${u.pwd }" name="pwd"
-				style="border: none; background: transparent;"><br />
-		</div>
-		<div class=repassword_text>비밀번호확인</div>
-		<div class=repassword>
-			<input type="password" name="pwd2"
-				style="border: none; background: transparent;"><br />
-		</div>
-		<div class=email_text>이메일</div>
-		<div class=email>
-			<input type="email" value="${u.email }" name="email"
-				style="border: none; background: transparent;"><br />
-		</div>
-		</span>
-		<span class="buttonframe">
-	
-			<input class=change type="button" value="수정하기"
-				onclick="ckEdit()">
-		
-<!-- 		<a href="/user/out"> -->
-		<input class="delete_account" type="button" value="회원탈퇴" onclick="ckDel()"
-			style="border: none;  padding: 8px;"> <br>
-		
-		</span>
-		
-	</form>
-	<div class=myrecipe>
-		<a href="/board/getbywriter/${u.id}"><input type="button"
-			value="나의 레시피 보기" style="border: none; background: transparent;"></a>
-		<br>
-	</div>
 
-	
+<div class="editform" >
+<form name="editForm" action="/user/edit" method="post">
+<div class="myinfo">나의 정보</div>
+<div class="info">
+<div class="idckall" id="idckall">
+아이디</br>
+<input type="text" name="id" id="id" class="inputinfo" value="${u.id }" readonly><br/>
+</div>
+<div class="pwdckall" id="pwdckall">
+비밀번호 <br/><input type="password" name="pwd" id="pwdck1" class="inputinfo" value="${u.pwd }"><br/>
+비밀번호 확인<br/><input type="password" name="pwd2" id="pwdck2" class="inputinfo" value="${u.pwd }">
+</div>
+이메일 <br/><input type="email" name="email"class="inputinfo" value="${u.email }"><br/>
+<div class="btns">
+<input type="button" class="btnEdit" value="수정하기" onclick="ckEdit()" >
+<input type="button" class="btnDel" value="회원탈퇴" onclick="ckDel()" >
+</div>
+<a href="/board/getbywriter/${u.id}"><input type="button" class="btnMy" value="나의레시피 보기" ></a>
+</div>
+</form>
+</div>
 
 </body>
 <!-- Bootstrap core JS-->

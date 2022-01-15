@@ -22,14 +22,14 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 								
 								<c:if test = "${sessionScope.loginid == null}">
-                                	<li><a class="dropdown-item" href="/user/login">Login</a></li>
-                                	<li><a class="dropdown-item" href="/user/join">Join</a></li>
+                                	<li><a class="dropdown-item" href="/user/login">로그인</a></li>
+                                	<li><a class="dropdown-item" href="/user/join">회원가입</a></li>
    								</c:if>
    								
    								<c:if test = "${sessionScope.loginid != null }">
-                                <li><a class="dropdown-item" href="/heart/list">like</a></li>
-                                <li><a class="dropdown-item" href="/user/myinfo">Myinfo</a></li>
-                                <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/heart/list">찜리스트</a></li>
+                                <li><a class="dropdown-item" href="/user/myinfo">내 정보</a></li>
+                                <li><a class="dropdown-item" href="/user/logout">로그아웃</a></li>
                      			</c:if>
                             </ul>
                         </li>
