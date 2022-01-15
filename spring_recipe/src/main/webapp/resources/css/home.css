@@ -92,6 +92,7 @@ img.recommending {
 }
 
 .title {
+	font-family: 'GmarketSansBold';
 	position: static;
 	width: 563px;
 	height: 49px;
@@ -103,17 +104,11 @@ img.recommending {
 	font-size: 36px;
 	line-height: 42px;
 	text-align: center;
-	color: #000000;
-	/* identical to box height */
-	text-align: center;
-	color: #000000;
-	/* Inside auto layout */
 	flex: none;
 	order: 0;
 	align-self: stretch;
 	flex-grow: 1;
 	margin: 10px 0px;
-	
 }
 
 .recipename {
