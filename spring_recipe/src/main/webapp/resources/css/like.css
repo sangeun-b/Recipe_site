@@ -18,15 +18,14 @@
     font-style: normal;
 }
 img.imgs{
-/* 		margin:-50px -50px -50px -50px; */
-        border-radius: 15px;
-        width:200px;
-        height:200px;
-        position: realative;
-        top:35%;
-        left:40%;
-        box-shadow: 2px 2px 2px grey;
-        
+    border-radius: 15px;
+    width: 237px;
+    height: 213px;
+    position: realative;
+    top: 35%;
+    left: 40%;
+    box-shadow: 2px 2px 2px gre;
+    object-fit: cover;   
     }
 img.hearticon{
 /* 	margin-top: 10px; */
