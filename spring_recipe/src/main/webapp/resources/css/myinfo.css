@@ -1,10 +1,5 @@
 @charset "EUC-KR";
-@font-face {
-    font-family: 'GmarketSansBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 @font-face {
     font-family: 'GmarketSansLight';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
@@ -79,8 +74,10 @@ input{
     cursor: pointer;
     float:right;
 }
+
 .btnMy{
 	background-color: #0c3461; /* Green */
+
     border: none;
     color: white;
     padding: 5px 5px;
@@ -89,8 +86,10 @@ input{
     display: inline-block;
     font-size: 16px;
     margin-top: 4px;
+
     margin-bottom: 4px;
     border-radius: 4px;
     cursor: pointer;
     
 }
+

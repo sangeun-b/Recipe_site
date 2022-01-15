@@ -33,6 +33,7 @@ const ckDel=()=>{
 </script>
 </head>
 <body>
+
 <div class="editform" >
 <form name="editForm" action="/user/edit" method="post">
 <div class="myinfo">나의 정보</div>
@@ -54,6 +55,7 @@ const ckDel=()=>{
 </div>
 </form>
 </div>
+
 </body>
 <!-- Bootstrap core JS-->
 <script
