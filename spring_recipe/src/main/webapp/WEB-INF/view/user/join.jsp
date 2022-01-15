@@ -20,7 +20,7 @@ xhttp.onload = function() {
 				if(res){
 					if(document.getElementById("idtxt")){
 						document.getElementById("idtxt").remove();
-						document.getElementById("idck").style.display="none";
+// 						document.getElementById("idtxt").innerHTML=""
 						}
 				const newP = document.createElement("span");
 				newP.setAttribute("id","idtxt");
@@ -34,7 +34,7 @@ xhttp.onload = function() {
 			}else{
 				if(document.getElementById("idtxt")){
 				   document.getElementById("idtxt").remove();
-				   imgCk.style.display="none";
+				 
 				}
 				const newP = document.createElement("span");
 				newP.setAttribute("id","idtxt");
@@ -61,7 +61,7 @@ const check=()=>{
 		var box = document.getElementById("idckall");
 		if(document.getElementById("idtxt")){
 			document.getElementById("idtxt").remove();
-			imgCk.style.display="none";
+			
 			}
 		const newP = document.createElement("span");
 		newP.setAttribute("id","idtxt");
