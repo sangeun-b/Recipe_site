@@ -210,9 +210,10 @@ textarea.ingredientcontent {
 	outline-color: #0d3584;
 	border-width: 3px;
 	border-color: #0d3584;
-	padding-top: 10px;
+	padding-top: 30px;
 	padding-left: 10px;
 	text-align: center;
+	font-family: GmarketSansMedium;
 }
 
 .recipeimagesframes {
