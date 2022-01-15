@@ -96,7 +96,7 @@ const delCom =(bnum,cnum)=>{
 	<span class="recipeframes">	
 				<c:forEach var="r" items="${strList }" varStatus="status">
 				
-				<textarea class="recipetext"rows="10" cols="45" name="content" readonly>${r }</textarea>
+				<textarea class="recipetext"rows="10" cols="45" name="content" style="padding-left: 60px"readonly>${r }</textarea>
 				</c:forEach>
 				
 				
