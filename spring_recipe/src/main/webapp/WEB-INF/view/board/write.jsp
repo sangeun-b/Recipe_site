@@ -74,8 +74,8 @@ const remove =(obj)=>{
 					<input type="file" name=file multiple><br/>
 				</div>
 				<div id="box">
-					<input type="button" value="레시피 추가" onclick="add_textbox()" class="btn1">
 				</div>
+				<input type="button" value="레시피 추가" onclick="add_textbox()" class="btn1">
 				<div class="img-write">
 					<span>대표 이미지를 등록해주세요</span>
 					<input type="file" name=file multiple></br>
