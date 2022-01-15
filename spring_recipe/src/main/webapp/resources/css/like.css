@@ -37,7 +37,7 @@ img.hearticon{
 	text-align: center;
 	position:absolute;
 	height:300px;
-	width:400px;
+	width:430px;
 	margin:-150px 0px 0px -200px;
 	top:50%;
 	left:50%;
@@ -71,9 +71,13 @@ img.hearticon{
  .title{
  font-family: 'GmarketSansLight';
  font-size:x-large;
+ margin-top: 10px;
  }
  .maintitle{
- font-family: 'GmarketSansLight';
+ font-family: 'GmarketSansBold';
  font-size:xx-large;
  text-align:center;
+ margin-top: 10px;
  }
+ .info{
+  margin-top: 10px;}

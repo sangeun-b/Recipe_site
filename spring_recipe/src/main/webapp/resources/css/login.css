@@ -16,6 +16,16 @@
 /* 	.btn { */
 /* 		border-radius: 4px; */
 /* 	} */
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+	font-family: 'GmarketSansLight';
+}
 .logo{
  	text-align:center;
  	height:280px;
@@ -31,17 +41,20 @@ img #mainlogo {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: 'GmarketSansLight';
 }
 .info{
 	float:left;
 	width:300px;
 	margin-left: 43%;
     position: relative;
+    font-family: 'GmarketSansLight';
 	
 }
 
 .inputinfo{
 	width:100%;
+	font-family: 'GmarketSansLight';
 }
 
 .btnJoin {
@@ -57,6 +70,7 @@ img #mainlogo {
     border-radius: 4px;
     cursor: pointer;
     width:100%;
+    font-family: 'GmarketSansLight';
 }
 .btnLogin{
 	 background-color: #0c3461; /* Green */
@@ -71,4 +85,5 @@ img #mainlogo {
     border-radius: 4px;
     width:100%;
     cursor: pointer;
+    font-family: 'GmarketSansLight';
 }
