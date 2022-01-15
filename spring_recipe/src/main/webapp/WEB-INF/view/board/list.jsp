@@ -34,14 +34,14 @@
 		width="50" height="50" class="boardwriteimg"></a>
 </c:if>
 
-	<div class="listsort" id="show_locale_switch">
-		<select name="sort" id="sort" title="정렬" class="sort2">
-			<option value="날짜순">날짜순</option>
-			<option value="이름순">이름순</option>
-			<option value="난이도순">난이도순</option>
-			<option value="추천순">추천순</option>
-		</select>
-	</div>
+<!-- 	<div class="listsort" id="show_locale_switch"> -->
+<!-- 		<select name="sort" id="sort" title="정렬" class="sort2"> -->
+<!-- 			<option value="날짜순">날짜순</option> -->
+<!-- 			<option value="이름순">이름순</option> -->
+<!-- 			<option value="난이도순">난이도순</option> -->
+<!-- 			<option value="추천순">추천순</option> -->
+<!-- 		</select> -->
+<!-- 	</div> -->
 
 	
 	<div class="listout">
@@ -56,8 +56,6 @@
 		</div>
 	</c:forEach>
 	</div>
-
-
 
 
 	<!-- Bootstrap core JS -->
