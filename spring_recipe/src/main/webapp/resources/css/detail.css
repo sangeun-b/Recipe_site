@@ -22,14 +22,14 @@
 /* main-image */
 .main-image {
 	position: absolute;
-	width: 310px;
-	height: 310px;
-	left: 26%;
-	top: 18.4%;
-	box-sizing: border-box;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	border-radius: 25px;
-	object-fit: cover;
+    width: 431px;
+    height: 305px;
+    left: 26%;
+    top: 18.4%;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 7px;
+    object-fit: cover;
 }
 
 .title {
@@ -200,20 +200,20 @@
 
 textarea.ingredientcontent {
 	position: relative;
-	margin-top: 25%;
-	left: 23%;
-	top: 68.4%;
-	box-sizing: border-box;
-	border-radius: 25px;
-	font-size: 15px;
-	width: 1034px;
-	outline-color: #0d3584;
-	border-width: 3px;
-	border-color: #0d3584;
-	padding-top: 30px;
-	padding-left: 10px;
-	text-align: center;
-	font-family: GmarketSansMedium;
+    margin-top: 25%;
+    left: 23%;
+    top: 68.4%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 1034px;
+    outline-color: #0d3584;
+    border-width: 3px;
+    border-color: #0d3584;
+    padding-top: 30px;
+    padding-left: 10px;
+    text-align: center;
+    font-family: GmarketSansMedium;
 }
 
 .recipeimagesframes {
@@ -245,36 +245,40 @@ textarea.ingredientcontent {
 }
 
 .recipeimages {
-	left: 13.1%;
-	top: 43%;
-	width: 543px;
-	height: 310px;
-	box-sizing: border-box;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	border-radius: 25px;
-	object-fit: cover;
-	margin-bottom: 50px;
+	FONT-VARIANT: JIS04;
+    left: 13.1%;
+    top: 43%;
+    width: 543px;
+    height: 310px;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
 }
 
 textarea.recipetext {
-	left: 46.1%;
-	top: 60.4%;
-	box-sizing: border-box;
-	border: solid 3px #0d3584;
-	border-radius: 21px;
-	font-family: GmarketSansLight;
-	font-size: 18px;
-	width: 536px;
-	height: 310px;
-	margin-bottom: 50px;
-	vertical-align: middle;
-	padding-right: 25px;
-	padding-bottom: 50px;
-	padding-top: 50px;
-	padding-left: 60px;
-	word-break: break-all;
-	text-align: center;
-	font-family: GmarketSansLight;
+	    left: 46.1%;
+    top: 60.4%;
+    box-sizing: border-box;
+    border: solid 3px #0d3584;
+    border-radius: 10px;
+    font-family: GmarketSansLight;
+    font-size: 18px;
+    width: 536px;
+    height: 310px;
+    margin-bottom: 50px;
+    vertical-align: middle;
+    padding-right: 25px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 60px;
+    word-break: break-all;
+    text-align: center;
+    font-family: GmarketSansLight;
 }
 
 
