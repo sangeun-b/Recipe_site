@@ -86,6 +86,7 @@ const remove =(obj)=>{
 					<textarea name="content" id="content" class="input_text-content"></textarea>
 				</div>
 				<div class="img-write">
+
 					<span class="lititle">레시피 사진 등록</span> <input type="file" name=file multiple><br />
 				</div>
 				<div id="box"></div>

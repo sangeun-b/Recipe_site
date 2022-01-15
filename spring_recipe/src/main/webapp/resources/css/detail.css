@@ -1,5 +1,24 @@
 @charset "EUC-KR";
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* main-image */
 .main-image {
 	position: absolute;
@@ -19,9 +38,10 @@
 	position: absolute;
 	left: 51.1%;
 	top: 18.4%;
-	font-family: NanumGothic;
+	font-family: GmarketSansBold;
+    font-style: normal;
 	font-size: 48px;
-	font-weight: bold;
+	font-weight: normal;
 	letter-spacing: -2.16px;
 	text-align: center;
 	color: #000;
@@ -60,7 +80,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -73,7 +93,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -86,7 +106,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -99,7 +119,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.7;
@@ -112,7 +132,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -124,7 +144,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -136,7 +156,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -148,7 +168,7 @@
 	width: 250px;
 	height: 41px;
 	flex-grow: 0;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 24px;
 	line-height: 1.7;
 	letter-spacing: 0.36px;
@@ -170,7 +190,7 @@
 	position: absolute;
 	left: 7%;
 	top: 54.4%;
-	font-family: NanumGothic;
+	font-family: GmarketSansMedium;
 	font-size: 29px;
 	font-weight: bold;
 	letter-spacing: -2.16px;
@@ -180,19 +200,20 @@
 
 textarea.ingredientcontent {
 	position: relative;
-    margin-top: 25%;
-    left: 23%;
-    top: 68.4%;
-    box-sizing: border-box;
-    border-radius: 25px;
-    font-size: 15px;
-    width: 1034px;
-    outline-color: #0d3584;
-    border-width: 3px;
-    border-color: #0d3584;
-    padding-top: 10px;
-    padding-left: 10px;
-    text-align: center;
+	margin-top: 25%;
+	left: 23%;
+	top: 68.4%;
+	box-sizing: border-box;
+	border-radius: 25px;
+	font-size: 15px;
+	width: 1034px;
+	outline-color: #0d3584;
+	border-width: 3px;
+	border-color: #0d3584;
+	padding-top: 30px;
+	padding-left: 10px;
+	text-align: center;
+	font-family: GmarketSansMedium;
 }
 
 .recipeimagesframes {
@@ -235,12 +256,13 @@ textarea.ingredientcontent {
 	margin-bottom: 50px;
 }
 
-.recipetext {
+textarea.recipetext {
 	left: 46.1%;
 	top: 60.4%;
 	box-sizing: border-box;
 	border: solid 3px #0d3584;
 	border-radius: 21px;
+	font-family: GmarketSansLight;
 	font-size: 18px;
 	width: 536px;
 	height: 310px;
@@ -249,10 +271,12 @@ textarea.ingredientcontent {
 	padding-right: 25px;
 	padding-bottom: 50px;
 	padding-top: 50px;
-	padding-left: 70px;
+	padding-left: 60px;
 	word-break: break-all;
 	text-align: center;
+	font-family: GmarketSansLight;
 }
+
 
 .edit-btn {
 	left: 64%;
@@ -378,6 +402,7 @@ textarea.ingredientcontent {
 	width: 1038px;
 	height: 64px;
 	text-align: left;
+	font-family: GmarketSansLight;
 }
 
 input.comment-button {
@@ -408,6 +433,7 @@ input.comment-writer {
 	text-align: center;
 	margin-top: 10px;
 	font-weight: bold;
+	font-family: GmarketSansMedium;
 }
 
 input.del-comment-button {
@@ -439,6 +465,7 @@ input.comment-content {
 	height: 100px;
 	text-align: left;
 	margin-top: 2px;
+	font-family: GmarketSansLight;
 }
 
 .space {
