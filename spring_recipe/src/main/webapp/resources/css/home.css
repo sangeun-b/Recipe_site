@@ -1,5 +1,22 @@
 @charset "EUC-KR";
 
+@font-face {
+	font-family: 'GmarketSansBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GmarketSansLight';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 /* Frame 1 */
 
 /* Auto layout */
@@ -70,33 +87,20 @@ img.recommending {
 }
 
 .title {
+	font-family: 'GmarketSansBold';
 	position: static;
 	width: 563px;
 	height: 49px;
 	left: calc(50% - 563px/ 2);
 	top: calc(50% - 49px/ 2);
-/* 	font-family: KoreanTITGD3R; */
-/* 	font-style: normal; */
-/* 	font-weight: normal; */
 	font-size: 36px;
 	line-height: 42px;
 	text-align: center;
-/* 	color: #000000; */
-	/* identical to box height */
-/* 	text-align: center; */
-/* 	color: #000000; */
-	/* Inside auto layout */
 	flex: none;
 	order: 0;
 	align-self: stretch;
 	flex-grow: 1;
 	margin: 10px 0px;
-/* 	font-family: KoreanTITGD3R; */
-	
-	font-family: 'GmarketSansBold'; 
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff'); 
-    font-weight: normal; 
-    font-style: normal; 
 }
 
 .recipename {
@@ -105,7 +109,7 @@ img.recommending {
 	height: 49px;
 	left: calc(50% - 563px/ 2);
 	top: calc(50% - 49px/ 2);
-	font-family: Noto Sans;
+	font-family: 'GmarketSansLight';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
