@@ -62,7 +62,7 @@ const delCom =(bnum,cnum)=>{
 <body>
 <span class="space">
 	<input type="hidden" name="num" id="num" value="${b.num }">
-	<c:if test="${not empty sessionScope.loginid != null}">
+	<c:if test="${not empty sessionScope.loginid}">
 		<img alt="하트" id="img2" onclick="heartcheck(${b.num})"
 			src="../../resources/assets/recipe_icons/before-zzim.svg">
 		<br />
@@ -91,12 +91,12 @@ const delCom =(bnum,cnum)=>{
 
 			
 		<span class="ingredientmenu">재료</span>
-		<textarea rows="10" cols="45" name="content" class="ingredientcontent" >${b.ingredient }</textarea>
+		<textarea rows="10" cols="45" name="content" class="ingredientcontent" readonly>${b.ingredient }</textarea>
 
 	<span class="recipeframes">	
 				<c:forEach var="r" items="${strList }" varStatus="status">
 				
-				<textarea class="recipetext"rows="10" cols="45" name="content">${r }</textarea>
+				<textarea class="recipetext"rows="10" cols="45" name="content" readonly>${r }</textarea>
 				</c:forEach>
 				
 				
@@ -110,10 +110,11 @@ const delCom =(bnum,cnum)=>{
 		
 				</c:forEach>
 				<!-- 댓글부분 -->
+				<c:if test="${not empty sessionScope.loginid}">
 				<input class="comment" type="text" id="com_${b.num }">
 				<input class="comment-button" type="button" value="댓글작성" 
 					        onclick="com(${b.num }, '${b.writer.id }')">
-				
+				</c:if>
 				
 					
 				<c:if test="${not empty c }">
@@ -131,7 +132,7 @@ const delCom =(bnum,cnum)=>{
 										<c:when test="${c.writer.id==sessionScope.loginid}">
 
 											<input class="comment-content" type="text" id="comment_${c.board.num }"
-												value="${c.content }">
+												value="${c.content }" readonly>
 										</c:when>
 										<c:otherwise>
 											<input class="comment-content" type="text" id="comment_${c.board.num }"
