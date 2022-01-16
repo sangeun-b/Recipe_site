@@ -36,7 +36,7 @@ const ckDel=()=>{
 
 <div class="editform" >
 <form name="editForm" action="/user/edit" method="post">
-<div class="myinfo">나의 정보</div>
+<div class="myinfo">내 정보</div>
 <div class="info">
 <div class="idckall" id="idckall">
 아이디</br>
@@ -51,7 +51,7 @@ const ckDel=()=>{
 <input type="button" class="btnEdit" value="수정하기" onclick="ckEdit()" >
 <input type="button" class="btnDel" value="회원탈퇴" onclick="ckDel()" >
 </div>
-<a href="/board/getbywriter/${u.id}"><input type="button" class="btnMy" value="나의레시피 보기" ></a>
+<a href="/board/getbywriter/${u.id}"><input type="button" class="btnMy" value="나의 레시피 보기" ></a>
 </div>
 </form>
 </div>
