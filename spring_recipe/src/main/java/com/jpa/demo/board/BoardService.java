@@ -26,6 +26,7 @@ public class BoardService {
 		return (ArrayList<Board>) dao.findAll();
 	}
 	
+	
 	public ArrayList<Board> getByWriter(User writer){//작성자로 검색
 		return dao.findByWriter(writer);
 	}
@@ -37,7 +38,6 @@ public class BoardService {
 	public ArrayList<Board> getByCate(String cate){//cate별 검색
 		return dao.findByCate(cate);
 	}
-
 	
 	public void delBoard(int num) {//삭제
 		dao.deleteById(num);
