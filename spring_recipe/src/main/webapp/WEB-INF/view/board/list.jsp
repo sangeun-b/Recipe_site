@@ -12,6 +12,8 @@
 
 <link href="../../resources/css/styles.css" rel="stylesheet" />
 <link href="../../resources/css/list_style.css" rel="stylesheet"/>
+<script>
+</script>
 </head>
 <body>
 	<form action="/board/getbytitle" method="post">
@@ -47,6 +49,7 @@
 	<div class="listout">
 	<c:forEach var="b" items="${list }">
 		<div class="listin">
+		<input type="hidden" name="cate" id="cate" value="${b.cate }">
 			<a href="/board/detail/${b.num }"><img
 				src="/board/readimg/${b.img_path }/${b.num}" class="listimg"
 				name="listimg" width="200" height="160"></a><br /> <a

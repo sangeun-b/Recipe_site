@@ -45,12 +45,11 @@ body {
 .logo{
  	text-align:center;
  	height:280px;
+ 	padding-left:35px;
 
 }
 
-img #mainlogo {
-	width:150px;
-	height:150px;  
+img .mainlogo {  
 	}
 	
 .joinform{

@@ -29,7 +29,7 @@
 <!-- </form> -->
 <!-- </div> -->
 <div class="logo">
-<img id="mainlogo" class="mainlogo" src="../resources/assets/main-logo.svg" alt="로딩오류" width="400" height="300">
+<img id="mainlogo" class="mainlogo" src="../resources/assets/main-logo.svg" alt="로딩오류" width="300" height="300">
 </div>
 <div class="loginform">
 <form action="/user/login" method="post">
